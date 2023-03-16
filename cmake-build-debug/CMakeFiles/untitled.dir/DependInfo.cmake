@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ze/Desktop/School/4Sem/DALG/da-project1/main.cpp" "CMakeFiles/untitled.dir/main.cpp.o" "gcc" "CMakeFiles/untitled.dir/main.cpp.o.d"
+  "/home/diogo/Documents/2nd2nd/DA/ex/Projeto/da-project1/Edge.cpp" "CMakeFiles/untitled.dir/Edge.cpp.o" "gcc" "CMakeFiles/untitled.dir/Edge.cpp.o.d"
+  "/home/diogo/Documents/2nd2nd/DA/ex/Projeto/da-project1/main.cpp" "CMakeFiles/untitled.dir/main.cpp.o" "gcc" "CMakeFiles/untitled.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.
