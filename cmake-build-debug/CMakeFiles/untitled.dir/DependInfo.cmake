@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ze/Desktop/School/4Sem/DALG/da-project1/main.cpp" "CMakeFiles/untitled.dir/main.cpp.o" "gcc" "CMakeFiles/untitled.dir/main.cpp.o.d"
+  "/home/franciscocardoso/Desktop/Projects/cplus/da-project1/main.cpp" "CMakeFiles/untitled.dir/main.cpp.o" "gcc" "CMakeFiles/untitled.dir/main.cpp.o.d"
+  "/home/franciscocardoso/Desktop/Projects/cplus/da-project1/scrapper.cpp" "CMakeFiles/untitled.dir/scrapper.cpp.o" "gcc" "CMakeFiles/untitled.dir/scrapper.cpp.o.d"
   )
 
 # Targets to which this target links.

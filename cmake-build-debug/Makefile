@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /var/lib/snapd/snap/clion/228/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/229/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /var/lib/snapd/snap/clion/228/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/229/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ze/Desktop/School/4Sem/DALG/da-project1
+CMAKE_SOURCE_DIR = /home/franciscocardoso/Desktop/Projects/cplus/da-project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ze/Desktop/School/4Sem/DALG/da-project1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/franciscocardoso/Desktop/Projects/cplus/da-project1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/ze/Desktop/School/4Sem/DALG/da-project1/cmake-build-deb
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/var/lib/snapd/snap/clion/228/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/229/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/var/lib/snapd/snap/clion/228/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/229/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ze/Desktop/School/4Sem/DALG/da-project1/cmake-build-debug/CMakeFiles /home/ze/Desktop/School/4Sem/DALG/da-project1/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/franciscocardoso/Desktop/Projects/cplus/da-project1/cmake-build-debug/CMakeFiles /home/franciscocardoso/Desktop/Projects/cplus/da-project1/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ze/Desktop/School/4Sem/DALG/da-project1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/franciscocardoso/Desktop/Projects/cplus/da-project1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+scrapper.o: scrapper.cpp.o
+.PHONY : scrapper.o
+
+# target to build an object file
+scrapper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/scrapper.cpp.o
+.PHONY : scrapper.cpp.o
+
+scrapper.i: scrapper.cpp.i
+.PHONY : scrapper.i
+
+# target to preprocess a source file
+scrapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/scrapper.cpp.i
+.PHONY : scrapper.cpp.i
+
+scrapper.s: scrapper.cpp.s
+.PHONY : scrapper.s
+
+# target to generate assembly for a file
+scrapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/scrapper.cpp.s
+.PHONY : scrapper.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... scrapper.o"
+	@echo "... scrapper.i"
+	@echo "... scrapper.s"
 .PHONY : help
 
 
