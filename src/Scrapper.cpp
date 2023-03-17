@@ -3,22 +3,17 @@
 //
 
 #include "Scrapper.h"
-//
-// Created by franciscocardoso on 15-03-2023.
-//
-
-
-
-#include "Scrapper.h"
 
 void Scrapper::scrap(Graph &graph, string vertex_file, string edge_file) {
-    scrapVertexes(graph.getVertexes(),vertex_file);
-    scrapEdges(graph.getVertexes(),edge_file);
+    scrapVertexes(graph,vertex_file);
+    scrapEdges(graph,edge_file);
 }
-void Scrapper::scrapVertexes(set<Vertex> &vertexes_set, string vertex_file) {
+
+void Scrapper::scrapVertexes(Graph &graph, string vertex_file) {
     ifstream file(vertex_file);
     string line;
     string name,district,municipality,township,station_line;
+    getline(file,line);
     while(getline(file,line)){
         istringstream data(line);
         getValue(name,data);
@@ -26,14 +21,19 @@ void Scrapper::scrapVertexes(set<Vertex> &vertexes_set, string vertex_file) {
         getValue(municipality,data);
         getValue(township,data);
         getValue(station_line,data);
-        vertexes_set.insert(Vertex(name,district,municipality,township,station_line));
+        graph.addVertex(new Vertex(name,district,municipality,township,station_line));
     }
+
 }
-void Scrapper::scrapEdges(set<Vertex> &vertexes_set, string edges_file) {
+
+
+void Scrapper::scrapEdges(Graph &graph, string edges_file) {
+    vector<Edge> edges;
     ifstream file(edges_file);
     string line;
     string station_A, station_B,service,capacity,line_service;
-    enum service line_service_;
+    getline(file,line);
+    enum services line_service_;
     while(getline(file,line)){
         istringstream data(line);
         getValue(station_A,data);
@@ -41,19 +41,33 @@ void Scrapper::scrapEdges(set<Vertex> &vertexes_set, string edges_file) {
         getValue(capacity,data);
         getValue(line_service,data);
         if(line_service=="STANDARD") line_service_=STANDARD;
-        else line_service_=ALFA_PENDULAR;
-        vertexes_set.find(Vertex(station_A)).addEdge(vertexes_set.find(Vertex(station_B),stoi(capacity),line_service_));
+        else line_service_=ALFA;
+        auto v1=graph.findVertex(station_A);
+        auto v2=graph.findVertex(station_B);
+        if(v1== nullptr) cout<<station_A<< " Not found"<<endl;
+        if(v2== nullptr) cout<< station_B<<" Not found"<<endl;
+        graph.addBidirectionalEdge(v1,v2,stoi(capacity),line_service_);
+        edges.push_back(Edge(graph.findVertex(station_A),graph.findVertex(station_B),stoi(capacity),line_service_));
     }
+
 }
 
 void Scrapper::getValue(string &value, istringstream &data) {
     getline(data,value,',');
     int pos=value.find('"');
-    if(pos!=string::npos){
+    if( pos!=string::npos) value.erase(pos,1);
+    int pos2=value.find('"');
+    if(pos!=string::npos and pos2==string::npos){
         string aux;
         getline(data,aux,'"');
-        value.erase(pos,1);
         value+=','+aux;
+    }
+    else if(pos2!=string::npos){
+        value.erase(pos2,1);
+    }
+    pos=value.find('\r');
+    if(pos!=string::npos){
+        value.erase(pos,1);
     }
     if(value=="-") value= "";
 }
