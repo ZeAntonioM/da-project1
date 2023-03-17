@@ -1,6 +1,6 @@
-#include "Edge.h"
+#include "VertexEdge.h"
 
-Edge::Edge(Vertex *orig, Vertex *dest, double w): orig(orig), dest(dest), weight(w) {}
+Edge::Edge(Vertex *orig, Vertex *dest, double w, services s): orig(orig), dest(dest), weight(w), service(s) {}
 
 Vertex * Edge::getDest() const {
     return this->dest;
@@ -26,6 +26,10 @@ double Edge::getFlow() const {
     return flow;
 }
 
+bool Edge::getVisited() const {
+    return visited;
+}
+
 void Edge::setSelected(bool _selected) {
     this->selected = _selected;
 }
@@ -36,4 +40,8 @@ void Edge::setReverse(Edge *_reverse) {
 
 void Edge::setFlow(double _flow) {
     this->flow = _flow;
+}
+
+void Edge::setVisited(bool _visited) {
+    this->visited = _visited;
 }

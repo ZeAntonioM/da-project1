@@ -1,13 +1,14 @@
-#include "Vertex.h"
+#include "VertexEdge.h"
 
-Vertex::Vertex(int id): id(id) {}
+Vertex::Vertex(string n, string d, string m, string t, string s):name(n),district(d),municipality(m),township(t),station_line(s){};
+
 
 /*
  * Auxiliary function to add an outgoing edge to a vertex (this),
  * with a given destination vertex (d) and edge weight (w).
  */
-Edge * Vertex::addEdge(Vertex *d, double w) {
-    auto newEdge = new Edge(this, d, w);
+Edge * Vertex::addEdge(Vertex *d, double w, services s) {
+    auto newEdge = new Edge(this, d, w,s);
     adj.push_back(newEdge);
     d->incoming.push_back(newEdge);
     return newEdge;
@@ -18,13 +19,13 @@ Edge * Vertex::addEdge(Vertex *d, double w) {
  * from a vertex (this).
  * Returns true if successful, and false if such edge does not exist.
  */
-bool Vertex::removeEdge(int destID) {
+bool Vertex::removeEdge(string destName) {
     bool removedEdge = false;
     auto it = adj.begin();
     while (it != adj.end()) {
         Edge *edge = *it;
         Vertex *dest = edge->getDest();
-        if (dest->getId() == destID) {
+        if (dest->getName() == destName) {
             it = adj.erase(it);
             deleteEdge(edge);
             removedEdge = true; // allows for multiple edges to connect the same pair of vertices (multigraph)
@@ -49,11 +50,8 @@ void Vertex::removeOutgoingEdges() {
 }
 
 bool Vertex::operator<(Vertex & vertex) const {
-    return this->dist < vertex.dist;
-}
+    return this->name<vertex.name;
 
-int Vertex::getId() const {
-    return this->id;
 }
 
 std::vector<Edge*> Vertex::getAdj() const {
@@ -84,10 +82,6 @@ std::vector<Edge *> Vertex::getIncoming() const {
     return this->incoming;
 }
 
-void Vertex::setId(int id) {
-    this->id = id;
-}
-
 void Vertex::setVisited(bool visited) {
     this->visited = visited;
 }
@@ -113,7 +107,7 @@ void Vertex::deleteEdge(Edge *edge) {
     // Remove the corresponding edge from the incoming list
     auto it = dest->incoming.begin();
     while (it != dest->incoming.end()) {
-        if ((*it)->getOrig()->getId() == id) {
+        if ((*it)->getOrig()->getName() == name) {
             it = dest->incoming.erase(it);
         }
         else {
@@ -121,4 +115,19 @@ void Vertex::deleteEdge(Edge *edge) {
         }
     }
     delete edge;
+}
+string Vertex::getName() const {
+    return this->name;
+}
+string Vertex::getLine() const {
+    return this->station_line;
+}
+string Vertex::getMunicipality() const {
+    return this->municipality;
+}
+string  Vertex::getDistrict() const {
+    return this->district;
+}
+string Vertex::getTownship() const {
+    return this->township;
 }

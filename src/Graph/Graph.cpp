@@ -11,31 +11,19 @@ std::vector<Vertex *> Graph::getVertexSet() const {
 /*
  * Auxiliary function to find a vertex with a given content.
  */
-Vertex * Graph::findVertex(const int &id) const {
+Vertex * Graph::findVertex(const string &name) const {
     for (auto v : vertexSet)
-        if (v->getId() == id)
+        if (v->getName() == name)
             return v;
     return nullptr;
 }
 
 /*
- * Finds the index of the vertex with a given content.
- */
-int Graph::findVertexIdx(const int &id) const {
-    for (unsigned i = 0; i < vertexSet.size(); i++)
-        if (vertexSet[i]->getId() == id)
-            return i;
-    return -1;
-}
-/*
  *  Adds a vertex with a given content or info (in) to a graph (this).
  *  Returns true if successful, and false if a vertex with that content already exists.
  */
-bool Graph::addVertex(const int &id) {
-    if (findVertex(id) != nullptr)
-        return false;
-    vertexSet.push_back(new Vertex(id));
-    return true;
+bool Graph::addVertex(  Vertex *vertex) {
+    vertexSet.push_back(vertex);
 }
 
 /*
@@ -43,22 +31,18 @@ bool Graph::addVertex(const int &id) {
  * destination vertices and the edge weight (w).
  * Returns true if successful, and false if the source or destination vertex does not exist.
  */
-bool Graph::addEdge(const int &sourc, const int &dest, double w) {
-    auto v1 = findVertex(sourc);
-    auto v2 = findVertex(dest);
-    if (v1 == nullptr || v2 == nullptr)
+bool Graph::addEdge(Vertex *src , Vertex *dst, double w, services service) {
+    if (src == nullptr || dst == nullptr)
         return false;
-    v1->addEdge(v2, w);
+    src->addEdge(dst, w,service);
     return true;
 }
 
-bool Graph::addBidirectionalEdge(const int &sourc, const int &dest, double w) {
-    auto v1 = findVertex(sourc);
-    auto v2 = findVertex(dest);
-    if (v1 == nullptr || v2 == nullptr)
+bool Graph::addBidirectionalEdge(Vertex *src, Vertex *dst, double w,services service) {
+    if (src == nullptr || dst == nullptr)
         return false;
-    auto e1 = v1->addEdge(v2, w);
-    auto e2 = v2->addEdge(v1, w);
+    auto e1 = src->addEdge(dst, w,service);
+    auto e2 = dst->addEdge(src, w,service);
     e1->setReverse(e2);
     e2->setReverse(e1);
     return true;
