@@ -1,5 +1,5 @@
-#ifndef DA_TP_CLASSES_VERTEX_EDGE
-#define DA_TP_CLASSES_VERTEX_EDGE
+#ifndef DA_TP_CLASSES_Station_Line
+#define DA_TP_CLASSES_Station_Line
 
 #include <iostream>
 #include <vector>
@@ -12,23 +12,23 @@
 #include "string"
 using namespace std;
 enum services {STANDARD,ALFA};
-class Edge;
+class Line;
 #define INF std::numeric_limits<double>::max()
 
-class Vertex {
+class Station {
 public:
 
-    Vertex(string name, string district, string municipality, string township, string station_line);
-    bool operator<(Vertex & vertex) const; // // required by MutablePriorityQueue
+    Station(string name, string district, string municipality, string township, string station_line);
+    bool operator<(Station & Station) const; // // required by MutablePriorityQueue
 
     //int getId() const;
-    std::vector<Edge *> getAdj() const;
+    std::vector<Line *> getAdj() const;
     bool isVisited() const;
     bool isProcessing() const;
     unsigned int getIndegree() const;
     double getDist() const;
-    Edge *getPath() const;
-    std::vector<Edge *> getIncoming() const;
+    Line *getPath() const;
+    std::vector<Line *> getIncoming() const;
     string getName() const;
     string getDistrict() const;
     string getMunicipality() const;
@@ -40,13 +40,13 @@ public:
     void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
-    void setPath(Edge *path);
-    Edge* addEdge(Vertex *dest, double w, services s);
-    bool removeEdge(string destName);
-    void removeOutgoingEdges();
+    void setPath(Line *path);
+    Line* addLine(Station *dest, double w, services s);
+    bool removeLine(string destName);
+    void removeOutgoingLines();
 
 
-    friend class MutablePriorityQueue<Vertex>;
+    friend class MutablePriorityQueue<Station>;
 protected:
     int id;
     string name;
@@ -55,51 +55,51 @@ protected:
     string township;
     string station_line;
     // identifier
-    std::vector<Edge *> adj;  // outgoing edges
+    std::vector<Line *> adj;  // outgoing Lines
 
     // auxiliary fields
     bool visited = false; // used by DFS, BFS, Prim ...
     bool processing = false; // used by isDAG (in addition to the visited attribute)
     unsigned int indegree; // used by topsort
     double dist = 0;
-    Edge *path = nullptr;
+    Line *path = nullptr;
 
-    std::vector<Edge *> incoming; // incoming edges
+    std::vector<Line *> incoming; // incoming Lines
 
     int queueIndex = 0; 		// required by MutablePriorityQueue and UFDS
 
-    void deleteEdge(Edge *edge);
+    void deleteLine(Line *Line);
 };
 
 
-class Edge {
+class Line {
 public:
-    Edge(Vertex *orig, Vertex *dest, double w, services s);
-    Vertex * getDest() const;
-    double getWeight() const;
+    Line(Station *orig, Station *dest, double w, services s);
+    Station * getDest() const;
+    double getCapacity() const;
     bool isSelected() const;
-    Vertex * getOrig() const;
-    Edge *getReverse() const;
+    Station * getOrig() const;
+    Line *getReverse() const;
     double getFlow() const;
     bool getVisited() const;
 
     void setSelected(bool _selected);
-    void setReverse(Edge *_reverse);
+    void setReverse(Line *_reverse);
     void setFlow(double _flow);
     void setVisited(bool _visited);
 
 private:
     services service;
-    Vertex * dest; // destination vertex
-    double weight; // edge weight, can also be used for capacity
+    Station * dest; // destination Station
+    double capacity; // Line capacity, can also be used for capacity
     // auxiliary fields
     bool selected = false;
-    // used for bidirectional edges
-    Vertex *orig;
-    Edge *reverse = nullptr;
+    // used for bidirectional Lines
+    Station *orig;
+    Line *reverse = nullptr;
     double flow; // for flow-related problems
     bool visited = false;
 
 };
 
-#endif /* DA_TP_CLASSES_VERTEX_EDGE */
+#endif /* DA_TP_CLASSES_Station_Line */

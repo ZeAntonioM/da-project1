@@ -10,6 +10,6 @@ of greedy algorithms of maximum-flow calculus.
 
 ## Members
 
-[Diogo Silva](https://github.com/DiogoAlexandreOliveiraDaSilva) (up202105327) 
-[Francisco Cardoso](https://github.com/FranciscoCardoso913) (up202108793)
-[José Martins](https://github.com/ZeAntonioM) (up202108794)
+- [Diogo Silva](https://github.com/DiogoAlexandreOliveiraDaSilva) (up202105327) 
+- [Francisco Cardoso](https://github.com/FranciscoCardoso913) (up202108793)
+- [José Martins](https://github.com/ZeAntonioM) (up202108794)

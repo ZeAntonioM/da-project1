@@ -11,16 +11,40 @@
 #include "set"
 
 #include "Graph/Graph.h"
-#include "Graph/VertexEdge.h"
+#include "Graph/StationLine.h"
 using  namespace std;
 
 
 class Scrapper {
 public:
-
-    void scrap(Graph &graph, string vertex_file, string edge_file);
-    void scrapVertexes(Graph &graph, string vertex_file);
-    void scrapEdges(Graph &graph, string vertex_file);
+    /**
+     * @brief Scrapes the information from the stations and the stations and the lines and stores it in the graph
+     * @param graph graph were all the information is going to be store
+     * @param station_file the file containing the stations
+     * @param line_file the file containing the lines
+     * @complexity O(N) being N the number of stations and lines that exits
+     */
+    void scrape(Graph &graph, string station_file, string line_file);
+    /**
+     * @brief Scrapes the information from the stations and stores it in the graph
+     * @param graph graph were all the information is going to be store
+     * @param station_file the file containing the stations
+     * @complexity O(N) being N the number of stations that exits
+     */
+    void scrapeStations(Graph &graph, string station_file);
+    /**
+     * @brief Scrapes the information from the lines and stores it in the graph
+     * @param graph graph were all the information is going to be store
+     * @param line_file the file containing the lines
+     * @complexity O(N) being N the number of lines that exits
+     */
+    void scrapeLines(Graph &graph, string line_file);
+    /**
+     * @brief gets the data from the files checking for error and especial cases
+     * @param value where the data is going to be store
+     * @param data the line of the file conating the information
+     * @complexity O(1)
+     */
     void getValue(string &value, istringstream &data);
 
 };
