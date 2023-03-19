@@ -19,6 +19,7 @@ class Station {
 public:
 
     Station(string name, string district, string municipality, string township, string station_line);
+    Station(string name);
     bool operator<(Station & Station) const; // // required by MutablePriorityQueue
 
     //int getId() const;
@@ -82,6 +83,9 @@ public:
     Line *getReverse() const;
     double getFlow() const;
     bool getVisited() const;
+    services getService()const;
+    int getCost() const;
+    bool isFull() const;
 
     void setSelected(bool _selected);
     void setReverse(Line *_reverse);

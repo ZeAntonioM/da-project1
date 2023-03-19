@@ -2,6 +2,7 @@
 
 Station::Station(string n, string d, string m, string t, string s):name(n),district(d),municipality(m),township(t),station_line(s){};
 
+Station::Station(string name): name(name){}
 
 /*
  * Auxiliary function to add an outgoing Line to a Station (this),

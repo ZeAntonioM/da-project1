@@ -45,3 +45,13 @@ void Line::setFlow(double _flow) {
 void Line::setVisited(bool _visited) {
     this->visited = _visited;
 }
+services Line::getService() const {
+    return this->service;
+}
+int Line::getCost() const {
+    if(this->service==ALFA) return 4;
+    else return 2;
+}
+bool Line::isFull() const {
+    return (this->flow + this->reverse->flow >= this->capacity );
+}

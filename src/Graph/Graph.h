@@ -13,7 +13,7 @@
 
 #include "StationLine.h"
 
-
+using namespace std;
 class Graph {
 public:
     ~Graph();
@@ -61,13 +61,23 @@ public:
      * @return the set with all the stations
      * @complexity O(1)
      */
-    std::set<Station *> getStationSet() const;
+    set<Station *> getStationSet() const;
+
+    pair<int,int> maxFlow(string src, string dst);
+    int cheapestMaxFlow(string src,string dst);
+    void reset();
+    bool findPath(Station *src, Station *dst);
+    bool findCheapestPath(Station *src, Station *dst);
+    int bottleNeck(Station *src,Station *dst);
+    void incrementFlow(Station *src,Station *dst,int value);
+    pair<int,int> maxFlowWithMinimumCost(string src, string dst);
+    int calculateCost(Station *src,Station *dst);
 
 
 
 protected:
 
-    set<Station *> StationSet;    // Station set
+    set<Station *> stationSet;    // Station set
 
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
 

@@ -2,14 +2,14 @@
 
 
 Station * Graph::findStation(const string &name) const {
-    for (auto v : StationSet)
+    for (auto v : stationSet)
         if (v->getName() == name)
             return v;
     return nullptr;
 }
 
 bool Graph::addStation(Station *Station) {
-    StationSet.insert(Station);
+    stationSet.insert(Station);
 }
 
 bool Graph::addLine(Station *src , Station *dest, double w, services service) {
@@ -31,7 +31,7 @@ bool Graph::addBidirectionalLine(Station *src, Station *dst, double w, services 
 
 
 std::set<Station *> Graph::getStationSet() const {
-    return StationSet;
+    return stationSet;
 }
 
 void deleteMatrix(int **m, int n) {
@@ -51,8 +51,163 @@ void deleteMatrix(double **m, int n) {
         delete [] m;
     }
 }
+void Graph::reset() {
+    for (Station *station: stationSet) {
+        station->setVisited(false);
+        station->setProcesssing(false);
+        for (Line *line: station->getAdj()) {
+            line->setFlow(0);
+        }
+    }
+}
+int Graph::calculateCost(Station *src, Station *dst) {
+    int cost=0;
+    if(dst->isProcessing()) return 0;
+    dst->setProcesssing(true);
+    if(src->getName()==dst->getName()) return 0;
+    for(auto line: dst->getIncoming()){
+        if(line->getFlow()>0 ){
+            cost+= line->getFlow()*line->getCost();
+            cost+= calculateCost(src,line->getOrig());
+        }
+    }
+    return cost;
+}
+bool Graph::findPath(Station *src, Station *dst) {
+
+    for (Station *Station: stationSet) {
+        Station->setVisited(false);
+    }
+
+    queue<Station*> s;
+    s.push(src);
+    src->setVisited(true);
+
+    while (!s.empty()) {
+        auto station = s.front();
+        s.pop();
+        if (station->getName()== dst->getName()) {
+            return true;
+        }
+        for (Line *line: station->getAdj()) {
+            if (!line->getDest()->isVisited() and !line->isFull()) {
+                line->getDest()->setVisited(true);
+                line->getDest()->setPath(line);
+                s.push(line->getDest());
+            }
+        }
+        for (Line *line: station->getIncoming()) {
+            if (!line->getOrig()->isVisited() and line->getFlow() > 0) {
+                line->getOrig()->setVisited(true);
+                line->getOrig()->setPath(line);
+                s.push(line->getOrig());
+            }
+        }
+    }
+    return false;
+}
+bool Graph::findCheapestPath(Station *src, Station *dst) {
+    int price=0;
+    for (Station *Station: stationSet) {
+        Station->setVisited(false);
+        Station->setDist(INF);
+    }
+    priority_queue<pair<int,Station*>, vector<pair<int,Station*>>, greater<pair<int,Station*>>>pq;
+    src->setDist(0);
+    pq.push(make_pair(0, src));
+    while(!pq.empty()){
+        auto station=pq.top().second;
+        pq.pop();
+
+        if(station->getName()==dst->getName()){
+            return true;
+        }
+        for (auto line: station->getAdj()) {
+             price=station->getDist()+line->getCost();
+            if (!line->getDest()->isVisited() and !line->isFull() and line->getDest()->getDist()>price) {
+                line->getDest()->setVisited(true);
+                line->getDest()->setPath(line);
+                line->getDest()->setDist(price);
+                pq.push(make_pair(price,line->getDest()));
+            }
+        }
+        for (Line *line: station->getIncoming()) {
+             price=station->getDist()+line->getCost();
+            if (!line->getOrig()->isVisited() and line->getFlow() > 0 and line->getOrig()->getDist()>price ) {
+                line->getOrig()->setVisited(true);
+                line->getOrig()->setPath(line);
+                line->getOrig()->setDist(price);
+                pq.push(make_pair(price,line->getOrig()));
+            }
+        }
+    }
+    return false;
+}
+int Graph::bottleNeck(Station *src, Station *dst) {
+    auto v1 = dst;
+    int min = INF;
+    while (v1->getName() != src->getName()) {
+        int aux;
+        if (v1->getPath()->getDest()->getName() == v1->getName())aux= v1->getPath()->getCapacity() - v1->getPath()->getFlow();
+        else aux=v1->getPath()->getFlow();
+        if (aux < min) min = aux;
+        if (v1->getPath()->getDest()->getName() == v1->getName()) {
+            v1 = v1->getPath()->getOrig();
+        } else v1= v1->getPath()->getDest();
+    }
+    return min;
+
+}
+void Graph::incrementFlow(Station *src, Station *dst, int value) {
+    auto v1 = dst;
+    while (v1->getName() != src->getName()) {
+        if (v1->getPath()->getDest()->getName() == v1->getName()) {
+            v1->getPath()->setFlow(v1->getPath()->getFlow() + value);
+            v1 = v1->getPath()->getOrig();
+        } else {
+            v1->getPath()->setFlow(v1->getPath()->getFlow() - value);
+            v1 = v1->getPath()->getDest();
+        }
+    }
+}
+
+pair<int,int> Graph::maxFlow(string src, string dst) {
+    auto v1= findStation(src);
+    auto v2= findStation(dst);
+    if(v1== nullptr) throw src+" Not Found!";
+    if(v2== nullptr) throw dst+" Not Found!";
+    reset();
+    while(findPath(v1,v2)){
+        int min=bottleNeck(v1,v2);
+        incrementFlow(v1,v2, min);
+    }
+    int m=0;
+    for(auto line:v2->getIncoming()){
+        m+=line->getFlow();
+    }
+    int cost= calculateCost(v1,v2);
+    return make_pair(m,cost);
+}
+pair<int, int> Graph::maxFlowWithMinimumCost(string src, string dst){
+    auto v1= findStation(src);
+    auto v2= findStation(dst);
+    if(v1== nullptr) throw src+" Not Found!\n";
+    if(v2== nullptr) throw dst+" Not Found!\n";
+    reset();
+    while(findCheapestPath(v1,v2)){
+        int min=bottleNeck(v1,v2);
+        incrementFlow(v1,v2, min);
+    }
+    int m=0;
+    for(auto line:v2->getIncoming()){
+        m+=line->getFlow();
+    }
+    int cost= calculateCost(v1,v2);
+    return make_pair(m,cost);
+}
+
 
 Graph::~Graph() {
-    deleteMatrix(distMatrix, StationSet.size());
-    deleteMatrix(pathMatrix, StationSet.size());
+    deleteMatrix(distMatrix, stationSet.size());
+    deleteMatrix(pathMatrix, stationSet.size());
 }
