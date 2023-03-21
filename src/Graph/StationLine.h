@@ -38,7 +38,7 @@ public:
 
     //void setId(int info);
     void setVisited(bool visited);
-    void setProcesssing(bool processing);
+    void setProcessing(bool processing);
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
     void setPath(Line *path);

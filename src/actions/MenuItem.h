@@ -5,7 +5,7 @@
 #ifndef DA_PROJECT1_MENUITEM_H
 #define DA_PROJECT1_MENUITEM_H
 
-#include "Graph/Graph.h"
+#include "../Graph/Graph.h"
 #include "stack"
 
 

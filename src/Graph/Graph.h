@@ -62,19 +62,67 @@ public:
      * @complexity O(1)
      */
     set<Station *> getStationSet() const;
-
+    /**
+     * @brief calculates the max flow between two stations
+     * @param src station where the trains leave
+     * @param dst destination station  where trains arrive
+     * @return a pair of ints being the first element the max flow and the second the cost
+     * @complexity O(V+E) being V the number of stations and E the number of lines
+     */
     pair<int,int> maxFlow(string src, string dst);
-    int cheapestMaxFlow(string src,string dst);
+    /**
+    * @brief calculates the max flow between two stations and the minimum cost possible with that flow
+    * @param src station where the trains leave
+    * @param dst destination station  where trains arrive
+    * @return a pair of ints being the first element the max flow and the second the cost
+    * @complexity O(V+E) being V the number of stations and E the number of lines
+    */
+    pair<int,int> cheapestMaxFlow(string src,string dst);
+    /**
+     * @brief sets the attributes visited and processing of the station false and the flow of the lines 0
+     * @complexity O(V+E) being V the number of stations and E the number of lines
+     */
     void reset();
+    /**
+     * @brief finds a path between two stations having in consideration the flow.
+     * @param src station where the trains leave
+     * @param dst destination station where the trains arrive
+     * @return true if a path exits, false otherwise
+     * @complexity O(V+E) being V the number of stations and E the number of lines
+     */
     bool findPath(Station *src, Station *dst);
+    /**
+     * @brief finds the cheapest path between two stations having in consideration the flow
+     * @param src station where the trains leave
+     * @param dst destination station where the trains arrive
+     * @return true if a path exits, false otherwise
+     * @complexity O(V+E) being V the number of stations and E the number of lines
+     */
     bool findCheapestPath(Station *src, Station *dst);
+    /**
+     * @brief finds the bottleNeck of the last path found between two stations
+     * @param src station where the trains leave
+     * @param dst destination station where the trains arrive
+     * @return the bottleNeck
+     * @complexity O(V) being V the number of station that exist in the path
+     */
     int bottleNeck(Station *src,Station *dst);
+    /**
+     * @brief updates the flow of the last path found between two stations
+     * @param src station where the trains leave
+     * @param dst destination station where the trains arrive
+     * @param value bottleNeck
+     * @complexity O(V) being V the number of station that exist in the path
+     */
     void incrementFlow(Station *src,Station *dst,int value);
-    pair<int,int> maxFlowWithMinimumCost(string src, string dst);
+    /**
+     * @brief calculates the cost of the network between two stations
+     * @param src station where the trains leave
+     * @param dst destination station where the trains arrive
+     * @return the cost of the network between two stations
+     * @complexity O(V+E) being V the number of stations and E the number of lines in the paths
+     */
     int calculateCost(Station *src,Station *dst);
-
-
-
 protected:
 
     set<Station *> stationSet;    // Station set

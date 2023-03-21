@@ -7,6 +7,7 @@
 
 using namespace std;
 void GraphTests::run() {
+    system("clear");
     Graph myGraph2;
 
     myGraph2.addStation(new Station("a"));
@@ -44,7 +45,7 @@ void GraphTests::run() {
     cout<<ss<<endl;
     cout<<"Max flow: "<<m.first<<"- Cost:"<<m.second<<endl;
     cout<<"\nMinimum cost max flow: \n\n";
-    p=myGraph2.maxFlowWithMinimumCost("a","f");
+    p=myGraph2.cheapestMaxFlow("a","f");
     ss="";
     for(auto v : myGraph2.getStationSet()) {
         ss += v->getName() + "-> (";
@@ -83,7 +84,7 @@ void GraphTests::run() {
     cout<<ss<<endl;
     cout<<"Max flow: "<<m.first<<"- Cost:"<<m.second<<endl;
     cout<<"\nMinimum cost max flow: \n";
-    p=myGraph3.maxFlowWithMinimumCost("a","e");
+    p=myGraph3.cheapestMaxFlow("a","e");
     ss="";
     for(auto v : myGraph2.getStationSet()) {
         ss += v->getName() + "-> (";
@@ -132,7 +133,7 @@ void GraphTests::run() {
     cout<<ss<<endl;
     cout<<"Max flow: "<<m.first<<"- Cost:"<<m.second<<endl;
     cout<<"\nMinimum cost max flow: \n\n";
-    p=myGraph4.maxFlowWithMinimumCost("a","f");
+    p=myGraph4.cheapestMaxFlow("a","f");
     ss="";
     for(auto v : myGraph4.getStationSet()) {
         ss += v->getName() + "-> (";
@@ -173,7 +174,7 @@ void GraphTests::run() {
     cout<<ss<<endl;
     cout<<"Max flow: "<<m.first<<"- Cost:"<<m.second<<endl;
     cout<<"\nMinimum cost max flow: \n\n";
-    p=myGraph5.maxFlowWithMinimumCost("a","d");
+    p=myGraph5.cheapestMaxFlow("a","d");
     ss="";
     for(auto v : myGraph5.getStationSet()) {
         ss += v->getName() + "-> (";

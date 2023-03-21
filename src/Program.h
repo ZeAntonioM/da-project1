@@ -9,7 +9,7 @@
 #include <stack>
 #include "Menu.h"
 #include "actions/ChangeMenu.h"
-#include "MenuItem.h"
+#include "actions/MenuItem.h"
 #include "Scrapper.h"
 
 class Program {

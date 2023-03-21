@@ -87,7 +87,7 @@ void Station::setVisited(bool visited) {
     this->visited = visited;
 }
 
-void Station::setProcesssing(bool processing) {
+void Station::setProcessing(bool processing) {
     this->processing = processing;
 }
 

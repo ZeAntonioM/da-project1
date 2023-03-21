@@ -5,7 +5,7 @@
 #ifndef DA_PROJECT1_CHANGEMENU_H
 #define DA_PROJECT1_CHANGEMENU_H
 
-#include "../MenuItem.h"
+#include "MenuItem.h"
 
 
 using namespace std;

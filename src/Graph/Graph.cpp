@@ -54,7 +54,7 @@ void deleteMatrix(double **m, int n) {
 void Graph::reset() {
     for (Station *station: stationSet) {
         station->setVisited(false);
-        station->setProcesssing(false);
+        station->setProcessing(false);
         for (Line *line: station->getAdj()) {
             line->setFlow(0);
         }
@@ -63,7 +63,7 @@ void Graph::reset() {
 int Graph::calculateCost(Station *src, Station *dst) {
     int cost=0;
     if(dst->isProcessing()) return 0;
-    dst->setProcesssing(true);
+    dst->setProcessing(true);
     if(src->getName()==dst->getName()) return 0;
     for(auto line: dst->getIncoming()){
         if(line->getFlow()>0 ){
@@ -188,7 +188,7 @@ pair<int,int> Graph::maxFlow(string src, string dst) {
     int cost= calculateCost(v1,v2);
     return make_pair(m,cost);
 }
-pair<int, int> Graph::maxFlowWithMinimumCost(string src, string dst){
+pair<int, int> Graph::cheapestMaxFlow(string src, string dst) {
     auto v1= findStation(src);
     auto v2= findStation(dst);
     if(v1== nullptr) throw src+" Not Found!\n";
