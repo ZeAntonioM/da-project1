@@ -3,7 +3,7 @@
 //
 
 #include "GraphTests.h"
-#include "../src/Graph/Graph.h"
+#include "../src/model/Graph.h"
 
 using namespace std;
 void GraphTests::run() {
@@ -58,6 +58,12 @@ void GraphTests::run() {
     cout<<"Maximum flow: "<<p.first<<" - Cost: "<<p.second<<endl;
     if(m.first==p.first and m.second>=p.second) cout<<"Passed!\n";
     else cout<<"Failed!";
+    for( Path path: myGraph2.getPaths("a","f")){
+        cout<<"Flow "<<path.second<<endl;
+        for(StationPair stationPair: path.first){
+            cout<<stationPair.first->getName()<<" -> "<<stationPair.second->getName()<<endl;
+        }
+    }
 
     Graph myGraph3;
 

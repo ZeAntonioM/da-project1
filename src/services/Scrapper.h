@@ -10,8 +10,8 @@
 #include "string"
 #include "set"
 
-#include "Graph/Graph.h"
-#include "Graph/StationLine.h"
+#include "../model/Graph.h"
+#include "../model/StationLine.h"
 using  namespace std;
 
 

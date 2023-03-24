@@ -3,6 +3,7 @@
 //
 
 #include "Program.h"
+#include "actions/MaxFlow.h"
 
 
 Program::Program(){
@@ -29,6 +30,7 @@ void Program::run(){
 void Program::createMenus() {
     Menu menu=Menu("../menus/Main.txt");
     menu.addMenuItem( new ChangeMenu (menuPage,graph,TEST_MENU));
+    menu.addMenuItem(new MaxFlow(graph));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu);
     Menu menu2=Menu("../menus/Test.txt");

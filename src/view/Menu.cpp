@@ -2,6 +2,7 @@
 // Created by ze on 18-03-2023.
 //
 
+
 #include "Menu.h"
 
 
@@ -15,7 +16,7 @@ Menu::Menu(string path)
 }
 
 
-void Menu::addMenuItem(MenuItem* menuItem)
+void Menu::addMenuItem(Action* menuItem)
 {
     actions.push_back(menuItem);
 }
@@ -59,7 +60,7 @@ void Menu::doAction(int option)
 }
 
 
-vector<MenuItem *> Menu::getActions()
+vector<Action *> Menu::getActions()
 {
     return actions;
 }

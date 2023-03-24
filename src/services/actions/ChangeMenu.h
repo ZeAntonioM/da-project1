@@ -5,19 +5,21 @@
 #ifndef DA_PROJECT1_CHANGEMENU_H
 #define DA_PROJECT1_CHANGEMENU_H
 
-#include "MenuItem.h"
+#include "Action.h"
+#include "../../view/Menu.h"
 
 
 using namespace std;
 
-class ChangeMenu: public MenuItem {
+class ChangeMenu: public Action {
 private:
     menus nextMenu;
+    stack<menus>* menuPages;
 
 public:
 
     /**
-    * Constructor of ChangeMenu a class that extends MenuItem
+    * Constructor of ChangeMenu a class that extends Action
     * @param currMenusPage stack with the current pages of the menu
     * @param graph graph with all the information of the stations ans the line
     * @param nextMenu the page we want to go next

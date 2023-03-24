@@ -7,9 +7,9 @@
 
 #include <vector>
 #include <stack>
-#include "Menu.h"
+#include "../view/Menu.h"
 #include "actions/ChangeMenu.h"
-#include "actions/MenuItem.h"
+#include "actions/Action.h"
 #include "Scrapper.h"
 
 class Program {

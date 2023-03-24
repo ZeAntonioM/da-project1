@@ -14,6 +14,9 @@
 #include "StationLine.h"
 
 using namespace std;
+typedef pair<Station*,Station*> StationPair;
+typedef vector<StationPair> Connection;
+typedef pair<Connection,int> Path;
 class Graph {
 public:
     ~Graph();
@@ -123,6 +126,7 @@ public:
      * @complexity O(V+E) being V the number of stations and E the number of lines in the paths
      */
     int calculateCost(Station *src,Station *dst);
+    vector<Path> getPaths(string src, string dst);
 protected:
 
     set<Station *> stationSet;    // Station set
@@ -144,6 +148,8 @@ protected:
      * @brief Finds the shortest Path between two stations.
      */
     void bfs(string origin, string destination);
+
+    void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
 };
 
 /**

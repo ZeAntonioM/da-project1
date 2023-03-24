@@ -205,6 +205,30 @@ pair<int, int> Graph::cheapestMaxFlow(string src, string dst) {
     int cost= calculateCost(v1,v2);
     return make_pair(m,cost);
 }
+vector<Path> Graph::getPaths(string src, string dst) {
+    auto v1= findStation(src);
+    auto v2= findStation(dst);
+    Path path= make_pair(Connection(),INT32_MAX);
+    vector<Path> paths;
+    path_dfs(v1,v2,paths,path);
+    return paths;
+}
+void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path) {
+    if(origin->getName()==destination->getName()){
+        paths.push_back(path);
+        return ;
+    }
+    for(auto line: origin->getAdj()){
+        if(line->getFlow()>0){
+            StationPair stationPair= make_pair(origin,line->getDest());
+            Path  auxPath= path;
+            auxPath.first.push_back(stationPair);
+            if(line->getFlow()<auxPath.second) auxPath.second=line->getFlow();
+            path_dfs(line->getDest(),destination,paths,auxPath);
+        }
+    }
+    return;
+}
 
 
 Graph::~Graph() {

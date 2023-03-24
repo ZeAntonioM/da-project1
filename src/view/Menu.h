@@ -10,17 +10,18 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "actions/MenuItem.h"
+#include "../services/actions/Action.h"
+#include <limits>
 
 using namespace std;
 
-
+enum menus{MAIN_MENU,TEST_MENU,POP_MENU};
 class Menu
 {
 private:
 
     vector<string> buttons;
-    vector<MenuItem*> actions;
+    vector<Action*> actions;
 
 public:
 
@@ -44,11 +45,11 @@ public:
     void draw() const;
 
     /**
-    * @brief adds a MenuItem to the menus actions
+    * @brief adds a Action to the menus services
     * @param menuItem
     * @complexity O(1)
     */
-    void addMenuItem(MenuItem* menuItem);
+    void addMenuItem(Action* menuItem);
 
     /**
     * @brief will execute the action corresponding to the option chosen
@@ -58,9 +59,9 @@ public:
 
     /**
     *
-    * @return the actions of the menus
+    * @return the services of the menus
     */
-    vector<MenuItem *> getActions();
+    vector<Action *> getActions();
 
     /**
      * @brief executes the menus, asking for input and executing the corresponding action
