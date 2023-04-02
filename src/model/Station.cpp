@@ -132,3 +132,22 @@ string  Station::getDistrict() const {
 string Station::getTownship() const {
     return this->township;
 }
+
+void Station::print() const{
+    cout<<this->name;
+    for (int i = 0; i <37-this->name.length() ; ++i) {
+        cout<<" ";
+    }
+    cout<<this->municipality;
+    for (int i = 0; i <28-this->municipality.length() ; ++i) {
+        cout<<" ";
+    }
+    cout<<this->district;
+    for (int i = 0; i <21-this->district.length() ; ++i) {
+        cout<<" ";
+    }
+    cout<<this->station_line;
+    for (int i = 0; i <25-this->station_line.length() ; ++i) {
+        cout<<" ";
+    }
+}

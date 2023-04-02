@@ -35,6 +35,7 @@ public:
     string getMunicipality() const;
     string getTownship() const;
     string getLine() const;
+    void print() const;
 
     //void setId(int info);
     void setVisited(bool visited);
