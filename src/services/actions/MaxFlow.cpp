@@ -3,6 +3,8 @@
 //
 
 #include "MaxFlow.h"
+#include "../../view/DrawPaths.h"
+
 MaxFlow::MaxFlow( Graph &graph): Action(graph) {}
 
 void MaxFlow::draw(int maxFLow, int cost, vector<Path>){
@@ -44,7 +46,8 @@ void MaxFlow::execute() {
     try {
          flowCost = graph->maxFlow(src, dst);
          vector<Path> paths= graph->getPaths(src,dst);
-         draw(flowCost.first,flowCost.second,paths);
+         DrawPaths drawPaths;
+         drawPaths.draw(flowCost.first,flowCost.second,paths,0);
     }
     catch (string err){
         cout<<"An error has occur!"<<err<<endl;
