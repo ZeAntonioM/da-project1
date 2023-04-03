@@ -50,6 +50,7 @@ void Station::removeOutgoingLines() {
     }
 }
 
+
 bool Station::operator<(Station & Station) const {
     return this->name<Station.name;
 
@@ -133,21 +134,32 @@ string Station::getTownship() const {
     return this->township;
 }
 
+int Station::specialChars(string word) const
+{
+    int count=0;
+    for( char c: word){
+        if( c<0 ) count++;
+    }
+    return count/2;
+}
+
 void Station::print() const{
     cout<<this->name;
-    for (int i = 0; i <37-this->name.length() ; ++i) {
-        cout<<" ";
-    }
+for(int i=0; i<37-this->name.length()+specialChars(this->name);i++){
+    cout<<' ';
+};
     cout<<this->municipality;
-    for (int i = 0; i <28-this->municipality.length() ; ++i) {
-        cout<<" ";
-    }
+for(int i=0; i<28-this->municipality.length()+specialChars(this->municipality);i++){
+    cout<<' ';
+};
     cout<<this->district;
-    for (int i = 0; i <21-this->district.length() ; ++i) {
-        cout<<" ";
-    }
+for(int i=0; i<17-this->district.length()+specialChars(this->district);i++){
+    cout<<' ';
+};
     cout<<this->station_line;
-    for (int i = 0; i <25-this->station_line.length() ; ++i) {
-        cout<<" ";
-    }
+for(int i=0; i<26-this->station_line.length()+specialChars(this->station_line);i++){
+    cout<<' ';
+};
 }
+
+

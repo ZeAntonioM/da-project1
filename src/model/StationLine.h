@@ -46,6 +46,7 @@ public:
     Line* addLine(Station *dest, double w, services s);
     bool removeLine(string destName);
     void removeOutgoingLines();
+    int specialChars(string word) const;
 
 
     friend class MutablePriorityQueue<Station>;
