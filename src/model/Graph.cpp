@@ -226,9 +226,18 @@ void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths,
     }
     return;
 }
+void Graph:: deleteGraph(){
+    for(auto station :stationSet) {
+        for( auto line : station->getAdj()){
+            delete line;
+        }
+        delete station;
+    }
+}
 
 
 Graph::~Graph() {
     deleteMatrix(distMatrix, stationSet.size());
     deleteMatrix(pathMatrix, stationSet.size());
+    deleteGraph();
 }

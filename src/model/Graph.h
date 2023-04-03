@@ -150,6 +150,7 @@ protected:
     void bfs(string origin, string destination);
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
+    void deleteGraph();
 };
 
 /**
@@ -165,5 +166,6 @@ void deleteMatrix(int **m, int n);
  * @param n
  */
 void deleteMatrix(double **m, int n);
+
 
 #endif /* GRAPH */
