@@ -12,12 +12,9 @@ Program::Program(){
    menuPage.push(MAIN_MENU);
    this->graph= Graph();
    Scrapper().scrape(graph, "../files/stations.csv","../files/network.csv");
-
 }
 
-
 void Program::run(){
-
     while(!menuPage.empty()) {
         if(menuPage.top()==POP_MENU){
             menuPage.pop();
@@ -40,4 +37,5 @@ void Program::createMenus() {
     menu2.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu2);
 }
+
 

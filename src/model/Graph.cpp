@@ -231,8 +231,10 @@ void Graph:: deleteGraph(){
         for( auto line : station->getAdj()){
             delete line;
         }
+        station->getAdj().clear();
         delete station;
     }
+    stationSet.clear();
 }
 
 
