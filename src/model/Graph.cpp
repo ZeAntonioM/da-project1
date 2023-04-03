@@ -2,7 +2,12 @@
 
 Station *Graph::findStation(const string &name) const
 {
-    stationSet.find(Station(name));
+    auto station = stationSet.find(new Station(name));
+    if (station == stationSet.end())
+    {
+        return nullptr;
+    }
+    return *station;
 }
 
 bool Graph::addStation(Station *Station)
