@@ -127,6 +127,16 @@ public:
      */
     int calculateCost(Station *src,Station *dst);
     vector<Path> getPaths(string src, string dst);
+
+
+    void DisableLine(Line *line);
+
+    void EnableLine(Line *line);
+
+    void DisableStation(Station *station);
+
+    void EnableStation(Station *station);
+
 protected:
 
     vector<Station *> stationSet;    // Station set
@@ -150,6 +160,8 @@ protected:
     void bfs(string origin, string destination);
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
+
+
 };
 
 /**

@@ -131,3 +131,11 @@ string  Station::getDistrict() const {
 string Station::getTownship() const {
     return this->township;
 }
+
+void Station::setDisabled(bool _disabled) {
+    this->disabled = _disabled;
+}
+
+bool Station::isDisabled() const {
+    return this->disabled;
+}

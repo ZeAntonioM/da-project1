@@ -5,6 +5,7 @@
 #include "Program.h"
 #include "actions/MaxFlow.h"
 #include "actions/CheapestMaxFlow.h"
+#include "actions/Disable.h"
 
 
 Program::Program(){
@@ -34,11 +35,20 @@ void Program::createMenus() {
     menu.addMenuItem( new ChangeMenu (menuPage,graph,TEST_MENU));
     menu.addMenuItem(new MaxFlow(graph));
     menu.addMenuItem(new CheapestMaxFlow(graph));
+    menu.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
 
     menus.push_back(menu);
     Menu menu2=Menu("../menus/Test.txt");
     menu2.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu2);
+
+    Menu disableMenu=Menu("../menus/Disable.txt");
+    disableMenu.addMenuItem( new DisableLine(graph));
+    disableMenu.addMenuItem( new EnableLine(graph));
+    disableMenu.addMenuItem( new DisableStation(graph));
+    disableMenu.addMenuItem( new EnableStation(graph));
+    disableMenu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    menus.push_back(disableMenu);
 }
 
