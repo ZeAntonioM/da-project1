@@ -5,6 +5,7 @@
 #include "Program.h"
 #include "actions/MaxFlow.h"
 #include "actions/ShowStations.h"
+#include "actions/SearchStation.h"
 
 
 Program::Program(){
@@ -34,6 +35,7 @@ void Program::createMenus() {
     menu.addMenuItem(new MaxFlow(graph));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menu.addMenuItem(new ShowStations(graph));
+    menu.addMenuItem(new SearchStation(graph));
     menus.push_back(menu);
     Menu menu2=Menu("../menus/Test.txt");
     menu2.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
