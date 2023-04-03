@@ -2,17 +2,15 @@
 
 Station *Graph::findStation(const string &name) const
 {
-    auto station = stationSet.find(new Station(name));
-    if (station == stationSet.end())
-    {
-        return nullptr;
-    }
-    return *station;
+    for (Station *station : stationSet)
+        if (station->getName() == name)
+            return station;
+    return nullptr;
 }
 
 bool Graph::addStation(Station *Station)
 {
-    stationSet.insert(Station);
+    stationSet.push_back(Station);
 }
 
 bool Graph::addLine(Station *src, Station *dest, double w, services service)
@@ -34,7 +32,7 @@ bool Graph::addBidirectionalLine(Station *src, Station *dst, double w, services 
     return true;
 }
 
-std::set<Station *> Graph::getStationSet() const
+vector<Station *> Graph::getStationSet() const
 {
     return stationSet;
 }

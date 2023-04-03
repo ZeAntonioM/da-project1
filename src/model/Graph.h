@@ -10,14 +10,14 @@
 #include "MutablePriorityQueue.h"
 #include <set>
 
-
 #include "StationLine.h"
 
 using namespace std;
-typedef pair<Station*,Station*> StationPair;
+typedef pair<Station *, Station *> StationPair;
 typedef vector<StationPair> Connection;
-typedef pair<Connection,int> Path;
-class Graph {
+typedef pair<Connection, int> Path;
+class Graph
+{
 public:
     ~Graph();
 
@@ -28,7 +28,6 @@ public:
      * @complexity O(log N) being N the number of stations
      */
     Station *findStation(const string &name) const;
-
     /**
      * @brief Adds a Station with a given content or info (in) to a graph (this).
      * @param Station Station to be added.
@@ -46,7 +45,7 @@ public:
      * @return true if successful, and false if the source or destination Station does not exist.
      * @complexity O(1)
      */
-    bool addLine(Station *src, Station * dest, double w, services service);
+    bool addLine(Station *src, Station *dest, double w, services service);
 
     /**
      * @param src Station Source
@@ -64,7 +63,7 @@ public:
      * @return the set with all the stations
      * @complexity O(1)
      */
-    set<Station *> getStationSet() const;
+    vector<Station *> getStationSet() const;
     /**
      * @brief calculates the max flow between two stations
      * @param src station where the trains leave
@@ -72,15 +71,15 @@ public:
      * @return a pair of ints being the first element the max flow and the second the cost
      * @complexity O(V+E) being V the number of stations and E the number of lines
      */
-    pair<int,int> maxFlow(string src, string dst);
+    pair<int, int> maxFlow(string src, string dst);
     /**
-    * @brief calculates the max flow between two stations and the minimum cost possible with that flow
-    * @param src station where the trains leave
-    * @param dst destination station  where trains arrive
-    * @return a pair of ints being the first element the max flow and the second the cost
-    * @complexity O(V+E) being V the number of stations and E the number of lines
-    */
-    pair<int,int> cheapestMaxFlow(string src,string dst);
+     * @brief calculates the max flow between two stations and the minimum cost possible with that flow
+     * @param src station where the trains leave
+     * @param dst destination station  where trains arrive
+     * @return a pair of ints being the first element the max flow and the second the cost
+     * @complexity O(V+E) being V the number of stations and E the number of lines
+     */
+    pair<int, int> cheapestMaxFlow(string src, string dst);
     /**
      * @brief sets the attributes visited and processing of the station false and the flow of the lines 0
      * @complexity O(V+E) being V the number of stations and E the number of lines
@@ -109,7 +108,7 @@ public:
      * @return the bottleNeck
      * @complexity O(V) being V the number of station that exist in the path
      */
-    int bottleNeck(Station *src,Station *dst);
+    int bottleNeck(Station *src, Station *dst);
     /**
      * @brief updates the flow of the last path found between two stations
      * @param src station where the trains leave
@@ -117,7 +116,7 @@ public:
      * @param value bottleNeck
      * @complexity O(V) being V the number of station that exist in the path
      */
-    void incrementFlow(Station *src,Station *dst,int value);
+    void incrementFlow(Station *src, Station *dst, int value);
     /**
      * @brief calculates the cost of the network between two stations
      * @param src station where the trains leave
@@ -125,22 +124,20 @@ public:
      * @return the cost of the network between two stations
      * @complexity O(V+E) being V the number of stations and E the number of lines in the paths
      */
-    int calculateCost(Station *src,Station *dst);
+    int calculateCost(Station *src, Station *dst);
     vector<Path> getPaths(string src, string dst);
+
 protected:
+    vector<Station *> stationSet; // Station set
 
-    set<Station *> stationSet;    // Station set
+    double **distMatrix = nullptr; // dist matrix for Floyd-Warshall
 
-    double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
-
-    int **pathMatrix = nullptr;   // path matrix for Floyd-Warshall
-
+    int **pathMatrix = nullptr; // path matrix for Floyd-Warshall
 
     /**
      * @brief Finds the index of the Station with a given content.
      */
     int findStationIdx(const int &id) const;
-
 
     /**
      * @param string origin - origin station's name
@@ -149,7 +146,7 @@ protected:
      */
     void bfs(string origin, string destination);
 
-    void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
+    void path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path);
 };
 
 /**
