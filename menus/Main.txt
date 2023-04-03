@@ -1,3 +1,4 @@
 Go to another menu
 Max flow
+Cheapest Max Flow
 Exit

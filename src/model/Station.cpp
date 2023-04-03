@@ -2,7 +2,7 @@
 
 Station::Station(string n, string d, string m, string t, string s):name(n),district(d),municipality(m),township(t),station_line(s){};
 
-Station::Station(string name): name(name){}
+Station::Station(string name): name(name), district(""),municipality(""),township(""),station_line(""){};
 
 /*
  * Auxiliary function to add an outgoing Line to a Station (this),
@@ -50,9 +50,8 @@ void Station::removeOutgoingLines() {
     }
 }
 
-bool Station::operator<(Station & Station) const {
+bool Station::operator<(Station Station) const {
     return this->name<Station.name;
-
 }
 
 std::vector<Line*> Station::getAdj() const {

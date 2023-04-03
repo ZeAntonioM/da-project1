@@ -2,14 +2,12 @@
 
 
 Station * Graph::findStation(const string &name) const {
-    for (auto v : stationSet)
-        if (v->getName() == name)
-            return v;
+    for(Station *station: stationSet ) if(station->getName()==name) return station;
     return nullptr;
 }
 
 bool Graph::addStation(Station *Station) {
-    stationSet.insert(Station);
+    stationSet.push_back(Station);
 }
 
 bool Graph::addLine(Station *src , Station *dest, double w, services service) {
@@ -30,7 +28,7 @@ bool Graph::addBidirectionalLine(Station *src, Station *dst, double w, services 
 }
 
 
-std::set<Station *> Graph::getStationSet() const {
+vector<Station *> Graph::getStationSet() const {
     return stationSet;
 }
 

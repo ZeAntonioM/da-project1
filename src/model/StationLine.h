@@ -20,7 +20,7 @@ public:
 
     Station(string name, string district, string municipality, string township, string station_line);
     Station(string name);
-    bool operator<(Station & Station) const; // // required by MutablePriorityQueue
+    bool operator<(Station  Station) const; // // required by MutablePriorityQueue
 
     //int getId() const;
     std::vector<Line *> getAdj() const;

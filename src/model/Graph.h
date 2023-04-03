@@ -25,7 +25,7 @@ public:
      * @brief Auxiliary function to find a Station with a given Name.
      * @param name the name of the station we want to find
      * @return if the station is found returns a pointer to the station otherwise returns nullptr
-     * @complexity O(log N) being N the number of stations
+     * @complexity O(N) being N the number of stations
      */
     Station *findStation(const string &name) const;
 
@@ -64,7 +64,7 @@ public:
      * @return the set with all the stations
      * @complexity O(1)
      */
-    set<Station *> getStationSet() const;
+     vector<Station *> getStationSet() const;
     /**
      * @brief calculates the max flow between two stations
      * @param src station where the trains leave
@@ -129,7 +129,7 @@ public:
     vector<Path> getPaths(string src, string dst);
 protected:
 
-    set<Station *> stationSet;    // Station set
+    vector<Station *> stationSet;    // Station set
 
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
 

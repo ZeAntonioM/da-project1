@@ -9,8 +9,7 @@
 #include "Action.h"
 
 class MaxFlow: public Action{
-protected:
-    void draw(int maxFLow, int cost, vector<Path>);
+
 public:
     MaxFlow(Graph &graph);
     void execute() override;

@@ -11,7 +11,7 @@
 class DrawPaths {
 public:
     void draw(int maxFlow, int cost,vector<Path> path, int page)const;
-    void pageController()const;
+    void pageController(int maxFlow, int cost, vector<Path> path)const;
     int spacialChars(string word) const;
 };
 
