@@ -78,13 +78,16 @@ void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const {
               "│\033[40m From                                │ To                                  │ Trains \033[0m│\n"
               "├\033[40m────────────────────────────────────────────────────────────────────────────────────\033[0m┤\n";
                Path path2=path.at(page-1);
+
                int flow= path2.second;
                for( auto info: path2.first){
+                   page_height++;
                    string from_name=info.first->getName();
                    string to_name= info.second->getName();
                    int special_chars= spacialChars(from_name);
 
-                    display+="│\033[40m ";
+                    if(page_height%2==0)display+="│\033[40m ";
+                    else display+="│\033[100m ";
                     display+= info.first->getName();
                     for(int i=0; i<36-info.first->getName().length()+special_chars;i++)display+=" ";
                     display+="│ ";
@@ -97,8 +100,8 @@ void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const {
                     display +="\033[0m│\n";
                }
                 display+="├\033[40m────────────────────────────────────────────────────────────────────────────────────\033[0m┤\n"
-                         "│\033[40m                                     │Max Flow: "+to_string(flow);
-                         for(int i=0; i<14- to_string(flow).length();i++) display+= " ";
+                         "│\033[40m                                     │Max Flow: "+to_string(maxFlow);
+                         for(int i=0; i<14- to_string(maxFlow).length();i++) display+= " ";
 
                  display+="│ Cost: "+ to_string(cost);
                  for(int i=0; i<14- to_string(cost).length();i++) display+=" ";
