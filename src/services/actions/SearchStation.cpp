@@ -17,7 +17,7 @@ void SearchStation::execute()
                     << endl;
                cout << "|\033[40m                                         Station                                                             \033[0m|" << endl;
                cout << "|\033[40m_____________________________________________________________________________________________________________\033[0m|" << endl;
-               cout << "|\033[40m Name                               | Municipality              | District        | Line                     \033[0m|" << endl;
+               cout << "|\033[40m Name                               | Municipality              | District       | Line                      \033[0m|" << endl;
                cout << "|\033[100m ";
                station->print();
                cout << "\033[0m|" << endl;
