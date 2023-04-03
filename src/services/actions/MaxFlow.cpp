@@ -31,6 +31,7 @@ void MaxFlow::execute() {
     }
     catch (string err){
         cout<<"An error has occur!"<<err<<endl;
+        wait();
     }
 
 }
