@@ -37,5 +37,12 @@ void Program::createMenus() {
     menu2.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu2);
 }
+Program::~Program(){
+    for(Menu menu:menus){
+        for(Action *action: menu.getActions()){
+            delete action;
+        }
+    }
+}
 
 
