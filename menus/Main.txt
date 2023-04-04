@@ -1,5 +1,3 @@
-Go to another menu
-Max flow
-Cheapest Max Flow
+Max Flows
 Disable/Enable Stations/Lines
 Exit

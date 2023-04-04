@@ -32,14 +32,14 @@ void Program::run(){
 
 void Program::createMenus() {
     Menu menu=Menu("../menus/Main.txt");
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,TEST_MENU));
-    menu.addMenuItem(new MaxFlow(graph));
-    menu.addMenuItem(new CheapestMaxFlow(graph));
+    menu.addMenuItem( new ChangeMenu (menuPage,graph,FLOW));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
-
     menus.push_back(menu);
-    Menu menu2=Menu("../menus/Test.txt");
+
+    Menu menu2=Menu("../menus/Flow.txt");
+    menu2.addMenuItem(new MaxFlow(graph));
+    menu2.addMenuItem(new CheapestMaxFlow(graph));
     menu2.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu2);
 

@@ -2,4 +2,4 @@ Disable Line
 Enable Line
 Disable Station
 Enable Station
-Get back
+Go back

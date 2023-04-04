@@ -14,9 +14,9 @@
 #include "StationLine.h"
 
 using namespace std;
-typedef pair<Station*,Station*> StationPair;
-typedef vector<StationPair> Connection;
-typedef pair<Connection,int> Path;
+
+typedef vector<Line> Connections;
+typedef pair<Connections,int> Path;
 class Graph {
 public:
     ~Graph();
