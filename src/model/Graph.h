@@ -19,6 +19,7 @@ typedef vector<Line> Connections;
 typedef pair<Connections,int> Path;
 class Graph {
 public:
+
     ~Graph();
 
     /**
@@ -127,9 +128,16 @@ public:
      */
     int calculateCost(Station *src,Station *dst);
     vector<Path> getPaths(string src, string dst);
+    void calculateOrigins();
+    vector<Station *> getOrigins()const;
+    Station  getDistributor() const;
+
 protected:
 
     vector<Station *> stationSet;    // Station set
+
+    vector<Station *> origins;
+    Station  distributor=  Station("Distributor");
 
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
 
@@ -149,8 +157,10 @@ protected:
      */
     void bfs(string origin, string destination);
 
+
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
     void deleteGraph();
+
 };
 
 /**

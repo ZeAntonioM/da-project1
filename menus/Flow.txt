@@ -1,3 +1,4 @@
 Max Flow with minimum stops
 Max Flow with minimum cost
+Max Flow of a destination
 Go back

@@ -92,7 +92,7 @@ bool Menu::getInput(int &input) {
 }
 Menu::~Menu() {
     for(Action * action: actions){
-        delete action;
+        // delete action;
     }
     actions.clear();
 }

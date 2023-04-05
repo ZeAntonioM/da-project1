@@ -11,7 +11,7 @@
 
 #include "string"
 using namespace std;
-enum services {STANDARD,ALFA};
+enum services {STANDARD,ALFA,NONE};
 class Line;
 #define INF std::numeric_limits<double>::max()
 

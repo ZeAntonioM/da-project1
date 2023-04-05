@@ -36,7 +36,6 @@ public:
     */
     void  run();
 
-    ~Program();
 
 
 

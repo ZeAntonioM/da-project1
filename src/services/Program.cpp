@@ -5,6 +5,7 @@
 #include "Program.h"
 #include "actions/MaxFlow.h"
 #include "actions/CheapestMaxFlow.h"
+#include "actions/DestinationMaxFlow.h"
 
 
 Program::Program(){
@@ -12,6 +13,7 @@ Program::Program(){
    menuPage.push(MAIN_MENU);
    this->graph= Graph();
    Scrapper().scrape(graph, "../files/stations.csv","../files/network.csv");
+   graph.calculateOrigins();
 }
 
 void Program::run(){
@@ -34,15 +36,10 @@ void Program::createMenus() {
     Menu menu2=Menu("../menus/Flow.txt");
     menu2.addMenuItem(new MaxFlow(graph));
     menu2.addMenuItem(new CheapestMaxFlow(graph));
+    menu2.addMenuItem(new DestinationMaxFlow(graph));
     menu2.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu2);
 }
-Program::~Program(){
-    for(Menu menu:menus){
-        for(Action *action: menu.getActions()){
-            delete action;
-        }
-    }
-}
+
 
 
