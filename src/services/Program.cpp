@@ -4,7 +4,12 @@
 
 #include "Program.h"
 #include "actions/MaxFlow.h"
+
 #include "actions/CheapestMaxFlow.h"
+
+#include "actions/ShowStations.h"
+#include "actions/SearchStation.h"
+
 
 
 Program::Program(){
@@ -31,13 +36,21 @@ void Program::run(){
 
 void Program::createMenus() {
     Menu menu=Menu("../menus/Main.txt");
+    menu.addMenuItem( new ChangeMenu (menuPage,graph,NETWORK_INFORMATION));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,FLOW));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+
     menus.push_back(menu);
-    Menu menu2=Menu("../menus/Flow.txt");
-    menu2.addMenuItem(new MaxFlow(graph));
-    menu2.addMenuItem(new CheapestMaxFlow(graph));
-    menu2.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
-    menus.push_back(menu2);
+    Menu networkInformation= Menu("../menus/Information.txt");
+    networkInformation.addMenuItem(new ShowStations(graph));
+    networkInformation.addMenuItem(new SearchStation(graph));
+    menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    menus.push_back(networkInformation);
+    Menu flow=Menu("../menus/Flow.txt");
+
+    flow.addMenuItem(new MaxFlow(graph));
+    flow.addMenuItem(new CheapestMaxFlow(graph));
+    flow.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    menus.push_back(flow);
 }
 

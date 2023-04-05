@@ -35,6 +35,7 @@ public:
     string getMunicipality() const;
     string getTownship() const;
     string getLine() const;
+    void print() const;
 
     //void setId(int info);
     void setVisited(bool visited);
@@ -45,6 +46,7 @@ public:
     Line* addLine(Station *dest, double w, services s);
     bool removeLine(string destName);
     void removeOutgoingLines();
+    int specialChars(string word) const;
 
 
     friend class MutablePriorityQueue<Station>;
@@ -105,5 +107,6 @@ private:
     bool visited = false;
 
 };
+
 
 #endif /* DA_TP_CLASSES_Station_Line */

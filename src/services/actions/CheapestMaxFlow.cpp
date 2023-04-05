@@ -25,7 +25,7 @@ void CheapestMaxFlow::execute() {
             cout<<"No path was found\n";
             wait();
         }else {
-            DrawPaths drawPaths;
+            DrawPaths drawPaths= DrawPaths();
             drawPaths.pageController(flowCost.first, flowCost.second, paths);
         }
     }

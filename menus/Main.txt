@@ -1,2 +1,5 @@
+Network information
 Max Flows
 Exit
+
+

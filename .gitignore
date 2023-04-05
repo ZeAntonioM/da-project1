@@ -33,6 +33,7 @@
 
 .idea/
 cmake-build-debug/
+build/
 
 #Doxygen files
 html/

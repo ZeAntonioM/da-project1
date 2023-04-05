@@ -121,7 +121,7 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
             return true;
         }
         for (auto line: station->getAdj()) {
-             price=station->getDist()+line->getCost();
+            price=station->getDist()+line->getCost();
             if (!line->getDest()->isVisited() and !line->isFull() and line->getDest()->getDist()>price) {
                 line->getDest()->setVisited(true);
                 line->getDest()->setPath(line);
@@ -130,7 +130,7 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
             }
         }
         for (Line *line: station->getIncoming()) {
-             price=station->getDist()+line->getCost();
+            price=station->getDist()+line->getCost();
             if (!line->getOrig()->isVisited() and line->getFlow() > 0 and line->getOrig()->getDist()>price ) {
                 line->getOrig()->setVisited(true);
                 line->getOrig()->setPath(line);
@@ -206,25 +206,73 @@ pair<int, int> Graph::cheapestMaxFlow(string src, string dst) {
 vector<Path> Graph::getPaths(string src, string dst) {
     auto v1= findStation(src);
     auto v2= findStation(dst);
+    for(auto station:stationSet) station->setProcessing(false);
     Path path= make_pair(Connections(),INT32_MAX);
     vector<Path> paths;
-    path_dfs(v1,v2,paths,path);
+    while(path_bfs(v1,v2,paths));
+    for(auto s: stationSet){
+        for(auto l: s->getAdj()) if(l->getFlow()!=0) throw "pos";
+    }
     return paths;
 }
 void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path) {
+    // bool ignore=false;
+
     if(origin->getName()==destination->getName()){
         paths.push_back(path);
         return ;
     }
     for(auto line: origin->getAdj()){
         if(line->getFlow()>0){
+            if(line->getDest()->isProcessing()) continue;
+            line->getDest()->setProcessing(true);
             Path  auxPath= path;
-            auxPath.first.push_back(*line);
+
+            auxPath.first.push_back(line);
             if(line->getFlow()<auxPath.second) auxPath.second=line->getFlow();
             path_dfs(line->getDest(),destination,paths,auxPath);
+            line->getDest()->setProcessing(false);
         }
     }
     return;
+}
+
+bool Graph:: path_bfs(Station *origin, Station *destination, vector<Path> &paths){
+    for(Station * station: stationSet ) station->setVisited(false);
+    Path path= make_pair(Connections(),INT32_MAX);
+    queue<Station *> q;
+    origin->setVisited(true);
+    q.push(origin);
+    bool found=false;
+    while(!q.empty()){
+        auto u= q.front();
+        q.pop();
+        if(u->getName()==destination->getName()){found= true;break;}
+        for(auto line: u->getAdj()){
+            if(!line->getDest()->isVisited() and line->getFlow()>0){
+                line->getDest()->setVisited(true);
+                q.push(line->getDest());
+
+                line->getDest()->setPath(line);
+            }
+        }
+    }
+    if(found){
+        auto u= destination;
+        while(u->getName()!=origin->getName()){
+            if(u->getPath()->getFlow()<path.second) path.second=u->getPath()->getFlow();
+            path.first.insert(path.first.begin(),u->getPath());
+            u=u->getPath()->getOrig();
+        }
+        for(auto l:path.first){
+            l->setFlow(l->getFlow()-path.second);
+        }
+        paths.push_back(path);
+        return true;
+    }
+    return false;
+
+
 }
 
 

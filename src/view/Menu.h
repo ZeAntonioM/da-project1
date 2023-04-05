@@ -15,7 +15,7 @@
 
 using namespace std;
 
-enum menus{MAIN_MENU,FLOW,POP_MENU};
+enum menus{MAIN_MENU,NETWORK_INFORMATION,FLOW,POP_MENU};
 class Menu
 {
 private:

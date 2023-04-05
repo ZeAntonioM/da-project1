@@ -15,7 +15,7 @@
 
 using namespace std;
 
-typedef vector<Line> Connections;
+typedef vector<Line *> Connections;
 typedef pair<Connections,int> Path;
 class Graph {
 public:
@@ -64,7 +64,7 @@ public:
      * @return the set with all the stations
      * @complexity O(1)
      */
-     vector<Station *> getStationSet() const;
+    vector<Station *> getStationSet() const;
     /**
      * @brief calculates the max flow between two stations
      * @param src station where the trains leave
@@ -148,6 +148,7 @@ protected:
      * @brief Finds the shortest Path between two stations.
      */
     void bfs(string origin, string destination);
+    bool path_bfs(Station *origin, Station *destination, vector<Path> &paths);
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
 };
