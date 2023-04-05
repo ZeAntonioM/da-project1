@@ -2,68 +2,58 @@
 
 MaxFlowOrigins::MaxFlowOrigins(Graph &graph) : Action(graph) {}
 
-vector<string> MaxFlowOrigins::findorigins()
-{
-    vector<string> final;
-    for (Station *station : graph->getStationSet())
-    {
-        if (station->getAdj().size() == 1)
-        {
-            final.push_back(station->getName());
-        }
-    }
-    return final;
-}
 
 void MaxFlowOrigins::execute()
 {
-    vector<string> input = findorigins();
-    vector<string> current;
+    vector<Station*> input = graph->getOrigins();
+    vector<Station *> current;
     pair<int, int> maxnumber = make_pair(0, 0);
-    string maxstation1;
-    string maxstation2;
-    generateCombinations(input, current, 0, maxnumber, maxstation1, maxstation2);
-    cout << "┌\033[0m──────────────────────────────────────────────────────────────────────────────────────────────┐"
+    StationPair stationPair;
+    generateCombinations(input, current, 0, maxnumber,stationPair );
+    string station_name1= stationPair.first->getName();
+    string station_name2= stationPair.second->getName();
+    cout << "┌\033[0m─────────────────────────────────────────────────────────────────────────────────────────────────┐"
          << endl;
-    cout << "│\033[40m                              Largest Max Flow Between all Origins                            \033[0m│" << endl;
-    cout << "│\033[40m──────────────────────────────────────────────────────────────────────────────────────────────\033[0m│" << endl;
-    cout << "│\033[40m Source                             │ Destiny                            │ Max Flow  │ Cost   \033[0m│" << endl;
+    cout << "│\033[40m                                Largest Max Flow Between all Origins                             \033[0m│" << endl;
+    cout << "│\033[40m─────────────────────────────────────────────────────────────────────────────────────────────────\033[0m│" << endl;
+    cout << "│\033[40m Source                               │ Destiny                             │ Max Flow  │ Cost   \033[0m│" << endl;
     cout << "│\033[100m ";
-    cout << maxstation1;
-    for (int i = 0; i < 37 - maxstation1.length() + specialChars(maxstation1); i++)
+    cout << station_name1;
+    for (int i = 0; i < 37 - station_name1.length() + specialChars(station_name1); i++)
     {
         cout << ' ';
     };
-    cout << maxstation2;
-    for (int i = 0; i < 37 - maxstation2.length() + specialChars(maxstation2); i++)
+    cout << "│"<<station_name2;
+    for (int i = 0; i < 37 - station_name2.length() + specialChars(station_name2); i++)
     {
         cout << ' ';
     };
-    cout << maxnumber.first;
-    cout << "           ";
-    cout << maxnumber.second;
-    cout << "     ";
+    cout << "│"<< maxnumber.first;
+    for(int i=1; i< 13-to_string(maxnumber.first).length();i++)cout<<" ";
+
+    cout << "│"<< maxnumber.second;
+    for(int i=1; i< 8-to_string(maxnumber.second).length();i++)cout<<" ";
+
     cout << "\033[0m│" << endl;
-    cout << "└\033[40m──────────────────────────────────────────────────────────────────────────────────────────────\033[0m┘"
+    cout << "└\033[40m─────────────────────────────────────────────────────────────────────────────────────────────────\033[0m┘"
          << endl;
     cout << endl
          << "\033[32mEnter anything to go back: ";
-    int s;
-    cin >> s;
-    return;
     wait();
+    return;
+
 }
 
-void MaxFlowOrigins::generateCombinations(const vector<string> &input, vector<string> &current, int start, pair<int, int> &maxNumber, string &maxstation1, string &maxstation2)
+void MaxFlowOrigins::generateCombinations(const vector<Station *> &input, vector<Station *> &current, int start, FlowCost &maxNumber, StationPair &stationPair)
 {
     if (current.size() == 2)
     {
         // get the number from the function and update maxNumber if it's higher
-        pair<int, int> result = graph->maxFlow(current[0], current[1]);
+        FlowCost result = graph->maxFlow(current[0]->getName(), current[1]->getName());
         if (result.first > maxNumber.first)
         {
-            maxstation1 = current[0];
-            maxstation2 = current[1];
+            stationPair.first = current[0];
+            stationPair.second = current[1];
             maxNumber = result;
         }
         return;
@@ -71,7 +61,7 @@ void MaxFlowOrigins::generateCombinations(const vector<string> &input, vector<st
     for (int i = start; i < input.size(); i++)
     {
         current.push_back(input[i]);
-        generateCombinations(input, current, i + 1, maxNumber, maxstation1, maxstation2);
+        generateCombinations(input, current, i + 1, maxNumber, stationPair);
         current.pop_back();
     }
 }

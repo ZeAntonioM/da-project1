@@ -5,11 +5,13 @@
 
 class MaxFlowOrigins : public Action
 {
+    typedef pair<Station *, Station*> StationPair;
+    typedef pair<int,int> FlowCost;
 public:
     MaxFlowOrigins(Graph &graph);
     void execute() override;
     vector<string> findorigins();
-    void generateCombinations(const vector<string> &input, vector<string> &current, int start, pair<int, int> &maxNumber, string &maxstation1, string &maxstation2);
+    void generateCombinations(const vector<Station *> &input, vector<Station *> &current, int start, FlowCost &maxNumber, StationPair & stationPair);
     int specialChars(string word) const;
 };
 #endif
