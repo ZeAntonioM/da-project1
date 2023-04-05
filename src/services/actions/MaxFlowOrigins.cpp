@@ -19,11 +19,38 @@ void MaxFlowOrigins::execute()
 {
     vector<string> input = findorigins();
     vector<string> current;
-    pair<int, int> maxnumber;
+    pair<int, int> maxnumber = make_pair(0, 0);
     string maxstation1;
     string maxstation2;
     generateCombinations(input, current, 0, maxnumber, maxstation1, maxstation2);
-    cout << maxstation1 << "->" << maxstation2 << "| Cost:" << maxnumber.first << "| Price" << maxnumber.second << endl;
+    cout << "\033[0m _______________________________________________________________________________________________"
+         << endl;
+    cout << "|\033[40m                              Largest Max Flow Between all Origins                            \033[0m|" << endl;
+    cout << "|\033[40m______________________________________________________________________________________________\033[0m|" << endl;
+    cout << "|\033[40m Source                             | Destiny                            | Max Flow  | Cost   \033[0m|" << endl;
+    cout << "|\033[100m ";
+    cout << maxstation1;
+    for (int i = 0; i < 37 - maxstation1.length() + specialChars(maxstation1); i++)
+    {
+        cout << ' ';
+    };
+    cout << maxstation2;
+    for (int i = 0; i < 37 - maxstation2.length() + specialChars(maxstation2); i++)
+    {
+        cout << ' ';
+    };
+    cout << maxnumber.first;
+    cout << "           ";
+    cout << maxnumber.second;
+    cout << "     ";
+    cout << "\033[0m|" << endl;
+    cout << "|\033[40m______________________________________________________________________________________________\033[0m|"
+         << endl;
+    cout << endl
+         << "\033[32mEnter anything to go back: ";
+    int s;
+    cin >> s;
+    return;
     wait();
 }
 
@@ -47,4 +74,15 @@ void MaxFlowOrigins::generateCombinations(const vector<string> &input, vector<st
         generateCombinations(input, current, i + 1, maxNumber, maxstation1, maxstation2);
         current.pop_back();
     }
+}
+
+int MaxFlowOrigins::specialChars(string word) const
+{
+    int count = 0;
+    for (char c : word)
+    {
+        if (c < 0)
+            count++;
+    }
+    return count / 2;
 }
