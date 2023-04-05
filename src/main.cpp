@@ -4,6 +4,7 @@
 
 using namespace std;
 int main() {
+
     cout<<"Do you want to run the tests? [y/n]";
     string res;
     cin>>res;

@@ -5,12 +5,15 @@
 #include "Program.h"
 #include "actions/MaxFlow.h"
 #include "actions/CheapestMaxFlow.h"
+
 #include "actions/Disable.h"
 #include "actions/DestinationMaxFlow.h"
 #include "actions/ShowStations.h"
 #include "actions/SearchStation.h"
 #include "actions/Edit.h"
 #include "actions/Create.h"
+#include "actions/MaxFlowOrigins.h"
+
 
 
 Program::Program(){
@@ -24,14 +27,17 @@ Program::Program(){
 void Program::run(){
     while(!menuPage.empty()) {
         if(menuPage.top()==POP_MENU){
+
             menuPage.pop();
             menuPage.pop();
         }
-        else{
+        else
+        {
             menus[menuPage.top()].execute();
         }
     }
 }
+
 
 void Program::createMenus() {
     Menu menu=Menu("../menus/Main.txt");
@@ -47,6 +53,7 @@ void Program::createMenus() {
     flow.addMenuItem(new MaxFlow(graph));
     flow.addMenuItem(new CheapestMaxFlow(graph));
     flow.addMenuItem(new DestinationMaxFlow(graph));
+    flow.addMenuItem(new MaxFlowOrigins(graph));
     flow.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(flow);
 
@@ -78,6 +85,7 @@ void Program::createMenus() {
     menus.push_back(createMenu);
 
 }
+
 
 
 
