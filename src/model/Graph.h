@@ -126,7 +126,19 @@ public:
      * @complexity O(V+E) being V the number of stations and E the number of lines in the paths
      */
     int calculateCost(Station *src,Station *dst);
+    /**
+     * @brief returns all the paths needed to achieve the maximum flow between two station
+     * @param src station where the trains will leave
+     * @param dst station where the trains will arrive
+     * @return a vector with all the paths needed to achieve the max flow
+     */
     vector<Path> getPaths(string src, string dst);
+    /**
+     * @brief returns all the paths needed to achieve the maximum flow with minimum cost between two station
+     * @param src station where the trains will leave
+     * @param dst station where the trains will arrive
+     * @return a vector with all the paths needed to achieve the max flow with minimum cost
+     */
     vector<Path> getCheapestPaths(string src, string dst);
 protected:
 
@@ -141,6 +153,13 @@ protected:
      * @brief Finds the index of the Station with a given content.
      */
     int findStationIdx(const int &id) const;
+    /**
+     * @brief Returns the current path of flow from one station to another and relaxes the lines of the path
+     * @param origin Station where the trains leave
+     * @param dst Station where the trains arrive
+     * @return the current  path of flow  from one station to another
+     */
+    Path getPath(Station * origin, Station * dst);
 
 
     /**
@@ -149,7 +168,21 @@ protected:
      * @brief Finds the shortest Path between two stations.
      */
     void bfs(string origin, string destination);
+    /**
+     * @brief searches for a path of flow with the least stops between two station.
+     * @param origin station where the trains will leave
+     * @param destination station where the trains will arrive
+     * @param paths vector of path where the path is going to be insert
+     * @return true if a path is found, false otherwise.
+     */
     bool path_bfs(Station *origin, Station *destination, vector<Path> &paths);
+    /**
+     * @brief searches for a path of flow with the minimum cost between two station.
+     * @param origin station where the trains will leave
+     * @param destination station where the trains will arrive
+     * @param paths vector of path where the path is going to be insert
+     * @return true if a path is found, false otherwise.
+     */
     bool path_dijkstra(Station *origin, Station *destination, vector<Path> &paths);
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );

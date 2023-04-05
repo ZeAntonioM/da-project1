@@ -207,9 +207,10 @@ vector<Path> Graph::getPaths(string src, string dst) {
     auto v1= findStation(src);
     auto v2= findStation(dst);
     for(auto station:stationSet) station->setProcessing(false);
-    Path path= make_pair(Connections(),INT32_MAX);
     vector<Path> paths;
-    while(path_bfs(v1,v2,paths));
+    while(path_bfs(v1,v2,paths)){
+        paths.push_back(getPath(v1,v2));
+    }
     return paths;
 }
 void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path) {
@@ -254,28 +255,14 @@ bool Graph:: path_bfs(Station *origin, Station *destination, vector<Path> &paths
             }
         }
     }
-    if(found){
-        auto u= destination;
-        while(u->getName()!=origin->getName()){
-            if(u->getPath()->getFlow()<path.second) path.second=u->getPath()->getFlow();
-            path.first.insert(path.first.begin(),u->getPath());
-            u=u->getPath()->getOrig();
-        }
-        for(auto l:path.first){
-            l->setFlow(l->getFlow()-path.second);
-        }
-        paths.push_back(path);
-        return true;
-    }
-    return false;
+
+    return found;
 
 
 }
 bool Graph ::path_dijkstra(Station *origin, Station *destination, vector<Path> &paths) {
     int price=0;
-    Path path= make_pair(Connections(),INT32_MAX);
     for (Station *Station: stationSet) {
-        Station->setVisited(false);
         Station->setDist(INF);
     }
     bool found=false;
@@ -289,7 +276,6 @@ bool Graph ::path_dijkstra(Station *origin, Station *destination, vector<Path> &
         if(station->getName()==destination->getName()){
             found=true;
             break;
-
         }
         for (auto line: station->getAdj()) {
             price=station->getDist()+line->getCost();
@@ -300,19 +286,7 @@ bool Graph ::path_dijkstra(Station *origin, Station *destination, vector<Path> &
             }
         }
     }
-    if(found){
-        auto u= destination;
-        while(u->getName()!=origin->getName()){
-            if(u->getPath()->getFlow()<path.second) path.second=u->getPath()->getFlow();
-            path.first.insert(path.first.begin(),u->getPath());
-            u=u->getPath()->getOrig();
-        }
-        for(auto l:path.first){
-            l->setFlow(l->getFlow()-path.second);
-        }
-        paths.push_back(path);
 
-    }
     return found;
 }
 
@@ -320,12 +294,25 @@ vector<Path> Graph::getCheapestPaths(std::string src, std::string dst) {
     auto v1= findStation(src);
     auto v2= findStation(dst);
     for(auto station:stationSet) station->setProcessing(false);
-    Path path= make_pair(Connections(),INT32_MAX);
     vector<Path> paths;
-    while(path_bfs(v1,v2,paths));
-
+    while(path_dijkstra(v1,v2,paths)){
+        paths.push_back(getPath(v1,v2));
+    }
     return paths;
+}
 
+Path Graph::getPath(Station* origin, Station * destination) {
+    Path path= make_pair(Connections(),INT32_MAX);
+    auto u= destination;
+    while(u->getName()!=origin->getName()){
+        if(u->getPath()->getFlow()<path.second) path.second=u->getPath()->getFlow();
+        path.first.insert(path.first.begin(),u->getPath());
+        u=u->getPath()->getOrig();
+    }
+    for(auto l:path.first){
+        l->setFlow(l->getFlow()-path.second);
+    }
+    return path;
 }
 
 Graph::~Graph() {

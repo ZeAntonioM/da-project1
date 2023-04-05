@@ -4,10 +4,11 @@
 
 #include "GraphTests.h"
 #include "../src/model/Graph.h"
+#include "../src/view/DrawPaths.h"
 
 using namespace std;
 void GraphTests::run() {
-    system("clear");
+    /*system("clear");
     Graph myGraph2;
 
     myGraph2.addStation(new Station("a"));
@@ -63,7 +64,7 @@ void GraphTests::run() {
         for(StationPair stationPair: path.first){
             cout<<stationPair.first->getName()<<" -> "<<stationPair.second->getName()<<endl;
         }
-    }*/
+    }
 
     Graph myGraph3;
 
@@ -192,6 +193,62 @@ void GraphTests::run() {
 
     cout<<"Maximum flow: "<<p.first<<" - Cost: "<<p.second<<endl;
     if(m.first==p.first and m.second>=p.second) cout<<"Passed!\n";
-    else cout<<"Failed!";
+    else cout<<"Failed!";*/
+    /*Graph graph;
+    graph.addStation(new Station("a"));
+    graph.addStation(new Station("b"));
+    graph.addStation(new Station("c"));
+    graph.addStation(new Station("d"));
+    graph.addStation(new Station("e"));
+    graph.addStation(new Station("f"));
+    graph.addStation(new Station("g"));
+    graph.addStation(new Station("h"));
+    graph.addStation(new Station("i"));
+    graph.addStation(new Station("j"));
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("b"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("d"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("g"),3,ALFA);
+    graph.addBidirectionalLine(graph.findStation("b"),graph.findStation("c"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("d"),graph.findStation("c"),2,ALFA);
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("c"),3,ALFA);
+    graph.addBidirectionalLine(graph.findStation("c"),graph.findStation("f"),3,ALFA);
+    graph.addBidirectionalLine(graph.findStation("c"),graph.findStation("j"),3,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("c"),graph.findStation("e"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("f"),graph.findStation("e"),5,ALFA);
+    graph.addBidirectionalLine(graph.findStation("j"),graph.findStation("e"),3,ALFA);
+    graph.addBidirectionalLine(graph.findStation("g"),graph.findStation("h"),3,ALFA);
+    graph.addBidirectionalLine(graph.findStation("h"),graph.findStation("i"),3,ALFA);
+    graph.addBidirectionalLine(graph.findStation("i"),graph.findStation("j"),3,ALFA);
+    // graph.addBidirectionalLine(graph.findStation("j"),graph.findStation("e"),3,ALFA);
+
+    pair<int,int> m=graph.maxFlow("a","e");
+    DrawPaths drawPaths= DrawPaths();
+    drawPaths.pageController(m.first,m.second,graph.getPaths("a","e"));
+    m=graph.cheapestMaxFlow("a","e");
+    drawPaths.pageController(m.first,m.second,graph.getCheapestPaths("a","e"));
+    graph;*/
+    Graph graph;
+    graph.addStation(new Station("a"));
+    graph.addStation(new Station("b"));
+    graph.addStation(new Station("c"));
+    graph.addStation(new Station("d"));
+    graph.addStation(new Station("e"));
+    graph.addStation(new Station("f"));
+    graph.addStation(new Station("g"));
+    graph.addStation(new Station("h"));
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("b"),3,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("b"),graph.findStation("c"),2,ALFA);
+    graph.addBidirectionalLine(graph.findStation("c"),graph.findStation("d"),2,ALFA);
+    graph.addBidirectionalLine(graph.findStation("d"),graph.findStation("h"),2,ALFA);
+    graph.addBidirectionalLine(graph.findStation("b"),graph.findStation("e"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("e"),graph.findStation("f"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("f"),graph.findStation("g"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("g"),graph.findStation("h"),2,STANDARD);
+    pair<int,int> m=graph.maxFlow("a","h");
+    DrawPaths drawPaths= DrawPaths();
+    drawPaths.pageController(m.first,m.second,graph.getPaths("a","h"));
+    m=graph.cheapestMaxFlow("a","h");
+    drawPaths.pageController(m.first,m.second,graph.getCheapestPaths("a","h"));
+
 
 }

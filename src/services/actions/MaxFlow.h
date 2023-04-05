@@ -11,7 +11,15 @@
 class MaxFlow: public Action{
 
 public:
+    /**
+     * @brief Constructor of the MaxFlow
+     * @param graph with all the information of the network
+     */
     MaxFlow(Graph &graph);
+    /**
+     * @brief Asks the user for two stations and displays the maximum flow between them,
+     * its cost and the paths needed to achieve it
+     */
     void execute() override;
 
 };
