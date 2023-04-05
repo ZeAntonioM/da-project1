@@ -95,6 +95,11 @@ bool Graph::findPath(Station *src, Station *dst) {
         Station->setVisited(false);
     }
 
+    if(src->isDisabled() || dst->isDisabled()) {
+        cout << "One of the stations is disabled" << endl;
+        return false;
+    }
+
     queue<Station*> s;
     s.push(src);
     src->setVisited(true);
@@ -106,14 +111,14 @@ bool Graph::findPath(Station *src, Station *dst) {
             return true;
         }
         for (Line *line: station->getAdj()) {
-            if (!line->getDest()->isVisited() and !line->isFull()) {
+            if (!line->getDest()->isVisited() and !line->isFull() and !line->isDisabled() and !line->getDest()->isDisabled()) {
                 line->getDest()->setVisited(true);
                 line->getDest()->setPath(line);
                 s.push(line->getDest());
             }
         }
         for (Line *line: station->getIncoming()) {
-            if (!line->getOrig()->isVisited() and line->getFlow() > 0) {
+            if (!line->getOrig()->isVisited() and line->getFlow() > 0 and !line->isDisabled() and !line->getOrig()->isDisabled()) {
                 line->getOrig()->setVisited(true);
                 line->getOrig()->setPath(line);
                 s.push(line->getOrig());
@@ -138,8 +143,9 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
             return true;
         }
         for (auto line: station->getAdj()) {
+
             price=station->getDist()+line->getCost();
-            if ( !line->isFull() and line->getDest()->getDist()>price) {
+            if (!line->isFull() and line->getDest()->getDist()>price and !line->isDisabled() and !line->getDest()->isDisabled()) {
                 // line->getDest()->setVisited(true);
                 line->getDest()->setPath(line);
                 line->getDest()->setDist(price);
@@ -147,8 +153,9 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
             }
         }
         for (Line *line: station->getIncoming()) {
+
             price=station->getDist()+line->getCost();
-            if ( line->getFlow() > 0 and line->getOrig()->getDist()>price ) {
+            if (line->getFlow() > 0 and line->getOrig()->getDist()>price and !line->isDisabled() and !line->getOrig()->isDisabled()) {
                 // line->getOrig()->setVisited(true);
                 line->getOrig()->setPath(line);
                 line->getOrig()->setDist(price);
@@ -258,18 +265,35 @@ void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths,
     }
     return;
 }
-void Graph:: deleteGraph(){
+void Graph:: deleteGraph() {
     distributor.removeOutgoingLines();
-
     for(auto station :stationSet) {
         station->removeOutgoingLines();
         station->getAdj().clear();
     }
     for(auto station :stationSet) {
-       delete station;
+        delete station;
     }
     stationSet.clear();
 }
+
+
+void Graph::DisableLine(Line *line) {
+    line->setDisabled(true);
+}
+
+void Graph::EnableLine(Line *line) {
+    line->setDisabled(false);
+}
+
+void Graph::DisableStation(Station *station) {
+    station->setDisabled(true);
+}
+
+void Graph::EnableStation(Station *station) {
+    station->setDisabled(false);
+}
+
 
 bool Graph:: path_bfs(Station *origin, Station *destination, vector<Path> &paths){
     for(Station * station: stationSet ) station->setVisited(false);

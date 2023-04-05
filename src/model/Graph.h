@@ -136,6 +136,15 @@ public:
      */
     vector<Path> getPaths(string src, string dst);
 
+
+    void DisableLine(Line *line);
+
+    void EnableLine(Line *line);
+
+    void DisableStation(Station *station);
+
+    void EnableStation(Station *station);
+
     /**
      * @brief returns all the paths needed to achieve the maximum flow with minimum cost between two station
      * @param src station where the trains will leave
@@ -161,7 +170,6 @@ public:
      * @complexity O(1)
      */
     Station  getDistributor() const;
-
 
 protected:
 
@@ -213,11 +221,14 @@ protected:
 
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
+
     /**
      * @brief deletes the graph
      * @complexity (V+E) being V the number of stations and E the number of lines
      */
+
     void deleteGraph();
+
 
 };
 
