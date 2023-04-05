@@ -47,7 +47,7 @@ public:
      * @return true if successful, and false if the source or destination Station does not exist.
      * @complexity O(1)
      */
-    bool addLine(Station *src, Station * dest, double w, services service);
+    bool addLine(Station *src, Station * dest, int w, services service);
 
     /**
      * @param src Station Source
@@ -58,7 +58,7 @@ public:
      * @complexity O(log N) being N the number of stations.
      * @brief Adds two lines at the same time, one in each direction, between the source and destination stations, with the given capacity (w).
      */
-    bool addBidirectionalLine(Station *src, Station *dst, double w, services service);
+    bool addBidirectionalLine(Station *src, Station *dst, int w, services service);
 
     /**
      * @brief returns the se with all the stations

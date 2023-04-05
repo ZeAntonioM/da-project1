@@ -10,7 +10,7 @@ bool Graph::addStation(Station *Station) {
     stationSet.push_back(Station);
 }
 
-bool Graph::addLine(Station *src , Station *dest, double w, services service) {
+bool Graph::addLine(Station *src , Station *dest, int w, services service) {
     if (src == nullptr || dest == nullptr)
         return false;
     src->addLine(dest, w,service);
@@ -33,7 +33,7 @@ Station  Graph::getDistributor() const {
     return this->distributor;
 }
 
-bool Graph::addBidirectionalLine(Station *src, Station *dst, double w, services service) {
+bool Graph::addBidirectionalLine(Station *src, Station *dst, int w, services service) {
     if (src == nullptr || dst == nullptr)
         return false;
     auto e1 = src->addLine(dst, w,service);

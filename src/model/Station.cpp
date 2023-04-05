@@ -124,6 +124,11 @@ void Station::setPath(Line *path)
     this->path = path;
 }
 
+void Station::setStationLine(string _station_line)
+{
+    this->station_line = _station_line;
+}
+
 void Station::deleteLine(Line *Line)
 {
     Station *dest = Line->getDest();

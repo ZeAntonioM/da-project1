@@ -1,12 +1,12 @@
 #include "StationLine.h"
 
-Line::Line(Station *orig, Station *dest, double w, services s): orig(orig), dest(dest), capacity(w), service(s) {}
+Line::Line(Station *orig, Station *dest, int w, services s): orig(orig), dest(dest), capacity(w), service(s) {}
 
 Station * Line::getDest() const {
     return this->dest;
 }
 
-double Line::getCapacity() const {
+int Line::getCapacity() const {
     return this->capacity;
 }
 
@@ -22,7 +22,7 @@ bool Line::isDisabled() const {
     return this->disabled;
 }
 
-double Line::getFlow() const {
+int Line::getFlow() const {
     return flow;
 }
 
@@ -38,21 +38,32 @@ void Line::setReverse(Line *_reverse) {
     this->reverse = _reverse;
 }
 
-void Line::setFlow(double _flow) {
+void Line::setFlow(int _flow) {
     this->flow = _flow;
 }
 
 void Line::setVisited(bool _visited) {
     this->visited = _visited;
 }
+
+void Line::setService(services _service) {
+    this->service = _service;
+}
+
+void Line::setCapacity(int _capacity) {
+    this->capacity = _capacity;
+}
+
 services Line::getService() const {
     return this->service;
 }
+
 int Line::getCost() const {
     if(this->service==ALFA) return 4;
     else if(this->service==STANDARD) return 2;
     else return 0;
 }
+
 bool Line::isFull() const {
     if( this->reverse== nullptr) return this->flow>= this->capacity;
     return (this->flow + this->reverse->flow >= this->capacity );

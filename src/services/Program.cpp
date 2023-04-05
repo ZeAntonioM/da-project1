@@ -9,6 +9,8 @@
 #include "actions/DestinationMaxFlow.h"
 #include "actions/ShowStations.h"
 #include "actions/SearchStation.h"
+#include "actions/Edit.h"
+#include "actions/Create.h"
 
 
 Program::Program(){
@@ -36,6 +38,8 @@ void Program::createMenus() {
     menu.addMenuItem( new ChangeMenu (menuPage,graph,NETWORK_INFORMATION));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,FLOW));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE_MENU));
+    menu.addMenuItem( new ChangeMenu (menuPage,graph,EDIT_MENU));
+    menu.addMenuItem( new ChangeMenu (menuPage,graph,CREATE_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu);
 
@@ -60,6 +64,18 @@ void Program::createMenus() {
     networkInformation.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(networkInformation);
 
+    Menu mainEdit = Menu("../menus/Edit.txt");
+    mainEdit.addMenuItem( new EditStationsLine(graph));
+    mainEdit.addMenuItem( new EditLinesService(graph));
+    mainEdit.addMenuItem( new EditLinesCapacity(graph));
+    mainEdit.addMenuItem(new ChangeMenu (menuPage,graph,POP_MENU));
+    menus.push_back(mainEdit);
+
+    Menu createMenu = Menu("../menus/Create.txt");
+    createMenu.addMenuItem( new CreateStation(graph));
+    createMenu.addMenuItem( new CreateLine(graph));
+    createMenu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    menus.push_back(createMenu);
 
 }
 
