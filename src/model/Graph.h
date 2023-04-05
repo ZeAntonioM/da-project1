@@ -132,6 +132,7 @@ public:
      * @param src station where the trains will leave
      * @param dst station where the trains will arrive
      * @return a vector with all the paths needed to achieve the max flow
+     * @complexity O(E) being E the number of lines in the paths
      */
     vector<Path> getPaths(string src, string dst);
 
@@ -140,11 +141,25 @@ public:
      * @param src station where the trains will leave
      * @param dst station where the trains will arrive
      * @return a vector with all the paths needed to achieve the max flow with minimum cost
+     * @complexity O(E) being E the number of lines in the paths
      */
     vector<Path> getCheapestPaths(string src, string dst);
-
+    /**
+     * @brief determines which stations are Origins and connects the Distributor to them
+     * @complexity O(V) being V the number os stations in the graph
+     */
     void calculateOrigins();
+    /**
+     * @brief returns the origins
+     * @return the origins
+     * @complexity O(1)
+     */
     vector<Station *> getOrigins()const;
+    /**
+     * @brief returns the distributor
+     * @return the distributor
+     * @complexity O(1)
+     */
     Station  getDistributor() const;
 
 
@@ -198,6 +213,10 @@ protected:
 
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
+    /**
+     * @brief deletes the graph
+     * @complexity (V+E) being V the number of stations and E the number of lines
+     */
     void deleteGraph();
 
 };
