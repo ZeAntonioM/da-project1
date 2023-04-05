@@ -135,6 +135,15 @@ public:
      */
     vector<Path> getPaths(string src, string dst);
 
+
+    void DisableLine(Line *line);
+
+    void EnableLine(Line *line);
+
+    void DisableStation(Station *station);
+
+    void EnableStation(Station *station);
+
     /**
      * @brief returns all the paths needed to achieve the maximum flow with minimum cost between two station
      * @param src station where the trains will leave
@@ -146,7 +155,6 @@ public:
     void calculateOrigins();
     vector<Station *> getOrigins()const;
     Station  getDistributor() const;
-
 
 protected:
 
@@ -198,7 +206,9 @@ protected:
 
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
+
     void deleteGraph();
+
 
 };
 

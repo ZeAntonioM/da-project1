@@ -163,6 +163,14 @@ string Station::getTownship() const
     return this->township;
 }
 
+void Station::setDisabled(bool _disabled) {
+    this->disabled = _disabled;
+}
+
+bool Station::isDisabled() const {
+    return this->disabled;
+}
+
 int Station::specialChars(string word) const
 {
     int count = 0;
@@ -196,4 +204,5 @@ void Station::print() const
     {
         cout << ' ';
     };
+
 }
