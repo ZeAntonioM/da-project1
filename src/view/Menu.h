@@ -76,6 +76,7 @@ public:
      * @complexity O(1)
      */
     bool getInput(int &option);
+    ~Menu();
 };
 
 

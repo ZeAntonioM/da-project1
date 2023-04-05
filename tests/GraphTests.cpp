@@ -194,11 +194,20 @@ void GraphTests::run() {
     cout<<"Maximum flow: "<<p.first<<" - Cost: "<<p.second<<endl;
     if(m.first==p.first and m.second>=p.second) cout<<"Passed!\n";
     else cout<<"Failed!";*/
+
     /*Graph graph;
+=======
+    Graph graph;
+    graph.addStation(new Station("s1"));
+    graph.addStation(new Station("s2"));
+    graph.addStation(new Station("s3"));
+    graph.addStation(new Station("s4"));
+>>>>>>> max_flow_with_one_destination
     graph.addStation(new Station("a"));
     graph.addStation(new Station("b"));
     graph.addStation(new Station("c"));
     graph.addStation(new Station("d"));
+<<<<<<< HEAD
     graph.addStation(new Station("e"));
     graph.addStation(new Station("f"));
     graph.addStation(new Station("g"));
@@ -221,12 +230,15 @@ void GraphTests::run() {
     graph.addBidirectionalLine(graph.findStation("i"),graph.findStation("j"),3,ALFA);
     // graph.addBidirectionalLine(graph.findStation("j"),graph.findStation("e"),3,ALFA);
 
+    Graph graph;
+
     pair<int,int> m=graph.maxFlow("a","e");
     DrawPaths drawPaths= DrawPaths();
     drawPaths.pageController(m.first,m.second,graph.getPaths("a","e"));
     m=graph.cheapestMaxFlow("a","e");
     drawPaths.pageController(m.first,m.second,graph.getCheapestPaths("a","e"));
     graph;*/
+    /*
     Graph graph;
     graph.addStation(new Station("a"));
     graph.addStation(new Station("b"));
@@ -249,6 +261,39 @@ void GraphTests::run() {
     drawPaths.pageController(m.first,m.second,graph.getPaths("a","h"));
     m=graph.cheapestMaxFlow("a","h");
     drawPaths.pageController(m.first,m.second,graph.getCheapestPaths("a","h"));
+*/
+
+    Graph graph;
+
+
+    graph.addStation(new Station("dst"));
+    graph.addStation(new Station("s1"));
+    graph.addStation(new Station("s2"));
+    graph.addStation(new Station("s3"));
+    graph.addStation(new Station("s4"));
+    graph.addStation(new Station("a"));
+    graph.addStation(new Station("b"));
+    graph.addStation(new Station("c"));
+    graph.addStation(new Station("d"));
+    graph.addBidirectionalLine(graph.findStation("s1"),graph.findStation("a"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("s2"),graph.findStation("b"),3,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("s3"),graph.findStation("c"),4,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("s4"),graph.findStation("d"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("dst"),4,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("b"),graph.findStation("dst"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("c"),graph.findStation("dst"),3,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("d"),graph.findStation("dst"),5,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("b"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("a"),graph.findStation("d"),2,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("b"),graph.findStation("c"),4,STANDARD);
+    graph.addBidirectionalLine(graph.findStation("c"),graph.findStation("d"),3,STANDARD);
+    graph.calculateOrigins();
+    pair<int,int> f= graph.maxFlow(graph.getDistributor().getName(),"dst");
+    cout<< f.first<<f.second<<endl;
+    vector<Path> paths= graph.getPaths(graph.getDistributor().getName(),"dst");
+    DrawPaths drawPaths= DrawPaths();
+    drawPaths.pageController(f.first,f.second,paths);
+    cout <<"ola";
 
 
 }

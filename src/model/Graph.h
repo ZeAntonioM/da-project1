@@ -19,6 +19,7 @@ typedef vector<Line *> Connections;
 typedef pair<Connections,int> Path;
 class Graph {
 public:
+
     ~Graph();
 
     /**
@@ -133,6 +134,7 @@ public:
      * @return a vector with all the paths needed to achieve the max flow
      */
     vector<Path> getPaths(string src, string dst);
+
     /**
      * @brief returns all the paths needed to achieve the maximum flow with minimum cost between two station
      * @param src station where the trains will leave
@@ -140,9 +142,18 @@ public:
      * @return a vector with all the paths needed to achieve the max flow with minimum cost
      */
     vector<Path> getCheapestPaths(string src, string dst);
+
+    void calculateOrigins();
+    vector<Station *> getOrigins()const;
+    Station  getDistributor() const;
+
+
 protected:
 
     vector<Station *> stationSet;    // Station set
+
+    vector<Station *> origins;
+    Station  distributor=  Station("Distributor");
 
     double ** distMatrix = nullptr;   // dist matrix for Floyd-Warshall
 
@@ -185,7 +196,10 @@ protected:
      */
     bool path_dijkstra(Station *origin, Station *destination, vector<Path> &paths);
 
+
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
+    void deleteGraph();
+
 };
 
 /**
@@ -201,5 +215,6 @@ void deleteMatrix(int **m, int n);
  * @param n
  */
 void deleteMatrix(double **m, int n);
+
 
 #endif /* GRAPH */
