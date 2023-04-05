@@ -16,6 +16,10 @@ class Action
 {
 protected:
     Graph *graph;
+    /**
+     * @brief waits until the user insert anything
+     * complexity O(1)
+     */
     void wait() const;
 
 public:

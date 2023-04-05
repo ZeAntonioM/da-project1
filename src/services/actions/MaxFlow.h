@@ -19,6 +19,7 @@ public:
     /**
      * @brief Asks the user for two stations and displays the maximum flow between them,
      * its cost and the paths needed to achieve it
+     * @complexity O(V+E) being V the number of stations and E the number of lines in the graph
      */
     void execute() override;
 
