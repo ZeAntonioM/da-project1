@@ -13,15 +13,18 @@ void DisableLine::execute() {
     cout << "Insert the first station name: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, station1);
+
     cout << "Insert the second station name: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, station2);
+
     try {
         Station *_station1 = graph->findStation(station1);
+
+        if(_station1 == nullptr) throw string("Station 1 not found!\n");
+
         Station *_station2 = graph->findStation(station2);
 
-        if (_station2 == nullptr || _station1 == nullptr)
-            throw string("Station not found!");
+        if (_station2 == nullptr) throw string("Station 2 not found!\n");
 
         for (auto line: _station1->getAdj()) {
             if (line->getDest() == _station2) {
@@ -41,7 +44,7 @@ void DisableLine::execute() {
         wait();
     }
     catch (string err) {
-        cout << "An error has occur!" << err << endl;
+        cout << "An error has occur! \n" << err << endl;
         wait();
     }
 }
@@ -55,9 +58,10 @@ void EnableLine::execute() {
     cout<<"Insert the first station name: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin,station1);
+
     cout<<"Insert the second station name: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin,station2);
+
     try {
         Station *_station1 = graph->findStation(station1);
         Station *_station2 = graph->findStation(station2);

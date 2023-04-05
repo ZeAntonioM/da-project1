@@ -82,8 +82,8 @@ void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const {
                int flow= path2.second;
                for( auto info: path2.first){
                    page_height++;
-                   string from_name=info.getOrig()->getName();
-                   string to_name= info.getDest()->getName();
+                   string from_name=info->getOrig()->getName();
+                   string to_name= info->getDest()->getName();
                    int special_chars= spacialChars(from_name);
 
                     if(page_height%2==0)display+="│\033[40m ";
@@ -99,7 +99,7 @@ void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const {
                     for(int i=0; i<7- to_string(flow).length();i++) display+=" ";
                     display+="│ ";
                     string service;
-                    if(info.getService()==STANDARD) service="Standard";
+                    if(info->getService()==STANDARD) service="Standard";
                     else service="Alpha";
                     display+=service;
                     for(int i=0;i<9- (service).length();i++) display+=" ";

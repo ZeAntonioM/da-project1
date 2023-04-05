@@ -90,3 +90,9 @@ bool Menu::getInput(int &input) {
 
     return true;
 }
+Menu::~Menu() {
+    for(Action * action: actions){
+        // delete action;
+    }
+    actions.clear();
+}

@@ -33,6 +33,8 @@
 
 .idea/
 cmake-build-debug/
+build/
+.vscode/
 
 #Doxygen files
 html/

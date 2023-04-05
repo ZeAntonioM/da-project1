@@ -50,8 +50,10 @@ services Line::getService() const {
 }
 int Line::getCost() const {
     if(this->service==ALFA) return 4;
-    else return 2;
+    else if(this->service==STANDARD) return 2;
+    else return 0;
 }
 bool Line::isFull() const {
+    if( this->reverse== nullptr) return this->flow>= this->capacity;
     return (this->flow + this->reverse->flow >= this->capacity );
 }
