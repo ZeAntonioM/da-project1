@@ -10,7 +10,7 @@
 class DisableLine : public Action{
 
 public:
-    DisableLine(Graph graph);
+    DisableLine(Graph &graph);
 
     void execute()override;
 
@@ -19,7 +19,7 @@ public:
 class EnableLine : public Action{
 
 public:
-    EnableLine(Graph graph);
+    EnableLine(Graph &graph);
 
     void execute()override;
 
@@ -28,7 +28,7 @@ public:
 class DisableStation : public Action{
 
 public:
-    DisableStation(Graph graph);
+    DisableStation(Graph &graph);
 
     void execute()override;
 
@@ -38,7 +38,7 @@ class EnableStation : public Action{
 
 public:
 
-    EnableStation(Graph graph);
+    EnableStation(Graph &graph);
 
     void execute()override;
 

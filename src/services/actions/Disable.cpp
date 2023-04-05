@@ -4,7 +4,7 @@
 
 #include "Disable.h"
 
-DisableLine::DisableLine(Graph graph) : Action(graph) {}
+DisableLine::DisableLine(Graph &graph) : Action(graph) {}
 
 void DisableLine::execute() {
     string station1, station2;
@@ -46,7 +46,7 @@ void DisableLine::execute() {
     }
 }
 
-EnableLine::EnableLine(Graph graph) : Action(graph) {}
+EnableLine::EnableLine(Graph &graph) : Action(graph) {}
 
 void EnableLine::execute() {
     string station1, station2;
@@ -88,7 +88,7 @@ void EnableLine::execute() {
     }
 }
 
-DisableStation::DisableStation(Graph graph) : Action(graph) {}
+DisableStation::DisableStation(Graph &graph) : Action(graph) {}
 
 void DisableStation::execute() {
     string station;
@@ -111,7 +111,7 @@ void DisableStation::execute() {
     }
 }
 
-EnableStation::EnableStation(Graph graph) : Action(graph) {}
+EnableStation::EnableStation(Graph &graph) : Action(graph) {}
 
 void EnableStation::execute() {
     string station;
