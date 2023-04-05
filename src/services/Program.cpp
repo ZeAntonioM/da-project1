@@ -12,6 +12,7 @@
 #include "actions/SearchStation.h"
 
 #include "actions/ShowLines.h"
+#include "actions/SearchLine.h"
 
 Program::Program()
 {
@@ -51,6 +52,7 @@ void Program::createMenus()
     networkInformation.addMenuItem(new ShowStations(graph));
     networkInformation.addMenuItem(new SearchStation(graph));
     networkInformation.addMenuItem(new ShowLines(graph));
+    networkInformation.addMenuItem(new SearchLine(graph));
     networkInformation.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(networkInformation);
     Menu flow = Menu("../menus/Flow.txt");

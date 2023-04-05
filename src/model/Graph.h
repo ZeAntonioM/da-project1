@@ -30,6 +30,16 @@ public:
     Station *findStation(const string &name) const;
 
     /**
+     * @brief Auxiliary function to find a Line with a given source and destiny.
+     * @param src the source of the line we want to find
+     * @param dst the destiny of the line we want to find
+     * @return if the line is found returns a pointer to the Line otherwise returns nullptr
+     * @complexity O(N^2) being N the number of stations
+     */
+
+    Line *findLine(const string &src, const string &dst) const;
+
+    /**
      * @brief Adds a Station with a given content or info (in) to a graph (this).
      * @param Station Station to be added.
      * @return true if successful, and false if a Station with that content already exists.

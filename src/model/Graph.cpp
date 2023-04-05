@@ -8,6 +8,25 @@ Station *Graph::findStation(const string &name) const
     return nullptr;
 }
 
+Line *Graph::findLine(const string &src, const string &dst) const
+{
+    for (Line *line : lineVector)
+    {
+        if (line->getOrig()->getName() == src && line->getDest()->getName() == dst)
+        {
+            return line;
+        }
+    }
+    for (Line *line : lineVector)
+    {
+        if (line->getOrig()->getName() == dst && line->getDest()->getName() == src)
+        {
+            return line;
+        }
+    }
+    return nullptr;
+}
+
 bool Graph::addStation(Station *Station)
 {
     stationSet.push_back(Station);
