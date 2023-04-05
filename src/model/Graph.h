@@ -127,6 +127,7 @@ public:
      */
     int calculateCost(Station *src,Station *dst);
     vector<Path> getPaths(string src, string dst);
+    vector<Path> getCheapestPaths(string src, string dst);
 protected:
 
     vector<Station *> stationSet;    // Station set
@@ -149,6 +150,7 @@ protected:
      */
     void bfs(string origin, string destination);
     bool path_bfs(Station *origin, Station *destination, vector<Path> &paths);
+    bool path_dijkstra(Station *origin, Station *destination, vector<Path> &paths);
 
     void path_dfs(Station *origin, Station *destination, vector<Path> & paths, Path path );
 };

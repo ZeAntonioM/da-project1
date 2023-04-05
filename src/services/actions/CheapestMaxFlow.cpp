@@ -20,7 +20,7 @@ void CheapestMaxFlow::execute() {
     getline(cin,dst);
     try {
         flowCost = graph->cheapestMaxFlow(src, dst);
-        vector<Path> paths= graph->getPaths(src,dst);
+        vector<Path> paths= graph->getCheapestPaths(src,dst);
         if( flowCost.first==0) {
             cout<<"No path was found\n";
             wait();

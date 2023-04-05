@@ -7,7 +7,7 @@
 
 using namespace std;
 void GraphTests::run() {
-    /*system("clear");
+    system("clear");
     Graph myGraph2;
 
     myGraph2.addStation(new Station("a"));
@@ -37,8 +37,8 @@ void GraphTests::run() {
     cout<<"Normal maxFlow:\n";
     m=myGraph2.maxFlow("a","f");
     for(auto v : myGraph2.getStationSet()) {
-        ss += v.getName() + "-> (";
-        for ( auto e : v.getAdj())
+        ss += v->getName() + "-> (";
+        for ( auto e : v->getAdj())
             ss += (e->getDest())->getName() + "[Flow: " + to_string((int)e->getFlow()) + "] ";
         ss += ") || ";
     }
@@ -48,8 +48,8 @@ void GraphTests::run() {
     p=myGraph2.cheapestMaxFlow("a","f");
     ss="";
     for(auto v : myGraph2.getStationSet()) {
-        ss += v.getName() + "-> (";
-        for ( auto e : v.getAdj())
+        ss += v->getName() + "-> (";
+        for ( auto e : v->getAdj())
             ss += (e->getDest())->getName() + "[Flow: " + to_string((int)e->getFlow()) + "] ";
         ss += ") || ";
     }
@@ -58,12 +58,12 @@ void GraphTests::run() {
     cout<<"Maximum flow: "<<p.first<<" - Cost: "<<p.second<<endl;
     if(m.first==p.first and m.second>=p.second) cout<<"Passed!\n";
     else cout<<"Failed!";
-    for( Path path: myGraph2.getPaths("a","f")){
+    /*for( Path path: myGraph2.getPaths("a","f")){
         cout<<"Flow "<<path.second<<endl;
         for(StationPair stationPair: path.first){
             cout<<stationPair.first->getName()<<" -> "<<stationPair.second->getName()<<endl;
         }
-    }
+    }*/
 
     Graph myGraph3;
 
@@ -82,7 +82,7 @@ void GraphTests::run() {
     cout<<"Normal maxFlow:\n";
     m=myGraph3.maxFlow("a","e");
     for(auto v : myGraph2.getStationSet()) {
-        ss += vgetName() + "-> (";
+        ss += v->getName() + "-> (";
         for ( auto e : v->getAdj())
             ss += (e->getDest())->getName() + "[Flow: " + to_string((int)e->getFlow()) + "] ";
         ss += ") || ";
@@ -192,5 +192,6 @@ void GraphTests::run() {
 
     cout<<"Maximum flow: "<<p.first<<" - Cost: "<<p.second<<endl;
     if(m.first==p.first and m.second>=p.second) cout<<"Passed!\n";
-    else cout<<"Failed!";*/
+    else cout<<"Failed!";
+
 }

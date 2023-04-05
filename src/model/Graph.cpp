@@ -122,8 +122,8 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
         }
         for (auto line: station->getAdj()) {
             price=station->getDist()+line->getCost();
-            if (!line->getDest()->isVisited() and !line->isFull() and line->getDest()->getDist()>price) {
-                line->getDest()->setVisited(true);
+            if ( !line->isFull() and line->getDest()->getDist()>price) {
+                // line->getDest()->setVisited(true);
                 line->getDest()->setPath(line);
                 line->getDest()->setDist(price);
                 pq.push(make_pair(price,line->getDest()));
@@ -131,8 +131,8 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
         }
         for (Line *line: station->getIncoming()) {
             price=station->getDist()+line->getCost();
-            if (!line->getOrig()->isVisited() and line->getFlow() > 0 and line->getOrig()->getDist()>price ) {
-                line->getOrig()->setVisited(true);
+            if ( line->getFlow() > 0 and line->getOrig()->getDist()>price ) {
+                // line->getOrig()->setVisited(true);
                 line->getOrig()->setPath(line);
                 line->getOrig()->setDist(price);
                 pq.push(make_pair(price,line->getOrig()));
@@ -210,9 +210,6 @@ vector<Path> Graph::getPaths(string src, string dst) {
     Path path= make_pair(Connections(),INT32_MAX);
     vector<Path> paths;
     while(path_bfs(v1,v2,paths));
-    for(auto s: stationSet){
-        for(auto l: s->getAdj()) if(l->getFlow()!=0) throw "pos";
-    }
     return paths;
 }
 void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path) {
@@ -274,7 +271,62 @@ bool Graph:: path_bfs(Station *origin, Station *destination, vector<Path> &paths
 
 
 }
+bool Graph ::path_dijkstra(Station *origin, Station *destination, vector<Path> &paths) {
+    int price=0;
+    Path path= make_pair(Connections(),INT32_MAX);
+    for (Station *Station: stationSet) {
+        Station->setVisited(false);
+        Station->setDist(INF);
+    }
+    bool found=false;
+    priority_queue<pair<int,Station*>, vector<pair<int,Station*>>, greater<pair<int,Station*>>>pq;
+    origin->setDist(0);
+    pq.push(make_pair(0, origin));
+    while(!pq.empty()){
+        auto station=pq.top().second;
+        pq.pop();
 
+        if(station->getName()==destination->getName()){
+            found=true;
+            break;
+
+        }
+        for (auto line: station->getAdj()) {
+            price=station->getDist()+line->getCost();
+            if ( line->getFlow()>0 and line->getDest()->getDist()>price) {
+                line->getDest()->setPath(line);
+                line->getDest()->setDist(price);
+                pq.push(make_pair(price,line->getDest()));
+            }
+        }
+    }
+    if(found){
+        auto u= destination;
+        while(u->getName()!=origin->getName()){
+            if(u->getPath()->getFlow()<path.second) path.second=u->getPath()->getFlow();
+            path.first.insert(path.first.begin(),u->getPath());
+            u=u->getPath()->getOrig();
+        }
+        for(auto l:path.first){
+            l->setFlow(l->getFlow()-path.second);
+        }
+        paths.push_back(path);
+
+    }
+    return found;
+}
+
+vector<Path> Graph::getCheapestPaths(std::string src, std::string dst) {
+    auto v1= findStation(src);
+    auto v2= findStation(dst);
+    for(auto station:stationSet) station->setProcessing(false);
+    Path path= make_pair(Connections(),INT32_MAX);
+    vector<Path> paths;
+    while(path_bfs(v1,v2,paths));
+
+    return paths;
+
+}
 
 Graph::~Graph() {
     deleteMatrix(distMatrix, stationSet.size());
