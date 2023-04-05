@@ -118,7 +118,7 @@ bool Graph::findPath(Station *src, Station *dst) {
             }
         }
         for (Line *line: station->getIncoming()) {
-            if (!line->getOrig()->isVisited() and line->getFlow() > 0 and !line->isDisabled() and !line->getDest()->isDisabled()) {
+            if (!line->getOrig()->isVisited() and line->getFlow() > 0 and !line->isDisabled() and !line->getOrig()->isDisabled()) {
                 line->getOrig()->setVisited(true);
                 line->getOrig()->setPath(line);
                 s.push(line->getOrig());
@@ -155,7 +155,7 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
         for (Line *line: station->getIncoming()) {
 
             price=station->getDist()+line->getCost();
-            if (line->getFlow() > 0 and line->getOrig()->getDist()>price and !line->isDisabled() and !line->getDest()->isDisabled()) {
+            if (line->getFlow() > 0 and line->getOrig()->getDist()>price and !line->isDisabled() and !line->getOrig()->isDisabled()) {
                 // line->getOrig()->setVisited(true);
                 line->getOrig()->setPath(line);
                 line->getOrig()->setDist(price);
