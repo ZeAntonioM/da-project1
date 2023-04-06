@@ -29,10 +29,10 @@ void MaxFlowOrigins::execute()
         cout << ' ';
     };
     cout << "│"<< maxnumber.first;
-    for(int i=1; i< 13-to_string(maxnumber.first).length();i++)cout<<" ";
+    for(int i=1; i< 12-to_string(maxnumber.first).length();i++)cout<<" ";
 
     cout << "│"<< maxnumber.second;
-    for(int i=1; i< 8-to_string(maxnumber.second).length();i++)cout<<" ";
+    for(int i=1; i< 9-to_string(maxnumber.second).length();i++)cout<<" ";
 
     cout << "\033[0m│" << endl;
     cout << "└\033[40m─────────────────────────────────────────────────────────────────────────────────────────────────\033[0m┘"

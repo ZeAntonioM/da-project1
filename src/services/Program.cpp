@@ -11,6 +11,7 @@
 #include "actions/ShowStations.h"
 #include "actions/SearchStation.h"
 #include "actions/MaxFlowOrigins.h"
+#include "actions/MaxFlowReport.h"
 
 
 Program::Program(){
@@ -41,6 +42,7 @@ void Program::createMenus() {
     menu.addMenuItem( new ChangeMenu (menuPage,graph,NETWORK_INFORMATION));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,FLOW));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE_MENU));
+    menu.addMenuItem(new ChangeMenu(menuPage,graph,REPORT_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(menu);
 
@@ -65,6 +67,14 @@ void Program::createMenus() {
     networkInformation.addMenuItem(new SearchStation(graph));
     networkInformation.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(networkInformation);
+
+    Menu report =Menu("../menus/Reports.txt");
+    report.addMenuItem(new MaxFlowReport(graph));
+    report.addMenuItem(new ChangeMenu(menuPage,graph,POP_MENU));
+
+
+    menus.push_back(report);
+
 
 
 }

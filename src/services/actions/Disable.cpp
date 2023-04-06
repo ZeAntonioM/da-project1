@@ -38,14 +38,20 @@ void DisableLine::execute() {
             }
         }
 
-        graph->DisableLine(line1);
-        graph->DisableLine(line2);
+        graph->disableLine(line1);
+        graph->disableLine(line2);
         cout << "Line disabled!" << endl;
         wait();
     }
     catch (string err) {
         cout << "An error has occur! \n" << err << endl;
         wait();
+    }
+}
+void DisableLine::disableLines(vector<Line *> lines) {
+    for( auto line: lines){
+        graph->disableLine(line);
+        graph->disableLine(line->getReverse());
     }
 }
 
@@ -81,14 +87,21 @@ void EnableLine::execute() {
             }
         }
 
-        graph->EnableLine(line1);
-        graph->EnableLine(line2);
+        graph->enableLine(line1);
+        graph->enableLine(line2);
         cout<<"Line enabled successfully\n";
         wait();
     }
     catch (string err){
         cout<<"An error has occur!"<<err<<endl;
         wait();
+    }
+}
+
+void EnableLine::enableLines(vector<Line *> lines) {
+    for( auto line: lines){
+        graph->enableLine(line);
+        graph->enableLine(line->getReverse());
     }
 }
 
@@ -105,13 +118,18 @@ void DisableStation::execute() {
         if (_station == nullptr)
             throw string("Station not found!");
 
-        graph->DisableStation(_station);
+        graph->disableStation(_station);
         cout<<"Station disabled successfully\n";
         wait();
     }
     catch (string err){
         cout<<"An error has occur!"<<err<<endl;
         wait();
+    }
+}
+void DisableStation::disableStations(vector<Station *> stations) {
+    for( auto station: stations){
+        graph->disableStation(station);
     }
 }
 
@@ -128,13 +146,18 @@ void EnableStation::execute() {
         if (_station == nullptr)
             throw string("Station not found!");
 
-        graph->EnableStation(_station);
+        graph->enableStation(_station);
         cout<<"Station enabled successfully\n";
         wait();
     }
     catch (string err){
         cout<<"An error has occur!"<<err<<endl;
         wait();
+    }
+}
+void EnableStation::enableStations(vector<Station *> stations) {
+    for( auto station: stations){
+        graph->enableStation(station);
     }
 }
 

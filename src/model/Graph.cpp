@@ -278,19 +278,19 @@ void Graph:: deleteGraph() {
 }
 
 
-void Graph::DisableLine(Line *line) {
+void Graph::disableLine(Line *line) {
     line->setDisabled(true);
 }
 
-void Graph::EnableLine(Line *line) {
+void Graph::enableLine(Line *line) {
     line->setDisabled(false);
 }
 
-void Graph::DisableStation(Station *station) {
+void Graph::disableStation(Station *station) {
     station->setDisabled(true);
 }
 
-void Graph::EnableStation(Station *station) {
+void Graph::enableStation(Station *station) {
     station->setDisabled(false);
 }
 
@@ -346,7 +346,6 @@ bool Graph ::path_dijkstra(Station *origin, Station *destination, vector<Path> &
             }
         }
     }
-
     return found;
 }
 
@@ -369,7 +368,6 @@ Path Graph::getPath(Station* origin, Station * destination) {
         if(u->getPath()->getFlow()<path.second) path.second=u->getPath()->getFlow();
         path.first.insert(path.first.begin(),u->getPath());
         u=u->getPath()->getOrig();
-
     }
     for(auto l:path.first){
         l->setFlow(l->getFlow()-path.second);
