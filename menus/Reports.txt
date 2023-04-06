@@ -1,3 +1,4 @@
 Max Flow report
 All destinations report
+Strongly Connected Components report
 Go back

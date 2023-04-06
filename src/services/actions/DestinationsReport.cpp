@@ -16,6 +16,7 @@ int spacialChars(std::string word) {
 DestinationsReport::DestinationsReport(Graph &graph): Action(graph) {}
 
 void DestinationsReport::draw(vector<pair<Station *, pair<int, int>>> results) const {
+    ::system("clear");
     cout<<"┌\033[0m───────────────────────────────────────────────────────────────────────┐"<< endl;;
     cout<<"│\033[40m                     Top 10 Most affected station                      \033[0m│"<<endl;
     cout<<"│\033[40m───────────────────────────────────────────────────────────────────────\033[0m│"<<endl;

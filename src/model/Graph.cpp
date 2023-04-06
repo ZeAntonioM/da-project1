@@ -1,3 +1,4 @@
+#include <stack>
 #include "Graph.h"
 
 
@@ -65,6 +66,34 @@ void deleteMatrix(double **m, int n) {
         delete [] m;
     }
 }
+int Graph::sCC() {
+    for(auto station: stationSet) station->setVisited(false);
+    int count=0;
+    for(auto station:stationSet){
+        if(!station->isVisited()){
+            bfs(station);
+            count++;
+        }
+        }
+    return count;
+}
+void Graph::bfs(Station * station) {
+    station->setVisited(true);
+    queue<Station *> q;
+    q.push(station);
+    while(!q.empty()){
+        auto u= q.front();
+        q.pop();
+        for(auto e: u->getAdj()){
+            if(!e->getDest()->isVisited()){
+                e->getDest()->setVisited(true);
+                q.push(e->getDest());
+            }
+        }
+    }
+}
+
+
 void Graph::reset() {
     for(auto lines:distributor.getAdj()) lines->setFlow(0);
     distributor.setVisited(false);

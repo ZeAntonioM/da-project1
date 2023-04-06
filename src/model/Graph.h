@@ -170,6 +170,8 @@ public:
      */
     Station  getDistributor() const;
 
+    int sCC();
+
 protected:
 
     vector<Station *> stationSet;    // Station set
@@ -201,7 +203,7 @@ protected:
      * @param string destination - destination station's name
      * @brief Finds the shortest Path between two stations.
      */
-    void bfs(string origin, string destination);
+    void bfs(Station * station);
     /**
      * @brief searches for a path of flow with the least stops between two station.
      * @param origin station where the trains will leave

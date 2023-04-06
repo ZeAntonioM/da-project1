@@ -13,6 +13,7 @@
 #include "actions/MaxFlowOrigins.h"
 #include "actions/MaxFlowReport.h"
 #include "actions/DestinationsReport.h"
+#include "actions/ComponentsReport.h"
 
 
 Program::Program(){
@@ -72,6 +73,7 @@ void Program::createMenus() {
     Menu report =Menu("../menus/Reports.txt");
     report.addMenuItem(new MaxFlowReport(graph));
     report.addMenuItem(new DestinationsReport(graph));
+    report.addMenuItem(new ComponentsReport(graph));
     report.addMenuItem(new ChangeMenu(menuPage,graph,POP_MENU));
 
 
