@@ -95,10 +95,6 @@ bool Graph::findPath(Station *src, Station *dst) {
         Station->setVisited(false);
     }
 
-    if(src->isDisabled() || dst->isDisabled()) {
-        cout << "One of the stations is disabled" << endl;
-        return false;
-    }
 
     queue<Station*> s;
     s.push(src);
@@ -200,6 +196,9 @@ pair<int,int> Graph::maxFlow(string src, string dst) {
     auto v2= findStation(dst);
     if(v1== nullptr) throw src+" Not Found!";
     if(v2== nullptr) throw dst+" Not Found!";
+    if( v2->isDisabled())throw v2->getName()+ "is disable!";
+    if( v1->isDisabled())throw v1->getName()+ "is disable!";
+
     reset();
     while(findPath(v1,v2)){
         // cout<<"Found path";

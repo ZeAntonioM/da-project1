@@ -1,4 +1,5 @@
 Network information
 Max Flows
 Disable/Enable Stations/Lines
+Reports
 Exit

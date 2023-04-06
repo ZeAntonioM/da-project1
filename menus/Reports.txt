@@ -1,2 +1,3 @@
 Max Flow report
+All destinations report
 Go back
