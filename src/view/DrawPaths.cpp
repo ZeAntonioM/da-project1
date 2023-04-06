@@ -59,9 +59,6 @@ void DrawPaths::pageController(int maxFlow, int cost, vector<Path> path) const {
 
 void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const {
     int page_height=0;
-    for(Path path1: path){
-        if(path.size()>page_height) page_height=path.size();
-    }
     system("clear");
     cout<<"\033[0m";
     int extra_space=2;

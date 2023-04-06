@@ -66,6 +66,7 @@ public:
      * @return False if one of the Stations does not exist, true otherwise.
      * @complexity O(log N) being N the number of stations.
      * @brief Adds two lines at the same time, one in each direction, between the source and destination stations, with the given capacity (w).
+     * complexity O(1)
      */
     bool addBidirectionalLine(Station *src, Station *dst, double w, services service);
 
@@ -84,11 +85,10 @@ public:
      */
     pair<int, int> maxFlow(string src, string dst);
     /**
-     * @brief calculates the max flow between two stations and the minimum cost possible with that flow
-     * @param src station where the trains leave
-     * @param dst destination station  where trains arrive
-     * @return a pair of ints being the first element the max flow and the second the cost
-     * @complexity O(V+E) being V the number of stations and E the number of lines
+     *@brief calculates the max flow between two stations and the minimum cost possible with that flow
+     *@param src station where the trains leave
+     *@param dst destination station where trains arrive
+     *@return a pair of ints being the first element the max flow and the second the cost * @complexity O(| E | log | V |) being V the number of stations and E the number of lines
      */
     pair<int, int> cheapestMaxFlow(string src, string dst);
     /**
@@ -109,7 +109,7 @@ public:
      * @param src station where the trains leave
      * @param dst destination station where the trains arrive
      * @return true if a path exits, false otherwise
-     * @complexity O(V+E) being V the number of stations and E the number of lines
+     * @complexity O(|E|+ log |V| ) being V the number of stations and E the number of lines
      */
     bool findCheapestPath(Station *src, Station *dst);
     /**
@@ -129,7 +129,7 @@ public:
      */
     void incrementFlow(Station *src, Station *dst, int value);
     /**
-     * @brief calculates the cost of the network between two stations
+     * @brief calculates the cost of flows paths between two stations
      * @param src station where the trains leave
      * @param dst destination station where the trains arrive
      * @return the cost of the network between two stations
@@ -141,21 +141,45 @@ public:
      * @param src station where the trains will leave
      * @param dst station where the trains will arrive
      * @return a vector with all the paths needed to achieve the max flow
+     * @complexity O(E + V) being E and V the number of lines and station in the paths respectively
      */
     vector<Path> getPaths(string src, string dst);
+
+    void DisableLine(Line *line);
+
+    void EnableLine(Line *line);
+
+    void DisableStation(Station *station);
+
+    void EnableStation(Station *station);
 
     /**
      * @brief returns all the paths needed to achieve the maximum flow with minimum cost between two station
      * @param src station where the trains will leave
      * @param dst station where the trains will arrive
      * @return a vector with all the paths needed to achieve the max flow with minimum cost
+     * @complexity O(|E| log |V|) being V and E the number of lines and stations in the paths respectively
      */
     vector<Path> getCheapestPaths(string src, string dst);
-
+    /**
+     * @brief determines which stations are Origins and connects the Distributor to them
+     * @complexity O(V) being V the number os stations in the graph
+     */
     void calculateOrigins();
-    vector<Station *> getOrigins() const;
-    Station getDistributor() const;
+
     vector<Line *> getLineVector() const;
+    /**
+     * @brief returns the origins
+     * @return the origins
+     * @complexity O(1)
+     */
+    vector<Station *> getOrigins() const;
+    /**
+     * @brief returns the distributor
+     * @return the distributor
+     * @complexity O(1)
+     */
+    Station getDistributor() const;
 
 protected:
     vector<Station *> stationSet; // Station set
@@ -176,6 +200,7 @@ protected:
      * @param origin Station where the trains leave
      * @param dst Station where the trains arrive
      * @return the current  path of flow  from one station to another
+     * @complexity O(E) being E the number of lines in the Path
      */
     Path getPath(Station *origin, Station *dst);
 
@@ -191,6 +216,7 @@ protected:
      * @param destination station where the trains will arrive
      * @param paths vector of path where the path is going to be insert
      * @return true if a path is found, false otherwise.
+     * @complexity O(V+E) being V the number of stations and E the number of lines
      */
     bool path_bfs(Station *origin, Station *destination, vector<Path> &paths);
     /**
@@ -199,10 +225,17 @@ protected:
      * @param destination station where the trains will arrive
      * @param paths vector of path where the path is going to be insert
      * @return true if a path is found, false otherwise.
+     * @complexity O(|E| log |V|) being E the number of lines and V the number of stations
      */
     bool path_dijkstra(Station *origin, Station *destination, vector<Path> &paths);
 
     void path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path);
+
+    /**
+     * @brief deletes the graph
+     * @complexity (V+E) being V the number of stations and E the number of lines
+     */
+
     void deleteGraph();
 };
 

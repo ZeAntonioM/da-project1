@@ -22,9 +22,9 @@ Line *Line::getReverse() const
     return this->reverse;
 }
 
-bool Line::isSelected() const
+bool Line::isDisabled() const
 {
-    return this->selected;
+    return this->disabled;
 }
 
 double Line::getFlow() const
@@ -37,9 +37,9 @@ bool Line::getVisited() const
     return visited;
 }
 
-void Line::setSelected(bool _selected)
+void Line::setDisabled(bool _disabled)
 {
-    this->selected = _selected;
+    this->disabled = _disabled;
 }
 
 void Line::setReverse(Line *_reverse)

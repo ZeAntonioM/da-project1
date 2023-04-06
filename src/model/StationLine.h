@@ -43,6 +43,8 @@ public:
     void print() const;
 
     // void setId(int info);
+    void setDisabled(bool _disabled);
+    bool isDisabled() const;
     void setVisited(bool visited);
     void setProcessing(bool processing);
     void setIndegree(unsigned int indegree);
@@ -66,6 +68,7 @@ protected:
     std::vector<Line *> adj; // outgoing Lines
 
     // auxiliary fields
+    bool disabled = false;
     bool visited = false;    // used by DFS, BFS, Prim ...
     bool processing = false; // used by isDAG (in addition to the visited attribute)
     unsigned int indegree;   // used by topsort
@@ -85,7 +88,7 @@ public:
     Line(Station *orig, Station *dest, double w, services s);
     Station *getDest() const;
     double getCapacity() const;
-    bool isSelected() const;
+    bool isDisabled() const;
     Station *getOrig() const;
     Line *getReverse() const;
     double getFlow() const;
@@ -94,7 +97,7 @@ public:
     int getCost() const;
     bool isFull() const;
 
-    void setSelected(bool _selected);
+    void setDisabled(bool _disabled);
     void setReverse(Line *_reverse);
     void setFlow(double _flow);
     void setVisited(bool _visited);
@@ -106,7 +109,7 @@ private:
     Station *dest;   // destination Station
     double capacity; // Line capacity, can also be used for capacity
     // auxiliary fields
-    bool selected = false;
+    bool disabled = false;
     // used for bidirectional Lines
     Station *orig;
     Line *reverse = nullptr;

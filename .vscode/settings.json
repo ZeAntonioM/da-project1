@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "iostream": "cpp",
         "string_view": "cpp",
         "ostream": "cpp",
@@ -7,6 +8,15 @@
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
+=======
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "array": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "*.tcc": "cpp",
+>>>>>>> T2.2
         "cctype": "cpp",
         "chrono": "cpp",
         "clocale": "cpp",
@@ -22,6 +32,7 @@
         "ctime": "cpp",
         "cwchar": "cpp",
         "cwctype": "cpp",
+<<<<<<< HEAD
         "deque": "cpp",
         "list": "cpp",
         "map": "cpp",
@@ -29,6 +40,12 @@
         "string": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
+=======
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "unordered_map": "cpp",
+>>>>>>> T2.2
         "exception": "cpp",
         "algorithm": "cpp",
         "functional": "cpp",
@@ -38,6 +55,10 @@
         "numeric": "cpp",
         "random": "cpp",
         "ratio": "cpp",
+<<<<<<< HEAD
+=======
+        "string_view": "cpp",
+>>>>>>> T2.2
         "system_error": "cpp",
         "tuple": "cpp",
         "type_traits": "cpp",
@@ -45,10 +66,18 @@
         "fstream": "cpp",
         "initializer_list": "cpp",
         "iosfwd": "cpp",
+<<<<<<< HEAD
+=======
+        "iostream": "cpp",
+>>>>>>> T2.2
         "istream": "cpp",
         "limits": "cpp",
         "new": "cpp",
         "numbers": "cpp",
+<<<<<<< HEAD
+=======
+        "ostream": "cpp",
+>>>>>>> T2.2
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
