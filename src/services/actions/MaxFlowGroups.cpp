@@ -22,7 +22,7 @@ void MaxFlowDistricts::execute() {
         }
     }
 
-    vector<pair<string,pair<int,int>>> MaxFlow = { {"",pair(0,0)}, {"",pair(0,0)}, {"",pair(0,0)}, {"",pair(0,0)}, {"",pair(0,0)} };
+    priority_queue<pair<pair<int,int>,string>> MaxFlow;
     pair<int, int> flowCost;
     set<Line *> DisabledLines;
     Station superSink("SINK");
@@ -32,47 +32,36 @@ void MaxFlowDistricts::execute() {
 
 
         for (auto &station : district.second) {
-            graph->addLine(station, &superSink, numeric_limits<double>::max(), services::STANDARD);
+            graph->addLine(station, &superSink, INT16_MAX, services::STANDARD);
 
             for(auto incoming : station->getIncoming()) {
-                if (incoming->getOrig()->getName() == "Distributor") {
+                if (incoming->getOrig()->getName() == graph->getDistributor().getName()) {
                     incoming->setDisabled(true);
                     DisabledLines.insert(incoming);
                 }
             }
-
-            flowCost = graph->maxFlow("Distributor", "SINK");
-
-            for(auto pair: MaxFlow) {
-                if (flowCost.first > pair.second.first) {
-                    pair.second.first = flowCost.first;
-                    pair.second.second = flowCost.second;
-                    pair.first = district.first;
-                    break;
-                }
-                else if (flowCost.first == pair.second.first) {
-                    if (flowCost.second < pair.second.second) {
-                        pair.second.first = flowCost.first;
-                        pair.second.second = flowCost.second;
-                        pair.first = district.first;
-                        break;
-                    }
-                }
-            }
-
-
-            for (auto line: DisabledLines) {
-                line->setDisabled(false);
-            }
-            DisabledLines.clear();
-
-            superSink.removeOutgoingLines();
-
         }
+
+        flowCost = graph->maxFlow(graph->getDistributor().getName(), "SINK");
+
+        MaxFlow.push({flowCost, district.first});
+
+        for (auto line: DisabledLines) {
+            line->setDisabled(false);
+        }
+        DisabledLines.clear();
+
+        superSink.removeOutgoingLines();
+
 
     }
 
-    graph->getStationSet().erase(graph->getStationSet().end()-1);
+    for ( int i = 0; i < 5; i++) {
+        cout << MaxFlow.top().second << " " << MaxFlow.top().first.first << " " << MaxFlow.top().first.second << endl;
+        MaxFlow.pop();
+    }
+
+    graph->RemoveLastStation();
 
 
 }
@@ -85,17 +74,17 @@ void MaxFlowMunicipalities::execute() {
     map<string, vector<Station *>> municipalities;
 
     for (auto &station : graph->getStationSet()) {
-        if (municipalities.find(station->getDistrict()) == municipalities.end()) {
+        if (municipalities.find(station->getMunicipality()) == municipalities.end()) {
             vector<Station *> stations;
             stations.push_back(station);
-            municipalities[station->getDistrict()] = stations;
+            municipalities[station->getMunicipality()] = stations;
         }
         else {
-            municipalities[station->getDistrict()].push_back(station);
+            municipalities[station->getMunicipality()].push_back(station);
         }
     }
 
-    vector<pair<string,pair<int,int>>> MaxFlow = { {"",pair(0,0)}, {"",pair(0,0)}, {"",pair(0,0)}, {"",pair(0,0)}, {"",pair(0,0)} };
+    priority_queue<pair<pair<int,int>,string>> MaxFlow;
     pair<int, int> flowCost;
     set<Line *> DisabledLines;
     Station superSink("SINK");
@@ -105,50 +94,36 @@ void MaxFlowMunicipalities::execute() {
 
 
         for (auto &station : municipality.second) {
-            graph->addLine(station, &superSink, numeric_limits<double>::max(), services::STANDARD);
+            graph->addLine(station, &superSink, INT16_MAX, services::STANDARD);
 
             for(auto incoming : station->getIncoming()) {
-                if (incoming->getOrig()->getName() == "Distributor") {
+                if (incoming->getOrig()->getName() == graph->getDistributor().getName()) {
                     incoming->setDisabled(true);
                     DisabledLines.insert(incoming);
                 }
             }
-
-            flowCost = graph->maxFlow("Distributor", "SINK");
-
-            for(auto pair: MaxFlow) {
-                if (flowCost.first > pair.second.first) {
-                    pair.second.first = flowCost.first;
-                    pair.second.second = flowCost.second;
-                    pair.first = municipality.first;
-                    break;
-                }
-                else if (flowCost.first == pair.second.first) {
-                    if (flowCost.second < pair.second.second) {
-                        pair.second.first = flowCost.first;
-                        pair.second.second = flowCost.second;
-                        pair.first = municipality
-                                .first;
-                        break;
-                    }
-                }
-            }
-
-
-            for (auto line: DisabledLines) {
-                line->setDisabled(false);
-            }
-            DisabledLines.clear();
-
-            superSink.removeOutgoingLines();
-
         }
+
+        flowCost = graph->maxFlow(graph->getDistributor().getName(), "SINK");
+
+        MaxFlow.push({flowCost, municipality.first});
+
+
+        for (auto line: DisabledLines) {
+            line->setDisabled(false);
+        }
+        DisabledLines.clear();
+
+        superSink.removeOutgoingLines();
 
     }
 
-    graph->getStationSet().erase(graph->getStationSet().end()-1);
+    for(int i = 0; i < 5; i++) {
+        cout << MaxFlow.top().second << " " << MaxFlow.top().first.first << " " << MaxFlow.top().first.second << endl;
+        MaxFlow.pop();
+    }
 
-
+    graph->RemoveLastStation();
 
 }
 

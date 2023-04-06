@@ -189,6 +189,8 @@ public:
      */
     Station getDistributor() const;
 
+    void RemoveLastStation();
+
 protected:
     vector<Station *> stationSet; // Station set
     vector<Line *> lineVector;

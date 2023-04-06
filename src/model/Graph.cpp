@@ -515,6 +515,12 @@ Path Graph::getPath(Station *origin, Station *destination)
     return path;
 }
 
+void Graph::RemoveLastStation() {
+
+    stationSet.pop_back();
+
+}
+
 Graph::~Graph()
 {
     deleteMatrix(distMatrix, stationSet.size());
