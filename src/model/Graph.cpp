@@ -39,6 +39,7 @@ bool Graph::addLine(Station *src, Station *dest, double w, services service)
     src->addLine(dest, w, service);
     return true;
 }
+
 void Graph::calculateOrigins()
 {
     origins.clear();
@@ -52,10 +53,12 @@ void Graph::calculateOrigins()
         }
     }
 }
+
 vector<Station *> Graph::getOrigins() const
 {
     return this->origins;
 }
+
 Station Graph::getDistributor() const
 {
     return this->distributor;
@@ -104,6 +107,7 @@ void deleteMatrix(double **m, int n)
         delete[] m;
     }
 }
+
 void Graph::reset()
 {
     for (auto lines : distributor.getAdj())
@@ -119,6 +123,7 @@ void Graph::reset()
         }
     }
 }
+
 int Graph::calculateCost(Station *src, Station *dst)
 {
     int cost = 0;
@@ -137,6 +142,7 @@ int Graph::calculateCost(Station *src, Station *dst)
     }
     return cost;
 }
+
 bool Graph::findPath(Station *src, Station *dst)
 {
     distributor.setVisited(false);
@@ -184,6 +190,7 @@ bool Graph::findPath(Station *src, Station *dst)
     }
     return false;
 }
+
 bool Graph::findCheapestPath(Station *src, Station *dst)
 {
     int price = 0;
@@ -230,6 +237,7 @@ bool Graph::findCheapestPath(Station *src, Station *dst)
     }
     return false;
 }
+
 int Graph::bottleNeck(Station *src, Station *dst)
 {
     auto v1 = dst;
@@ -252,6 +260,7 @@ int Graph::bottleNeck(Station *src, Station *dst)
     }
     return min;
 }
+
 void Graph::incrementFlow(Station *src, Station *dst, int value)
 {
     auto v1 = dst;
@@ -296,6 +305,7 @@ pair<int, int> Graph::maxFlow(string src, string dst)
     int cost = calculateCost(v1, v2);
     return make_pair(m, cost);
 }
+
 pair<int, int> Graph::cheapestMaxFlow(string src, string dst)
 {
     auto v1 = findStation(src);
@@ -318,6 +328,7 @@ pair<int, int> Graph::cheapestMaxFlow(string src, string dst)
     int cost = calculateCost(v1, v2);
     return make_pair(m, cost);
 }
+
 vector<Path> Graph::getPaths(string src, string dst)
 {
     auto v1 = findStation(src);
@@ -333,6 +344,7 @@ vector<Path> Graph::getPaths(string src, string dst)
     }
     return paths;
 }
+
 void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path)
 {
     // bool ignore=false;
@@ -364,6 +376,7 @@ void Graph::path_dfs(Station *origin, Station *destination, vector<Path> &paths,
     }
     return;
 }
+
 void Graph::deleteGraph()
 {
     distributor.removeOutgoingLines();
@@ -431,6 +444,7 @@ bool Graph::path_bfs(Station *origin, Station *destination, vector<Path> &paths)
 
     return found;
 }
+
 bool Graph ::path_dijkstra(Station *origin, Station *destination, vector<Path> &paths)
 {
     int price = 0;

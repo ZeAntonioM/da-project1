@@ -15,6 +15,7 @@
 #include "actions/SearchLine.h"
 
 #include "actions/MaxFlowOrigins.h"
+#include "actions/MaxFlowGroups.h"
 
 Program::Program()
 {
@@ -48,6 +49,7 @@ void Program::createMenus()
     menu.addMenuItem(new ChangeMenu(menuPage, graph, NETWORK_INFORMATION));
     menu.addMenuItem(new ChangeMenu(menuPage, graph, FLOW));
     menu.addMenuItem(new ChangeMenu(menuPage, graph, DISABLE_MENU));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, REPORTS));
     menu.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(menu);
 
@@ -74,4 +76,10 @@ void Program::createMenus()
     networkInformation.addMenuItem(new SearchLine(graph));
     networkInformation.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(networkInformation);
+
+    Menu reports = Menu("../menus/Report.txt");
+    reports.addMenuItem(new MaxFlowDistricts(graph));
+    reports.addMenuItem(new MaxFlowMunicipalities(graph));
+    reports.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
+    menus.push_back(reports);
 }
