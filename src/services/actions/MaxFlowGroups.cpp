@@ -26,6 +26,7 @@ void MaxFlowDistricts::execute() {
     pair<int, int> flowCost;
     set<Line *> DisabledLines;
     Station superSink("SINK");
+    graph->addStation(&superSink);
 
     for (auto &district: districts) {
 
@@ -71,6 +72,7 @@ void MaxFlowDistricts::execute() {
 
     }
 
+    graph->getStationSet().erase(graph->getStationSet().end()-1);
 
 
 }
@@ -97,6 +99,7 @@ void MaxFlowMunicipalities::execute() {
     pair<int, int> flowCost;
     set<Line *> DisabledLines;
     Station superSink("SINK");
+    graph->addStation(&superSink);
 
     for (auto &municipality: municipalities) {
 
@@ -142,6 +145,8 @@ void MaxFlowMunicipalities::execute() {
         }
 
     }
+
+    graph->getStationSet().erase(graph->getStationSet().end()-1);
 
 
 
