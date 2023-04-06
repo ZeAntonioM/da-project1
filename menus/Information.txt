@@ -1,3 +1,5 @@
 Display all Stations
 Search for a Station
+Display all Lines
+Search for a Line
 Go back
