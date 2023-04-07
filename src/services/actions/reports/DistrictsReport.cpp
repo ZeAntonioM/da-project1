@@ -85,8 +85,9 @@ vector<pair<pair<int,int>,string>> DistrictsReport::calculateMaxFlow() {
 
 
 
-vector<pair<string,pair<int,int>>> DistrictsReport::doReport(Stations stationsToDisable, Lines linesToDisable) {
+vector<pair<string,pair<int,int>>> DistrictsReport::doReport(Stations stationsToDisable, Lines linesToDisable,int &percentage) {
     vector<pair<pair<int,int>,string>> before=calculateMaxFlow();
+    percentage=25;
     DisableLine disableLine(*graph);
     DisableStation disableStation(*graph);
     disableStation.disableStations(stationsToDisable);
@@ -96,6 +97,7 @@ vector<pair<string,pair<int,int>>> DistrictsReport::doReport(Stations stationsTo
     EnableStation enableStation(*graph);
     enableStation.enableStations(stationsToDisable);
     enableLine.enableLines(linesToDisable);
+    percentage=50;
     priority_queue<pair<int, int>>pq;
     for(int i=0; i<before.size();i++){
 
@@ -107,6 +109,7 @@ vector<pair<string,pair<int,int>>> DistrictsReport::doReport(Stations stationsTo
             }
         }
     }
+    percentage=75;
     vector<pair<string,pair<int,int>>> results;
     int size=5;
     if(pq.size()<size) size=pq.size();
@@ -116,11 +119,13 @@ vector<pair<string,pair<int,int>>> DistrictsReport::doReport(Stations stationsTo
         results.push_back(make_pair(dis,beforeAfter));
         pq.pop();
     }
+    percentage=100;
     return results;
 }
 
 void DistrictsReport::execute() {
     auto toDisable= Reports(*graph).getToDisable();
-    draw(doReport(toDisable.first,toDisable.second));
+    int percentage=0;
+    draw(doReport(toDisable.first,toDisable.second,percentage));
     wait();
 }

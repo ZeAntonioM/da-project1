@@ -13,7 +13,7 @@ class DistrictsReport: public Action {
 public:
     DistrictsReport(Graph & graph);
     void draw(vector<pair<string,pair<int,int>>> data) const;
-    vector<pair<string,pair<int,int>>> doReport(Stations stationsToDisable, Lines linesToDisable);
+    vector<pair<string,pair<int,int>>> doReport(Stations stationsToDisable, Lines linesToDisable,int &percentage);
     vector<pair<pair<int,int>,string>> calculateMaxFlow();
     void execute() override;
 

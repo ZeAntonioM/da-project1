@@ -24,7 +24,7 @@ void ComponentsReport::draw(pair<int,int> sCCs)const {
 
 }
 
-pair<int,int> ComponentsReport::doReport(Stations stations, Lines lines){
+pair<int,int> ComponentsReport::doReport(Stations stations, Lines lines,int &percentage){
 
     int before=graph->sCC();
     DisableLine disableLines= DisableLine(*graph);
@@ -37,12 +37,15 @@ pair<int,int> ComponentsReport::doReport(Stations stations, Lines lines){
     int after= graph->sCC();
     enableStation.enableStations(stations);
     enableLine.enableLines(lines);
+    percentage=100;
     return make_pair(before,after);
+
 
 }
 
 void ComponentsReport::execute() {
     pair<Stations,Lines> data= Reports(*graph).getToDisable();
-    draw(doReport(data.first,data.second));
+    int percentage=0;
+    draw(doReport(data.first,data.second,percentage));
     wait();
 }

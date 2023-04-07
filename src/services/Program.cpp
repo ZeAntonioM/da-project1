@@ -20,6 +20,7 @@
 #include "actions/information/SearchLine.h"
 #include "actions/flows/MaxFlowGroups.h"
 #include "actions/reports/DistrictsReport.h"
+#include "actions/reports/GeneralReport.h"
 
 
 Program::Program(){
@@ -106,6 +107,7 @@ void Program::createMenus() {
     menus.push_back(budget);
 
     Menu report =Menu("../menus/Reports.txt");
+    report.addMenuItem(new GeneralReport(graph));
     report.addMenuItem(new MaxFlowReport(graph));
     report.addMenuItem(new DestinationsReport(graph));
     report.addMenuItem(new ComponentsReport(graph));

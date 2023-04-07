@@ -11,7 +11,7 @@
 
 class ComponentsReport: public Action{
 public:
-    pair<int,int> doReport(Stations stations, Lines lines);
+    pair<int,int> doReport(Stations stations, Lines lines,int &percentage);
     ComponentsReport(Graph &graph);
     void execute() override;
     void draw(pair<int,int> sCCs) const;

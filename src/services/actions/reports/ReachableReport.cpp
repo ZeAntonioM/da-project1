@@ -34,7 +34,7 @@ void ReachableReport:: draw(vector<pair<Station*, pair<int,int>>> stations){
 
 
 }
-vector<pair<Station*, pair<int,int>>> ReachableReport:: doReport(Stations stationsToDisable,Lines linesToDisable){
+vector<pair<Station*, pair<int,int>>> ReachableReport:: doReport(Stations stationsToDisable,Lines linesToDisable,int &percentage){
     vector<pair<Station*, pair<int,int>>> stations;
     vector<pair<Station*, pair<int,int>>> results;
     for(auto station: graph->getStationSet()){
@@ -45,6 +45,7 @@ vector<pair<Station*, pair<int,int>>> ReachableReport:: doReport(Stations statio
         stations.push_back(res);
 
     }
+    percentage=40;
     DisableLine disableLine(*graph);
     DisableStation disableStation(*graph);
     disableStation.disableStations(stationsToDisable);
@@ -57,7 +58,7 @@ vector<pair<Station*, pair<int,int>>> ReachableReport:: doReport(Stations statio
     EnableLine enableLine(*graph);
     enableLine.enableLines(linesToDisable);
     enableStation.enableStations(stationsToDisable);
-
+    percentage=80;
     priority_queue<pair<int,int>> pq;
     for(int i=0; i<stations.size();i++){
         if(stations[i].second.second!=-1 and stations[i].second.first!=-1 )pq.push(make_pair(stations[i].second.first-stations[i].second.second,i));
@@ -70,11 +71,13 @@ vector<pair<Station*, pair<int,int>>> ReachableReport:: doReport(Stations statio
         results.push_back(stations[pq.top().second]);
         pq.pop();
     }
+    percentage=100;
     return results;
 }
 
 void ReachableReport::execute() {
     pair<Stations,Lines> data= Reports(*graph).getToDisable();
-    draw(doReport(data.first,data.second));
+    int percentage=0;
+    draw(doReport(data.first,data.second,percentage));
     wait();
 }
