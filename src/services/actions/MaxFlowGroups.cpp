@@ -51,8 +51,9 @@ void MaxFlowDistricts::execute() {
         }
         DisabledLines.clear();
 
-        superSink.removeOutgoingLines();
-
+        for(auto line:superSink.getIncoming()){
+            line->getOrig()->removeLine(line->getDest()->getName());
+        }
 
     }
 
@@ -62,6 +63,7 @@ void MaxFlowDistricts::execute() {
     }
 
     graph->RemoveLastStation();
+     wait();
 
 
 }
@@ -114,7 +116,9 @@ void MaxFlowMunicipalities::execute() {
         }
         DisabledLines.clear();
 
-        superSink.removeOutgoingLines();
+        for(auto line:superSink.getIncoming()){
+            line->getOrig()->removeLine(line->getDest()->getName());
+        }
 
     }
 
@@ -124,6 +128,7 @@ void MaxFlowMunicipalities::execute() {
     }
 
     graph->RemoveLastStation();
+    wait();
 
 }
 

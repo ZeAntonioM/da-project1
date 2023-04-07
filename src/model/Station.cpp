@@ -56,6 +56,12 @@ void Station::removeOutgoingLines()
         it = adj.erase(it);
         deleteLine(Line);
     }
+   /* auto it2= incoming.begin();
+    while (it2 != incoming.end()){
+        Line * Line= *it2;
+        it2=incoming.erase(it2);
+        deleteLine(Line);
+    }*/
 }
 
 
@@ -161,6 +167,11 @@ string Station::getDistrict() const
 string Station::getTownship() const
 {
     return this->township;
+}
+void Station::removeIncomingLines(){
+    for(auto line:incoming){
+        line->getOrig()->removeLine(line->getDest()->getName());
+    }
 }
 
 void Station::setDisabled(bool _disabled) {
