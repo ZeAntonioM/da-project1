@@ -66,6 +66,26 @@ string  drawLine(int size){
     display+="\033[0m│\n";
     return display;
 }
+string drawSubHeader(int size,string title){
+    string display="";
+    display+="│\033[40m";
+    for(int i=0; i<size;i++) display+="─";
+    display+="\033[0m│ \n";
+    display+="│\033[40m";
+    int space=(size-title.length()+ specialChars(title));
+    if(space%2==0){
+        for(int i=0; i<space/2;i++) display+=" ";
+    } else{
+        for(int i=0; i<space/2+1;i++) display+=" ";
+    }
+    display+=title;
+    for(int i=0; i<space/2;i++) display+=" ";
+    display+="\033[0m│\n";
+    display+="├\033[40m";
+    for(int i=0; i<size;i++) display+="─";
+    display+="\033[0m┤\n";
+    return display;
+}
 
 
 

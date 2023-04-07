@@ -76,7 +76,7 @@ public:
      * @return the set with all the stations
      * @complexity O(1)
      */
-    vector<Station *> getStationSet() const;
+    vector<Station *> getStationVector() const;
 
     /**
      * @brief calculates the max flow between two stations
@@ -197,7 +197,7 @@ public:
      */
     Station getDistributor() const;
 
-    void RemoveLastStation();
+    void removeLastStation();
 
     int sCC();
     /**
@@ -208,7 +208,8 @@ public:
     int bfs(Station * station);
 
 protected:
-    vector<Station *> stationSet; // Station set
+    vector<Station *> stationVector;
+    // Station set
     vector<Line *> lineVector;
     vector<Station *> origins;
     Station distributor = Station("Distributor");

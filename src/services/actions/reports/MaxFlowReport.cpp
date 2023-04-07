@@ -11,9 +11,9 @@ MaxFlowReport::MaxFlowReport(Graph &graph): Action(graph) {}
 
 void MaxFlowReport::draw(string name_src,string name_dst, int before, int after) const{
     ::system("clear");
-    cout<<drawHeader(109,"Max FLow Report");
+    cout<<drawHeader(110,"Max FLow Report");
     cout<<"│\033[40m Station A                            │ Station B                            │ Max Flow Before│ Max Flow After\033[0m│"<<endl;
-    cout<<drawLine(109);
+    cout<<drawLine(110);
     cout<<"│\033[40m "<<name_src;
     for(int i=0; i<37-name_src.length() + specialChars(name_src);i++ )cout<<" ";
     cout<< "│ "<<name_dst;
@@ -30,7 +30,7 @@ void MaxFlowReport::draw(string name_src,string name_dst, int before, int after)
 void MaxFlowReport::execute() {
     system("clear");
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cout <<"Insert the names of the stations you want to analisy: ";
+    cout <<"Insert the names of the stations you want to analysis: ";
     cout<<"First station: ";
     string src_name;
     getline(cin,src_name);

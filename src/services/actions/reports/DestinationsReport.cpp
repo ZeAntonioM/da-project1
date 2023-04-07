@@ -34,7 +34,7 @@ void DestinationsReport::draw(vector<pair<Station *, pair<int, int>>> results) c
     cout<<drawFooter(71);
 }
 void  DestinationsReport:: calculateAllMaxFlows(vector<pair<int , Station*>> *results) {
-    for(auto station:graph->getStationSet()){
+    for(auto station: graph->getStationVector()){
         pair<int,int> res= make_pair(-1,-1);
         try{
             bool isOrigin= false;

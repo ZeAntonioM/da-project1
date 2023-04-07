@@ -20,4 +20,5 @@ string drawHeader(int size, string title);
 string drawFooter(int size);
 string drawFields(vector<pair<string,int>> fields,int i);
 string  drawLine(int size);
+string drawSubHeader(int size,string title);
 #endif //DA_PROJECT1_DRAWUTILS_H

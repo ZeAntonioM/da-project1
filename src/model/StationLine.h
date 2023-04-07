@@ -18,7 +18,7 @@ enum services
     NONE
 };
 class Line;
-#define INF std::numeric_limits<double>::max()
+#define INF std::numeric_limits<int>::max()
 
 class Station
 {

@@ -183,7 +183,7 @@ void GraphTests::run() {
     cout<<"\nMinimum cost max flow: \n\n";
     p=myGraph5.cheapestMaxFlow("a","d");
     ss="";
-    for(auto v : myGraph5.getStationSet()) {
+    for(auto v : myGraph5.getStationVector()) {
         ss += v->getName() + "-> (";
         for ( auto e : v->getAdj())
             ss += (e->getDest())->getName() + "[Flow: " + to_string((int)e->getFlow()) + "] ";

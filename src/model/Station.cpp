@@ -57,12 +57,6 @@ void Station::removeOutgoingLines()
         it = adj.erase(it);
         deleteLine(Line);
     }
-   /* auto it2= incoming.begin();
-    while (it2 != incoming.end()){
-        Line * Line= *it2;
-        it2=incoming.erase(it2);
-        deleteLine(Line);
-    }*/
 }
 
 
