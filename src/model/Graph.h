@@ -155,13 +155,53 @@ public:
      */
     vector<Path> getPaths(string src, string dst);
 
+    /**
+     * @brief disables a line
+     * @param line Line to be disabled
+     */
     void DisableLine(Line *line);
 
+    /**
+     * @brief enables a line
+     * @param line Line to be enabled
+     */
     void EnableLine(Line *line);
 
+    /**
+     * @brief disables a station
+     * @param station Station to be disabled
+     */
     void DisableStation(Station *station);
 
+    /**
+     * @brief enables a station
+     * @param station Station to be enabled
+     */
     void EnableStation(Station *station);
+
+    /**
+     * @brief disables all the lines
+     * @complexity O(E) being E the number of lines
+     */
+    void DisableAllLines();
+
+    /**
+     * @brief enables all the lines
+     * @complexity O(E) being E the number of lines
+     */
+    void EnableAllLines();
+
+    /**
+     * @brief disables all the stations
+     * @complexity O(V) being V the number of stations
+     */
+    void DisableAllStations();
+
+    /**
+     * @brief enables all the stations
+     * @complexity O(V) being V the number of stations
+     */
+    void EnableAllStations();
 
     /**
      * @brief returns all the paths needed to achieve the maximum flow with minimum cost between two station
@@ -178,6 +218,9 @@ public:
      */
     void calculateOrigins();
 
+    /**
+     * @return Vector with all the lines
+     */
     vector<Line *> getLineVector() const;
 
     /**
@@ -194,6 +237,9 @@ public:
      */
     Station getDistributor() const;
 
+    /**
+     * @brief Removes the last station inserted in the StationSet
+     */
     void RemoveLastStation();
 
 protected:
@@ -246,13 +292,20 @@ protected:
      */
     bool path_dijkstra(Station *origin, Station *destination, vector<Path> &paths);
 
+    /**
+     * @brief searches for a path of flow with the least stops between two station.
+     * @param origin station where the trains will leave
+     * @param destination station where the trains will arrive
+     * @param paths vector of path where the path is going to be insert
+     * @param path path that is being explored
+     * @complexity O(V+E) being V the number of stations and E the number of lines
+     */
     void path_dfs(Station *origin, Station *destination, vector<Path> &paths, Path path);
 
     /**
      * @brief deletes the graph
      * @complexity (V+E) being V the number of stations and E the number of lines
      */
-
     void deleteGraph();
 };
 
