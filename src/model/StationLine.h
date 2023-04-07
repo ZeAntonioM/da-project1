@@ -19,6 +19,10 @@ enum services {
 };
 
 class Line;
+#define INF std::numeric_limits<int>::max()
+
+
+class Line;
 
 #define INF std::numeric_limits<int>::max()
 

@@ -45,7 +45,9 @@ void ShowStations::draw(vector<Station> data, int page, int npages) {
 
 void ShowStations::execute() {
     vector<Station> stations;
+
     for (auto station: graph->getStationVector()) {
+
         stations.push_back(*station);
     }
     paginationController(stations);

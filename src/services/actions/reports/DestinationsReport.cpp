@@ -29,13 +29,14 @@ void DestinationsReport::draw(vector<pair<Station *, pair<int, int>>> results) c
     cout << drawFooter(71);
 }
 
-void DestinationsReport::calculateAllMaxFlows(vector<pair<int, Station *>> *results) {
-    for (auto station: graph->getStationVector()) {
-        pair<int, int> res = make_pair(-1, -1);
-        try {
-            bool isOrigin = false;
-            for (auto line: graph->getDistributor().getAdj()) {
-                if (line->getDest()->getName() == station->getName()) {
+void  DestinationsReport:: calculateAllMaxFlows(vector<pair<int , Station*>> *results) {
+    for(auto station: graph->getStationVector()){
+        pair<int,int> res= make_pair(-1,-1);
+        try{
+            bool isOrigin= false;
+            for(auto line: graph->getDistributor().getAdj()){
+                if(line->getDest()->getName()==station->getName()){
+
                     line->setDisabled(true);
                     res = graph->maxFlow(graph->getDistributor().getName(), station->getName());
                     line->setDisabled(false);

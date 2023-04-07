@@ -34,7 +34,9 @@ void DistrictsReport::draw(vector<pair<std::string, pair<int, int>>> data) const
 vector<pair<pair<int, int>, string>> DistrictsReport::calculateMaxFlow() {
     map<string, vector<Station *>> districts;
 
-    for (auto &station: graph->getStationVector()) {
+
+    for (auto &station : graph->getStationVector()) {
+
         if (districts.find(station->getDistrict()) == districts.end()) {
             vector<Station *> stations;
             stations.push_back(station);

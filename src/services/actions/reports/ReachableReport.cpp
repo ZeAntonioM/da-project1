@@ -35,11 +35,13 @@ void ReachableReport::draw(vector<pair<Station *, pair<int, int>>> stations) {
 
 }
 
+
 vector<pair<Station *, pair<int, int>>>
 ReachableReport::doReport(Stations stationsToDisable, Lines linesToDisable, int &percentage) {
     vector<pair<Station *, pair<int, int>>> stations;
     vector<pair<Station *, pair<int, int>>> results;
     for (auto station: graph->getStationVector()) {
+
         graph->reset();
         pair<int, int> beforeAfter = make_pair(-1, -1);
         pair<Station *, pair<int, int>> res = make_pair(station, beforeAfter);

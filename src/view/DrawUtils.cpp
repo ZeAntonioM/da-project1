@@ -87,5 +87,3 @@ string drawSubHeader(int size, string title) {
     return display;
 }
 
-
-

@@ -16,7 +16,7 @@ void MaxFlowOrigins::execute() {
     ::system("clear");
     cout << drawHeader(98, "Largest Max Flow Between all Origins");
     cout
-            << "│\033[40m Source                               │ Destiny                             │ Max Flow   │ Cost   \033[0m│"
+            << "│\033[40m Source                               │ Destiny                             │ Max Flow  │ Cost    \033[0m│"
             << endl;
     cout << "│\033[100m ";
     cout << station_name1;

@@ -36,7 +36,9 @@ void MaxFlowDistricts::execute() {
 
     map<string, vector<Station *>> districts;
 
+
     for (auto &station: graph->getStationVector()) {
+
         if (districts.find(station->getDistrict()) == districts.end()) {
             vector<Station *> stations;
             stations.push_back(station);
@@ -121,7 +123,9 @@ void MaxFlowMunicipalities::execute() {
 
     map<string, vector<Station *>> municipalities;
 
+
     for (auto &station: graph->getStationVector()) {
+
         if (municipalities.find(station->getMunicipality()) == municipalities.end()) {
             vector<Station *> stations;
             stations.push_back(station);
