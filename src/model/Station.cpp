@@ -9,7 +9,7 @@ Station::Station(string name): name(name), district(""),municipality(""),townshi
  * Auxiliary function to add an outgoing Line to a Station (this),
  * with a given destination Station (d) and Line capacity (w).
  */
-Line *Station::addLine(Station *d, double w, services s)
+Line *Station::addLine(Station *d, int w, services s)
 {
     auto newLine = new Line(this, d, w, s);
     adj.push_back(newLine);
@@ -122,6 +122,11 @@ void Station::setDist(double dist)
 void Station::setPath(Line *path)
 {
     this->path = path;
+}
+
+void Station::setStationLine(string _station_line)
+{
+    this->station_line = _station_line;
 }
 
 void Station::deleteLine(Line *Line)

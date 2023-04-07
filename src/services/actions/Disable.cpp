@@ -26,18 +26,6 @@ void DisableLine::execute() {
 
         if (_station2 == nullptr) throw string("Station 2 not found!\n");
 
-        for (auto line: _station1->getAdj()) {
-            if (line->getDest() == _station2) {
-                line1 = line;
-            }
-        }
-
-        for (auto line: _station2->getAdj()) {
-            if (line->getDest() == _station1) {
-                line2 = line;
-            }
-        }
-
         graph->DisableLine(line1);
         graph->DisableLine(line2);
         cout << "Line disabled!" << endl;

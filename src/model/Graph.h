@@ -56,7 +56,8 @@ public:
      * @return true if successful, and false if the source or destination Station does not exist.
      * @complexity O(1)
      */
-    bool addLine(Station *src, Station *dest, double w, services service);
+
+    bool addLine(Station *src, Station * dest, int w, services service);
 
     /**
      * @param src Station Source
@@ -68,7 +69,7 @@ public:
      * @brief Adds two lines at the same time, one in each direction, between the source and destination stations, with the given capacity (w).
      * complexity O(1)
      */
-    bool addBidirectionalLine(Station *src, Station *dst, double w, services service);
+    bool addBidirectionalLine(Station *src, Station *dst, int w, services service);
 
     /**
      * @brief returns the se with all the stations
@@ -76,6 +77,7 @@ public:
      * @complexity O(1)
      */
     vector<Station *> getStationSet() const;
+
     /**
      * @brief calculates the max flow between two stations
      * @param src station where the trains leave
@@ -84,6 +86,7 @@ public:
      * @complexity O(V+E) being V the number of stations and E the number of lines
      */
     pair<int, int> maxFlow(string src, string dst);
+
     /**
      *@brief calculates the max flow between two stations and the minimum cost possible with that flow
      *@param src station where the trains leave
@@ -91,11 +94,13 @@ public:
      *@return a pair of ints being the first element the max flow and the second the cost * @complexity O(| E | log | V |) being V the number of stations and E the number of lines
      */
     pair<int, int> cheapestMaxFlow(string src, string dst);
+
     /**
      * @brief sets the attributes visited and processing of the station false and the flow of the lines 0
      * @complexity O(V+E) being V the number of stations and E the number of lines
      */
     void reset();
+
     /**
      * @brief finds a path between two stations having in consideration the flow.
      * @param src station where the trains leave
@@ -104,6 +109,7 @@ public:
      * @complexity O(V+E) being V the number of stations and E the number of lines
      */
     bool findPath(Station *src, Station *dst);
+
     /**
      * @brief finds the cheapest path between two stations having in consideration the flow
      * @param src station where the trains leave
@@ -120,6 +126,7 @@ public:
      * @complexity O(V) being V the number of station that exist in the path
      */
     int bottleNeck(Station *src, Station *dst);
+
     /**
      * @brief updates the flow of the last path found between two stations
      * @param src station where the trains leave
@@ -136,6 +143,7 @@ public:
      * @complexity O(V+E) being V the number of stations and E the number of lines in the paths
      */
     int calculateCost(Station *src, Station *dst);
+
     /**
      * @brief returns all the paths needed to achieve the maximum flow between two station
      * @param src station where the trains will leave
@@ -161,6 +169,7 @@ public:
      * @complexity O(|E| log |V|) being V and E the number of lines and stations in the paths respectively
      */
     vector<Path> getCheapestPaths(string src, string dst);
+
     /**
      * @brief determines which stations are Origins and connects the Distributor to them
      * @complexity O(V) being V the number os stations in the graph
@@ -168,12 +177,14 @@ public:
     void calculateOrigins();
 
     vector<Line *> getLineVector() const;
+
     /**
      * @brief returns the origins
      * @return the origins
      * @complexity O(1)
      */
     vector<Station *> getOrigins() const;
+
     /**
      * @brief returns the distributor
      * @return the distributor
@@ -195,6 +206,7 @@ protected:
      * @brief Finds the index of the Station with a given content.
      */
     int findStationIdx(const int &id) const;
+
     /**
      * @brief Returns the current path of flow from one station to another and relaxes the lines of the path
      * @param origin Station where the trains leave
@@ -204,12 +216,14 @@ protected:
      */
     Path getPath(Station *origin, Station *dst);
 
+
     /**
      * @param string origin - origin station's name
      * @param string destination - destination station's name
      * @brief Finds the shortest Path between two stations.
      */
     void bfs(string origin, string destination);
+
     /**
      * @brief searches for a path of flow with the least stops between two station.
      * @param origin station where the trains will leave
@@ -219,6 +233,7 @@ protected:
      * @complexity O(V+E) being V the number of stations and E the number of lines
      */
     bool path_bfs(Station *origin, Station *destination, vector<Path> &paths);
+
     /**
      * @brief searches for a path of flow with the minimum cost between two station.
      * @param origin station where the trains will leave

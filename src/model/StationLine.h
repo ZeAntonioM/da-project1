@@ -50,7 +50,8 @@ public:
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
     void setPath(Line *path);
-    Line *addLine(Station *dest, double w, services s);
+    void setStationLine(string _station_line);
+    Line* addLine(Station *dest, int w, services s);
     bool removeLine(string destName);
     void removeOutgoingLines();
     int specialChars(string word) const;
@@ -85,13 +86,14 @@ protected:
 class Line
 {
 public:
-    Line(Station *orig, Station *dest, double w, services s);
-    Station *getDest() const;
-    double getCapacity() const;
+    Line(Station *orig, Station *dest, int w, services s);
+    Station * getDest() const;
+    int getCapacity() const;
+
     bool isDisabled() const;
     Station *getOrig() const;
     Line *getReverse() const;
-    double getFlow() const;
+    int getFlow() const;
     bool getVisited() const;
     services getService() const;
     int getCost() const;
@@ -99,8 +101,10 @@ public:
 
     void setDisabled(bool _disabled);
     void setReverse(Line *_reverse);
-    void setFlow(double _flow);
+    void setFlow(int _flow);
     void setVisited(bool _visited);
+    void setService(services _service);
+    void setCapacity(int _capacity);
     int specialChars(string word) const;
     void print();
 
