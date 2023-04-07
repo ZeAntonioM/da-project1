@@ -23,14 +23,7 @@ void ShowStations::draw(vector<Station> data, int page, int npages)
     {
         if (i == data.size())
             break;
-        cout << "│";
-        if (i % 2 == 0)
-            cout << "\033[47m "
-                 << "\033[30m";
-        else
-            cout << "\033[100m ";
-        data[i].print();
-        cout << "\033[0m│" << endl;
+        data[i].print(i);
     }
 
     cout << "│\033[40m────────────────────────────────────────────────────────────────────────────────────────────────────────────────\033[0m│" << endl;
@@ -46,7 +39,6 @@ void ShowStations::execute()
         stations.push_back(*station);
     }
     paginationController(stations);
-    wait();
 }
 
 void ShowStations::paginationController(vector<Station> data)

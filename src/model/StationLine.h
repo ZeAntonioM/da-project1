@@ -40,7 +40,7 @@ public:
     string getMunicipality() const;
     string getTownship() const;
     string getLine() const;
-    void print() const;
+    void print(int i) const;
 
     // void setId(int info);
     void setDisabled(bool _disabled);
@@ -54,7 +54,7 @@ public:
     Line* addLine(Station *dest, int w, services s);
     bool removeLine(string destName);
     void removeOutgoingLines();
-    int specialChars(string word) const;
+    void removeIncomingLines();
 
     friend class MutablePriorityQueue<Station>;
 
@@ -106,7 +106,9 @@ public:
     void setService(services _service);
     void setCapacity(int _capacity);
     int specialChars(string word) const;
-    void print();
+
+    void print(int i);
+
 
 private:
     services service;

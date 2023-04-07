@@ -2,6 +2,7 @@
 #define SEARCHSTATION .H
 
 #include "Action.h"
+#include "../../view/DrawUtils.h"
 
 class SearchStation : public Action
 {

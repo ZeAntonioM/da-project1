@@ -15,6 +15,7 @@
 #include "actions/MaxFlowOrigins.h"
 #include "actions/ShowLines.h"
 #include "actions/SearchLine.h"
+#include "actions/MaxFlowGroups.h"
 
 Program::Program(){
    createMenus();
@@ -22,6 +23,7 @@ Program::Program(){
    this->graph= Graph();
    Scrapper().scrape(graph, "../files/stations.csv","../files/network.csv");
    graph.calculateOrigins();
+
 }
 
 void Program::run()
@@ -41,6 +43,7 @@ void Program::run()
     }
 }
 
+
 void Program::createMenus() {
     Menu menu=Menu("../menus/Main.txt");
     menu.addMenuItem( new ChangeMenu (menuPage,graph,NETWORK_INFORMATION));
@@ -48,7 +51,9 @@ void Program::createMenus() {
     menu.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,EDIT_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,CREATE_MENU));
+    menu.addMenuItem( new ChangeMenu (menuPage,graph,REPORTS));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+
     menus.push_back(menu);
 
     Menu flow = Menu("../menus/Flow.txt");
@@ -75,6 +80,7 @@ void Program::createMenus() {
     networkInformation.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(networkInformation);
 
+
     Menu mainEdit = Menu("../menus/Edit.txt");
     mainEdit.addMenuItem( new EditStationsLine(graph));
     mainEdit.addMenuItem( new EditLinesService(graph));
@@ -88,5 +94,10 @@ void Program::createMenus() {
     createMenu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(createMenu);
 
+    Menu reports = Menu("../menus/Budget.txt");
+    reports.addMenuItem(new MaxFlowDistricts(graph));
+    reports.addMenuItem(new MaxFlowMunicipalities(graph));
+    reports.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
+    menus.push_back(reports);
 
 }

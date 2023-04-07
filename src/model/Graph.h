@@ -118,6 +118,7 @@ public:
      * @complexity O(|E|+ log |V| ) being V the number of stations and E the number of lines
      */
     bool findCheapestPath(Station *src, Station *dst);
+
     /**
      * @brief finds the bottleNeck of the last path found between two stations
      * @param src station where the trains leave
@@ -135,6 +136,7 @@ public:
      * @complexity O(V) being V the number of station that exist in the path
      */
     void incrementFlow(Station *src, Station *dst, int value);
+
     /**
      * @brief calculates the cost of flows paths between two stations
      * @param src station where the trains leave
@@ -192,14 +194,14 @@ public:
      */
     Station getDistributor() const;
 
+    void RemoveLastStation();
+
 protected:
     vector<Station *> stationSet; // Station set
     vector<Line *> lineVector;
     vector<Station *> origins;
     Station distributor = Station("Distributor");
-
     double **distMatrix = nullptr; // dist matrix for Floyd-Warshall
-
     int **pathMatrix = nullptr; // path matrix for Floyd-Warshall
 
     /**
