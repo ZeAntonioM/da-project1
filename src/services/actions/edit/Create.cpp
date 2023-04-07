@@ -65,19 +65,16 @@ void CreateLine::execute() {
         cout << "Insert the new line's service (STANDARD - 0, ALFA PENDULAR - 1, NONE - 2): ";
         getline(cin, service);
 
-            if (service == "0") {
-                _service = STANDARD;
-            }
-            else if (service == "1") {
-                _service = ALFA;
+        if (service == "0") {
+            _service = STANDARD;
+        } else if (service == "1") {
+            _service = ALFA;
 
-            }
-            else if (service == "2") {
-                _service = NONE;
-            }
-            else {
-                throw string("Invalid service! \n");
-            }
+        } else if (service == "2") {
+            _service = NONE;
+        } else {
+            throw string("Invalid service! \n");
+        }
 
 
         cout << "Insert the new capacity of the line: ";
@@ -87,8 +84,8 @@ void CreateLine::execute() {
         try {
             capacity = stoi(c);
         }
-        catch(std::invalid_argument){
-            cout<<"invalid argument";
+        catch (std::invalid_argument) {
+            cout << "invalid argument";
         }
 
         graph->addBidirectionalLine(_station1, _station2, capacity, _service);

@@ -6,9 +6,9 @@
 #include "../edit/Disable.h"
 #include "../../../view/DrawUtils.h"
 
-ComponentsReport::ComponentsReport(Graph &graph): Action(graph) {}
+ComponentsReport::ComponentsReport(Graph &graph) : Action(graph) {}
 
-void ComponentsReport::draw(pair<int,int> sCCs)const {
+void ComponentsReport::draw(pair<int, int> sCCs) const {
     ::system("clear");
     cout << drawHeader(40, "Strongly Connected Components");
     vector<pair<string, int>> fields;
@@ -16,7 +16,7 @@ void ComponentsReport::draw(pair<int,int> sCCs)const {
     fields.push_back(make_pair("After", 19));
     cout << drawFields(fields, 0);
     fields.clear();
-    cout<<drawLine(40);
+    cout << drawLine(40);
     fields.push_back(make_pair(to_string(sCCs.first), 19));
     fields.push_back(make_pair(to_string(sCCs.second), 19));
     cout << drawFields(fields, 0);
@@ -24,28 +24,28 @@ void ComponentsReport::draw(pair<int,int> sCCs)const {
 
 }
 
-pair<int,int> ComponentsReport::doReport(Stations stations, Lines lines,int &percentage){
+pair<int, int> ComponentsReport::doReport(Stations stations, Lines lines, int &percentage) {
 
-    int before=graph->sCC();
-    DisableLine disableLines= DisableLine(*graph);
-    EnableLine enableLine= EnableLine(*graph);
-    DisableStation disableStation= DisableStation(*graph);
-    EnableStation enableStation= EnableStation(*graph);
+    int before = graph->sCC();
+    DisableLine disableLines = DisableLine(*graph);
+    EnableLine enableLine = EnableLine(*graph);
+    DisableStation disableStation = DisableStation(*graph);
+    EnableStation enableStation = EnableStation(*graph);
 
     disableStation.disableStations(stations);
     disableLines.disableLines(lines);
-    int after= graph->sCC();
+    int after = graph->sCC();
     enableStation.enableStations(stations);
     enableLine.enableLines(lines);
-    percentage=100;
-    return make_pair(before,after);
+    percentage = 100;
+    return make_pair(before, after);
 
 
 }
 
 void ComponentsReport::execute() {
-    pair<Stations,Lines> data= Reports(*graph).getToDisable();
-    int percentage=0;
-    draw(doReport(data.first,data.second,percentage));
+    pair<Stations, Lines> data = Reports(*graph).getToDisable();
+    int percentage = 0;
+    draw(doReport(data.first, data.second, percentage));
     wait();
 }

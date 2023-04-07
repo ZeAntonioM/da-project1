@@ -23,27 +23,22 @@
 #include "actions/reports/GeneralReport.h"
 
 
-Program::Program(){
-   createMenus();
-   menuPage.push(MAIN_MENU);
-   this->graph= Graph();
-   Scrapper().scrape(graph, "../files/stations.csv","../files/network.csv");
-   graph.calculateOrigins();
+Program::Program() {
+    createMenus();
+    menuPage.push(MAIN_MENU);
+    this->graph = Graph();
+    Scrapper().scrape(graph, "../files/stations.csv", "../files/network.csv");
+    graph.calculateOrigins();
 
 }
 
-void Program::run()
-{
-    while (!menuPage.empty())
-    {
-        if (menuPage.top() == POP_MENU)
-        {
+void Program::run() {
+    while (!menuPage.empty()) {
+        if (menuPage.top() == POP_MENU) {
 
             menuPage.pop();
             menuPage.pop();
-        }
-        else
-        {
+        } else {
             menus[menuPage.top()].execute();
         }
     }
@@ -51,15 +46,15 @@ void Program::run()
 
 
 void Program::createMenus() {
-    Menu menu=Menu("../menus/Main.txt");
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,NETWORK_INFORMATION));
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,FLOW));
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE_MENU));
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,EDIT_MENU));
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,CREATE_MENU));
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,BUDGET_MENU));
-    menu.addMenuItem(new ChangeMenu(menuPage,graph,REPORT_MENU));
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    Menu menu = Menu("../menus/Main.txt");
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, NETWORK_INFORMATION));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, FLOW));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, DISABLE_MENU));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, EDIT_MENU));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, CREATE_MENU));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, BUDGET_MENU));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, REPORT_MENU));
+    menu.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(menu);
 
     Menu flow = Menu("../menus/Flow.txt");
@@ -88,16 +83,16 @@ void Program::createMenus() {
 
 
     Menu mainEdit = Menu("../menus/Edit.txt");
-    mainEdit.addMenuItem( new EditStationsLine(graph));
-    mainEdit.addMenuItem( new EditLinesService(graph));
-    mainEdit.addMenuItem( new EditLinesCapacity(graph));
-    mainEdit.addMenuItem(new ChangeMenu (menuPage,graph,POP_MENU));
+    mainEdit.addMenuItem(new EditStationsLine(graph));
+    mainEdit.addMenuItem(new EditLinesService(graph));
+    mainEdit.addMenuItem(new EditLinesCapacity(graph));
+    mainEdit.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(mainEdit);
 
     Menu createMenu = Menu("../menus/Create.txt");
-    createMenu.addMenuItem( new CreateStation(graph));
-    createMenu.addMenuItem( new CreateLine(graph));
-    createMenu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    createMenu.addMenuItem(new CreateStation(graph));
+    createMenu.addMenuItem(new CreateLine(graph));
+    createMenu.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(createMenu);
 
     Menu budget = Menu("../menus/Budget.txt");
@@ -106,14 +101,14 @@ void Program::createMenus() {
     budget.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(budget);
 
-    Menu report =Menu("../menus/Reports.txt");
+    Menu report = Menu("../menus/Reports.txt");
     report.addMenuItem(new GeneralReport(graph));
     report.addMenuItem(new MaxFlowReport(graph));
     report.addMenuItem(new DestinationsReport(graph));
     report.addMenuItem(new ComponentsReport(graph));
     report.addMenuItem(new ReachableReport(graph));
     report.addMenuItem(new DistrictsReport(graph));
-    report.addMenuItem(new ChangeMenu(menuPage,graph,POP_MENU));
+    report.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
 
 
     menus.push_back(report);

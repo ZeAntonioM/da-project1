@@ -26,7 +26,7 @@ void EditStationsLine::execute() {
 
         cout << "Station line edited!" << endl;
         wait();
-        }
+    }
     catch (string err) {
         cout << "An error has occur! \n" << err << endl;
         wait();
@@ -75,16 +75,13 @@ void EditLinesService::execute() {
         if (service == "0") {
             line1->setService(STANDARD);
             line2->setService(STANDARD);
-        }
-        else if (service == "1") {
+        } else if (service == "1") {
             line1->setService(ALFA);
             line2->setService(ALFA);
-        }
-        else if (service == "2") {
+        } else if (service == "2") {
             line1->setService(NONE);
             line2->setService(NONE);
-        }
-        else {
+        } else {
             throw string("Invalid service! \n");
         }
 
@@ -140,9 +137,9 @@ void EditLinesCapacity::execute() {
         getline(cin, capacity);
 
         try {
-            int c= stoi(capacity);
-        } catch(std::invalid_argument){
-            cout<<"invalid argument";
+            int c = stoi(capacity);
+        } catch (std::invalid_argument) {
+            cout << "invalid argument";
         }
 
         line1->setCapacity(stoi(capacity));

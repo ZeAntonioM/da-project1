@@ -8,7 +8,7 @@
 #include "../Action.h"
 #include "../../../view/DrawUtils.h"
 
-class MaxFlowDistricts : public Action{
+class MaxFlowDistricts : public Action {
 public:
 
     /**
@@ -21,7 +21,7 @@ public:
      * @brief Draws a table with the first 10 elements in data.
      * @param data - Priority queue with the districts and their max flow and cost
      */
-    void draw(priority_queue<pair<pair<int,int>,string>> data);
+    void draw(priority_queue<pair<pair<int, int>, string>> data);
 
     /**
      * @brief Creates a Super Sink and connects it to all the stations of the district with a line with capacity INT16_MAX. Then it calculates the max flow and cost of the district and calls the draw() function so that the user can see the results.
@@ -31,14 +31,14 @@ public:
 };
 
 
-class MaxFlowMunicipalities : public Action{
+class MaxFlowMunicipalities : public Action {
 public:
 
     /**
      * @brief Draws a table with the first 10 elements in data.
      * @param data - Priority queue with the municipalities and their max flow and cost
      */
-    void draw(priority_queue<pair<pair<int,int>,string>> data);
+    void draw(priority_queue<pair<pair<int, int>, string>> data);
 
     /**
      * @brief Constructor of the class MaxFlowMunicipalities

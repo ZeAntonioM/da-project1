@@ -12,10 +12,10 @@
 using namespace std;
 
 
-class Action
-{
+class Action {
 protected:
     Graph *graph;
+
     /**
      * @brief waits until the user insert anything
      * complexity O(1)
@@ -29,10 +29,10 @@ public:
     * @param graph graph with all the information of the stations and lines
     */
     Action(Graph &graph);
+
     virtual void execute() = 0;
 
 };
-
 
 
 #endif //DA_PROJECT1_ACTION_H

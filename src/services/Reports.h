@@ -7,15 +7,19 @@
 
 
 #include "../model/Graph.h"
+
 typedef vector<Station *> Stations;
 typedef vector<Line *> Lines;
-typedef pair<string,string> stringPair;
-typedef pair<int,int> beforeAfter;
+typedef pair<string, string> stringPair;
+typedef pair<int, int> beforeAfter;
+
 class Reports {
 
 public:
-    Reports(Graph & graph);
-    pair<Stations,Lines> getToDisable() const;
+    Reports(Graph &graph);
+
+    pair<Stations, Lines> getToDisable() const;
+
 private:
     Graph *graph;
 

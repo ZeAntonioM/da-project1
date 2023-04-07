@@ -11,14 +11,18 @@
 #include <ctime>
 #include "../../../view/DrawUtils.h"
 
-class DestinationsReport: public Action {
+class DestinationsReport : public Action {
 public:
     DestinationsReport(Graph &graph);
-    vector<pair<Station*,pair<int,int>>> doReport(vector<Station*> stations, vector<Line *> lines,int &percentage);
+
+    vector<pair<Station *, pair<int, int>>> doReport(vector<Station *> stations, vector<Line *> lines, int &percentage);
+
     void execute() override;
-    void draw(vector<pair<Station*,pair<int,int>>> results) const;
+
+    void draw(vector<pair<Station *, pair<int, int>>> results) const;
+
 protected:
-    void calculateAllMaxFlows(vector<pair<int ,Station*>> *results);
+    void calculateAllMaxFlows(vector<pair<int, Station *>> *results);
 
 
 };

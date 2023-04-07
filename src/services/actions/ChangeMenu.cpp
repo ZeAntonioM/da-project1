@@ -5,13 +5,11 @@
 #include "ChangeMenu.h"
 
 
-
-ChangeMenu::ChangeMenu(stack<menus> &currMenusPage, Graph &graph,  menus nextMenu) : Action( graph)
-{
+ChangeMenu::ChangeMenu(stack<menus> &currMenusPage, Graph &graph, menus nextMenu) : Action(graph) {
     this->nextMenu = nextMenu;
-    this->menuPages= &currMenusPage;
+    this->menuPages = &currMenusPage;
 }
 
 void ChangeMenu::execute() {
-     menuPages->push(nextMenu);
+    menuPages->push(nextMenu);
 }

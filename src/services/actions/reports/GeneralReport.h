@@ -8,17 +8,22 @@
 
 #include "../Action.h"
 #include "../../Reports.h"
-typedef vector<pair<Station*,pair<int,int>>> DestResults;
-typedef vector<pair<string,pair<int,int>>> DistResults;
-typedef  pair<int,int> CompResults;
-typedef vector<pair<Station*, pair<int,int>>> ReachResults;
 
-class GeneralReport: public Action{
+typedef vector<pair<Station *, pair<int, int>>> DestResults;
+typedef vector<pair<string, pair<int, int>>> DistResults;
+typedef pair<int, int> CompResults;
+typedef vector<pair<Station *, pair<int, int>>> ReachResults;
+
+class GeneralReport : public Action {
 public:
     GeneralReport(Graph &graph);
-    void draw(DestResults destReportResults,DistResults distResults,CompResults compResults,ReachResults reachResults)const;
-    void doReport(Stations stationsToDisable,Lines linesToDisable,int &percentage);
-    void execute()override;
+
+    void draw(DestResults destReportResults, DistResults distResults, CompResults compResults,
+              ReachResults reachResults) const;
+
+    void doReport(Stations stationsToDisable, Lines linesToDisable, int &percentage);
+
+    void execute() override;
 
 };
 

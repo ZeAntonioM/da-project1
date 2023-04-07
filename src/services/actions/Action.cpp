@@ -5,13 +5,13 @@
 #include "Action.h"
 
 
-Action::Action( Graph &graph)
-{
+Action::Action(Graph &graph) {
     this->graph = &graph;
 }
+
 void Action::wait() const {
     string wait;
-    cout<<"Enter anything to go back: ";
-    cin>>wait;
+    cout << "Enter anything to go back: ";
+    cin >> wait;
 }
 

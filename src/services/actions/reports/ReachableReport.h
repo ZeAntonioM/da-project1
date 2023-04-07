@@ -9,12 +9,15 @@
 #include "../Action.h"
 #include "../../Reports.h"
 
-class ReachableReport: public Action{
+class ReachableReport : public Action {
 public:
     ReachableReport(Graph &graph);
+
     void execute() override;
-    vector<pair<Station*, pair<int,int>>> doReport(Stations stations,Lines lines,int & percentage);
-    void draw(vector<pair<Station*, pair<int,int>>>);
+
+    vector<pair<Station *, pair<int, int>>> doReport(Stations stations, Lines lines, int &percentage);
+
+    void draw(vector<pair<Station *, pair<int, int>>>);
 
 };
 

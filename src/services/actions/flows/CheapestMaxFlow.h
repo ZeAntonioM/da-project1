@@ -8,7 +8,7 @@
 
 #include "../Action.h"
 
-class CheapestMaxFlow : public Action{
+class CheapestMaxFlow : public Action {
 
 public:
     /**
@@ -16,12 +16,13 @@ public:
      * @param graph containing the information of the network
      */
     CheapestMaxFlow(Graph &graph);
+
     /**
      * @brief Asks the user for two stations and displays the maximum flow from the two stations,
      * its cost and the paths needed to achieve the max flow.
      * @complexity O( |E| log |V| ) being V the number of stations and E the number of lines
      */
-    void execute()override;
+    void execute() override;
 
 
 };

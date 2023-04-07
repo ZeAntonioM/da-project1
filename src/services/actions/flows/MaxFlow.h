@@ -8,7 +8,7 @@
 
 #include "../Action.h"
 
-class MaxFlow: public Action{
+class MaxFlow : public Action {
 
 public:
     /**
@@ -16,6 +16,7 @@ public:
      * @param graph with all the information of the network
      */
     MaxFlow(Graph &graph);
+
     /**
      * @brief Asks the user for two stations and displays the maximum flow between them,
      * its cost and the paths needed to achieve it

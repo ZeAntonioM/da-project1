@@ -10,50 +10,76 @@
 #include "MutablePriorityQueue.h"
 
 #include "string"
+
 using namespace std;
-enum services
-{
+enum services {
     STANDARD,
     ALFA,
     NONE
 };
-class Line;
-#define INF std::numeric_limits<double>::max()
 
-class Station
-{
+class Line;
+
+#define INF std::numeric_limits<int>::max()
+
+class Station {
 public:
     Station(string name, string district, string municipality, string township, string station_line);
+
     Station(string name);
+
     bool operator<(Station Station) const; // // required by MutablePriorityQueue
 
     // int getId() const;
     std::vector<Line *> getAdj() const;
+
     bool isVisited() const;
+
     bool isProcessing() const;
+
     unsigned int getIndegree() const;
+
     double getDist() const;
+
     Line *getPath() const;
+
     std::vector<Line *> getIncoming() const;
+
     string getName() const;
+
     string getDistrict() const;
+
     string getMunicipality() const;
+
     string getTownship() const;
+
     string getLine() const;
+
     void print(int i) const;
 
     // void setId(int info);
     void setDisabled(bool _disabled);
+
     bool isDisabled() const;
+
     void setVisited(bool visited);
+
     void setProcessing(bool processing);
+
     void setIndegree(unsigned int indegree);
+
     void setDist(double dist);
+
     void setPath(Line *path);
+
     void setStationLine(string _station_line);
-    Line* addLine(Station *dest, int w, services s);
+
+    Line *addLine(Station *dest, int w, services s);
+
     bool removeLine(string destName);
+
     void removeOutgoingLines();
+
     void removeIncomingLines();
 
     friend class MutablePriorityQueue<Station>;
@@ -83,28 +109,42 @@ protected:
     void deleteLine(Line *Line);
 };
 
-class Line
-{
+class Line {
 public:
     Line(Station *orig, Station *dest, int w, services s);
-    Station * getDest() const;
+
+    Station *getDest() const;
+
     int getCapacity() const;
 
     bool isDisabled() const;
+
     Station *getOrig() const;
+
     Line *getReverse() const;
+
     int getFlow() const;
+
     bool getVisited() const;
+
     services getService() const;
+
     int getCost() const;
+
     bool isFull() const;
 
     void setDisabled(bool _disabled);
+
     void setReverse(Line *_reverse);
+
     void setFlow(int _flow);
+
     void setVisited(bool _visited);
+
     void setService(services _service);
+
     void setCapacity(int _capacity);
+
     int specialChars(string word) const;
 
     void print(int i);

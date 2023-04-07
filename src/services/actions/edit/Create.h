@@ -26,6 +26,4 @@ public:
 };
 
 
-
-
 #endif //DA_PROJECT1_CREATE_H

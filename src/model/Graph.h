@@ -16,8 +16,8 @@ using namespace std;
 
 typedef vector<Line *> Connections;
 typedef pair<Connections, int> Path;
-class Graph
-{
+
+class Graph {
 public:
     ~Graph();
 
@@ -57,7 +57,7 @@ public:
      * @complexity O(1)
      */
 
-    bool addLine(Station *src, Station * dest, int w, services service);
+    bool addLine(Station *src, Station *dest, int w, services service);
 
     /**
      * @param src Station Source
@@ -76,7 +76,7 @@ public:
      * @return the set with all the stations
      * @complexity O(1)
      */
-    vector<Station *> getStationSet() const;
+    vector<Station *> getStationVector() const;
 
     /**
      * @brief calculates the max flow between two stations
@@ -156,7 +156,6 @@ public:
     vector<Path> getPaths(string src, string dst);
 
 
-
     void disableLine(Line *line);
 
 
@@ -197,18 +196,20 @@ public:
      */
     Station getDistributor() const;
 
-    void RemoveLastStation();
+    void removeLastStation();
 
     int sCC();
+
     /**
      * @param string origin - origin station's name
      * @param string destination - destination station's name
      * @brief Finds the shortest Path between two stations.
      */
-    int bfs(Station * station);
+    int bfs(Station *station);
 
 protected:
-    vector<Station *> stationSet; // Station set
+    vector<Station *> stationVector;
+    // Station set
     vector<Line *> lineVector;
     vector<Station *> origins;
     Station distributor = Station("Distributor");
@@ -228,8 +229,6 @@ protected:
      * @complexity O(E) being E the number of lines in the Path
      */
     Path getPath(Station *origin, Station *dst);
-
-
 
 
     /**

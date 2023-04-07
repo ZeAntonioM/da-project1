@@ -11,10 +11,10 @@
 
 using namespace std;
 
-class ChangeMenu: public Action {
+class ChangeMenu : public Action {
 private:
     menus nextMenu;
-    stack<menus>* menuPages;
+    stack<menus> *menuPages;
 
 public:
 
@@ -32,7 +32,6 @@ public:
     */
     void execute() override;
 };
-
 
 
 #endif //DA_PROJECT1_CHANGEMENU_H
