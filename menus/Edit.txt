@@ -1,4 +1,6 @@
 Edit Station's line
 Edit Line's Service
 Edit Line's Capacity
+Enable Lines or Stations
+Disable Lines or Stations
 Go Back

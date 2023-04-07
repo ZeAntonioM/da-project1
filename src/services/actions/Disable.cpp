@@ -124,5 +124,38 @@ void EnableStation::execute() {
         cout<<"An error has occur!"<<err<<endl;
         wait();
     }
+
+}
+
+DisableAllLines::DisableAllLines(Graph &graph) : Action(graph) {}
+
+void DisableAllLines::execute() {
+    graph->DisableAllLines();
+    cout<<"All lines disabled successfully\n";
+    wait();
+}
+
+EnableAllLines::EnableAllLines(Graph &graph) : Action(graph) {}
+
+void EnableAllLines::execute() {
+    graph->EnableAllLines();
+    cout<<"All lines enabled successfully\n";
+    wait();
+}
+
+DisableAllStations::DisableAllStations(Graph &graph) : Action(graph) {}
+
+void DisableAllStations::execute() {
+    graph->DisableAllStations();
+    cout<<"All stations disabled successfully\n";
+    wait();
+}
+
+EnableAllStations::EnableAllStations(Graph &graph) : Action(graph) {}
+
+void EnableAllStations::execute() {
+    graph->EnableAllStations();
+    cout<<"All stations enabled successfully\n";
+    wait();
 }
 

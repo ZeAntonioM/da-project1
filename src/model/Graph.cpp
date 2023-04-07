@@ -412,6 +412,30 @@ void Graph::EnableStation(Station *station)
     station->setDisabled(false);
 }
 
+void Graph::DisableAllLines() {
+    for(auto line: lineVector){
+        line->setDisabled(true);
+        line->getReverse()->setDisabled(true);
+    }
+}
+
+void Graph::EnableAllLines() {
+    for(auto line: lineVector){
+        line->setDisabled(false);
+        line->getReverse()->setDisabled(false);
+    }
+}
+
+void Graph::DisableAllStations() {
+    for(auto &station : stationSet)
+        station->setDisabled(true);
+}
+
+void Graph::EnableAllStations() {
+    for(auto &station : stationSet)
+        station->setDisabled(false);
+}
+
 bool Graph::path_bfs(Station *origin, Station *destination, vector<Path> &paths)
 {
     for (Station *station : stationSet)

@@ -48,12 +48,10 @@ void Program::createMenus() {
     Menu menu=Menu("../menus/Main.txt");
     menu.addMenuItem( new ChangeMenu (menuPage,graph,NETWORK_INFORMATION));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,FLOW));
-    menu.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,EDIT_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,CREATE_MENU));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,REPORTS));
     menu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
-
     menus.push_back(menu);
 
     Menu flow = Menu("../menus/Flow.txt");
@@ -63,14 +61,6 @@ void Program::createMenus() {
     flow.addMenuItem(new MaxFlowOrigins(graph));
     flow.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(flow);
-
-    Menu disableMenu = Menu("../menus/Disable.txt");
-    disableMenu.addMenuItem(new DisableLine(graph));
-    disableMenu.addMenuItem(new EnableLine(graph));
-    disableMenu.addMenuItem(new DisableStation(graph));
-    disableMenu.addMenuItem(new EnableStation(graph));
-    disableMenu.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
-    menus.push_back(disableMenu);
 
     Menu networkInformation = Menu("../menus/Information.txt");
     networkInformation.addMenuItem(new ShowStations(graph));
@@ -85,6 +75,8 @@ void Program::createMenus() {
     mainEdit.addMenuItem( new EditStationsLine(graph));
     mainEdit.addMenuItem( new EditLinesService(graph));
     mainEdit.addMenuItem( new EditLinesCapacity(graph));
+    mainEdit.addMenuItem( new ChangeMenu (menuPage,graph,ENABLE));
+    mainEdit.addMenuItem( new ChangeMenu (menuPage,graph,DISABLE));
     mainEdit.addMenuItem(new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(mainEdit);
 
@@ -99,5 +91,21 @@ void Program::createMenus() {
     reports.addMenuItem(new MaxFlowMunicipalities(graph));
     reports.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(reports);
+
+    Menu enable = Menu("../menus/Enable.txt");
+    enable.addMenuItem( new EnableLine(graph));
+    enable.addMenuItem( new EnableStation(graph));
+    enable.addMenuItem( new EnableAllLines(graph));
+    enable.addMenuItem( new EnableAllStations(graph));
+    enable.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    menus.push_back(enable);
+
+    Menu disable = Menu("../menus/Disable.txt");
+    disable.addMenuItem( new DisableLine(graph));
+    disable.addMenuItem( new DisableStation(graph));
+    disable.addMenuItem( new DisableAllLines(graph));
+    disable.addMenuItem( new DisableAllStations(graph));
+    disable.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
+    menus.push_back(disable);
 
 }
