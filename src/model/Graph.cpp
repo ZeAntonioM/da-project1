@@ -413,15 +413,17 @@ void Graph::EnableStation(Station *station)
 }
 
 void Graph::DisableAllLines() {
-    for (auto &station : stationSet)
-        for (auto &line : station->getAdj())
-            line->setDisabled(true);
+    for(auto line: lineVector){
+        line->setDisabled(true);
+        line->getReverse()->setDisabled(true);
+    }
 }
 
 void Graph::EnableAllLines() {
-    for (auto &station : stationSet)
-        for (auto &line : station->getAdj())
-            line->setDisabled(false);
+    for(auto line: lineVector){
+        line->setDisabled(false);
+        line->getReverse()->setDisabled(false);
+    }
 }
 
 void Graph::DisableAllStations() {
