@@ -1,7 +1,7 @@
 #ifndef SEARCHSTATION_H
 #define SEARCHSTATION .H
 
-#include "Action.h"
+#include "../Action.h"
 
 class SearchStation : public Action
 {

@@ -27,7 +27,7 @@ int main() {
         string wait;
         cin>>wait;
     }*/
-    bool await =false;
+   /* bool await =false;
 
     time_t start= time(NULL);
     future<bool> f=async(count_a_lot,&await);
@@ -42,7 +42,7 @@ int main() {
     }
 
 
-    await= f.get();
+    await= f.get();*/
 
 
 

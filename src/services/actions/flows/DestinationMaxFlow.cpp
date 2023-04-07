@@ -3,7 +3,7 @@
 //
 
 #include "DestinationMaxFlow.h"
-#include "../../view/DrawPaths.h"
+#include "../../../view/DrawPaths.h"
 
 DestinationMaxFlow::DestinationMaxFlow(Graph &graph) : Action(graph) {
 }

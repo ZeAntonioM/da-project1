@@ -6,7 +6,7 @@
 #define DA_PROJECT1_MAXFLOW_H
 
 
-#include "Action.h"
+#include "../Action.h"
 
 class MaxFlow: public Action{
 

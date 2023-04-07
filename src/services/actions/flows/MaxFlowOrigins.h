@@ -1,7 +1,7 @@
 #ifndef MAXFLOWORIGINS_H
 #define MAXFLOWORIGINS_H
 
-#include "Action.h"
+#include "../Action.h"
 
 class MaxFlowOrigins : public Action
 {

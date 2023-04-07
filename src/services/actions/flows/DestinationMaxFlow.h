@@ -6,7 +6,7 @@
 #define DA_PROJECT1_DESTINATIONMAXFLOW_H
 
 using  namespace std;
-#include "Action.h"
+#include "../Action.h"
 
 class DestinationMaxFlow: public Action{
 public:

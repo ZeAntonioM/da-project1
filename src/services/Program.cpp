@@ -3,17 +3,18 @@
 //
 
 #include "Program.h"
-#include "actions/MaxFlow.h"
-#include "actions/CheapestMaxFlow.h"
+#include "actions/flows/MaxFlow.h"
+#include "actions/flows/CheapestMaxFlow.h"
 
 #include "actions/Disable.h"
-#include "actions/DestinationMaxFlow.h"
-#include "actions/ShowStations.h"
-#include "actions/SearchStation.h"
-#include "actions/MaxFlowOrigins.h"
-#include "actions/MaxFlowReport.h"
-#include "actions/DestinationsReport.h"
-#include "actions/ComponentsReport.h"
+#include "actions/flows/DestinationMaxFlow.h"
+#include "actions/information/ShowStations.h"
+#include "actions/information/SearchStation.h"
+#include "actions/flows/MaxFlowOrigins.h"
+#include "actions/reports/MaxFlowReport.h"
+#include "actions/reports/DestinationsReport.h"
+#include "actions/reports/ComponentsReport.h"
+#include "actions/reports/ReachableReport.h"
 
 
 Program::Program(){
@@ -74,6 +75,7 @@ void Program::createMenus() {
     report.addMenuItem(new MaxFlowReport(graph));
     report.addMenuItem(new DestinationsReport(graph));
     report.addMenuItem(new ComponentsReport(graph));
+    report.addMenuItem(new ReachableReport(graph));
     report.addMenuItem(new ChangeMenu(menuPage,graph,POP_MENU));
 
 

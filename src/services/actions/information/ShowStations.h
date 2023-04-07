@@ -5,7 +5,7 @@
 #ifndef SHOWSTATIONS_H
 #define SHOWSTATIONS_H
 
-#include "Action.h"
+#include "../Action.h"
 #include "math.h"
 
 class ShowStations : public Action

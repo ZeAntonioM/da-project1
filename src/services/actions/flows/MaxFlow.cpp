@@ -3,7 +3,7 @@
 //
 
 #include "MaxFlow.h"
-#include "../../view/DrawPaths.h"
+#include "../../../view/DrawPaths.h"
 
 MaxFlow::MaxFlow( Graph &graph): Action(graph) {}
 

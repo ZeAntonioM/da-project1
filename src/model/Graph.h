@@ -171,6 +171,12 @@ public:
     Station  getDistributor() const;
 
     int sCC();
+    /**
+     * @param string origin - origin station's name
+     * @param string destination - destination station's name
+     * @brief Finds the shortest Path between two stations.
+     */
+    int bfs(Station * station);
 
 protected:
 
@@ -198,12 +204,7 @@ protected:
     Path getPath(Station * origin, Station * dst);
 
 
-    /**
-     * @param string origin - origin station's name
-     * @param string destination - destination station's name
-     * @brief Finds the shortest Path between two stations.
-     */
-    void bfs(Station * station);
+
     /**
      * @brief searches for a path of flow with the least stops between two station.
      * @param origin station where the trains will leave

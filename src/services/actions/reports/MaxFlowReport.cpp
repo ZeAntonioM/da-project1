@@ -3,8 +3,8 @@
 //
 
 #include "MaxFlowReport.h"
-#include "Disable.h"
-#include "../Reports.h"
+#include "../Disable.h"
+#include "../../Reports.h"
 
 MaxFlowReport::MaxFlowReport(Graph &graph): Action(graph) {}
 int specialChars(std::string word) {

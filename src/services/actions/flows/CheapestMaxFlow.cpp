@@ -3,7 +3,7 @@
 //
 
 #include "CheapestMaxFlow.h"
-#include "../../view/DrawPaths.h"
+#include "../../../view/DrawPaths.h"
 
 CheapestMaxFlow::CheapestMaxFlow( Graph &graph) : Action(graph) {}
 

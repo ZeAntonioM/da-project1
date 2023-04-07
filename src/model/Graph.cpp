@@ -77,20 +77,23 @@ int Graph::sCC() {
         }
     return count;
 }
-void Graph::bfs(Station * station) {
+int Graph::bfs(Station * station) {
+    int reachable=0;
     station->setVisited(true);
     queue<Station *> q;
     q.push(station);
     while(!q.empty()){
         auto u= q.front();
+        reachable++;
         q.pop();
         for(auto e: u->getAdj()){
-            if(!e->getDest()->isVisited()){
+            if(!e->getDest()->isVisited() and !e->isDisabled() and !e->getDest()->isDisabled()){
                 e->getDest()->setVisited(true);
                 q.push(e->getDest());
             }
         }
     }
+    return reachable-1;
 }
 
 

@@ -6,8 +6,8 @@
 #define DA_PROJECT1_COMPONENTSREPORT_H
 
 
-#include "Action.h"
-#include "../Reports.h"
+#include "../Action.h"
+#include "../../Reports.h"
 
 class ComponentsReport: public Action{
 public:

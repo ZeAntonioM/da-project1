@@ -3,8 +3,8 @@
 //
 
 #include "DestinationsReport.h"
-#include "../Reports.h"
-#include "Disable.h"
+#include "../../Reports.h"
+#include "../Disable.h"
 int spacialChars(std::string word) {
     int count=0;
     for( char c: word){
