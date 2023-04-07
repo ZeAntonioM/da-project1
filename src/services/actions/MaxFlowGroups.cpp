@@ -57,7 +57,7 @@ void MaxFlowDistricts::execute() {
 
 
         for (auto &station : district.second) {
-            graph->addLine(station, &superSink, INT16_MAX, services::STANDARD);
+            graph->addLine(station, &superSink, INT16_MAX, services::NONE);
 
             for(auto incoming : station->getIncoming()) {
                 if (incoming->getOrig()->getName() == graph->getDistributor().getName()) {
@@ -142,7 +142,7 @@ void MaxFlowMunicipalities::execute() {
 
 
         for (auto &station : municipality.second) {
-            graph->addLine(station, &superSink, INT16_MAX, services::STANDARD);
+            graph->addLine(station, &superSink, INT16_MAX, services::NONE);
 
             for(auto incoming : station->getIncoming()) {
                 if (incoming->getOrig()->getName() == graph->getDistributor().getName()) {
