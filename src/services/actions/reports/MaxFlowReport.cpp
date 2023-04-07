@@ -5,15 +5,10 @@
 #include "MaxFlowReport.h"
 #include "../Disable.h"
 #include "../../Reports.h"
+#include "../../../view/DrawUtils.h"
 
 MaxFlowReport::MaxFlowReport(Graph &graph): Action(graph) {}
-int specialChars(std::string word) {
-    int count=0;
-    for( char c: word){
-        if( c<0 ) count++;
-    }
-    return count/2;
-}
+
 void MaxFlowReport::draw(string name_src,string name_dst, int before, int after) const{
     ::system("clear");
     cout<<"┌\033[0m──────────────────────────────────────────────────────────────────────────────────────────────────────────────┐"<< endl;;

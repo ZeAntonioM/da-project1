@@ -9,6 +9,7 @@
 #include "../Action.h"
 #include <future>
 #include <ctime>
+#include "../../../view/DrawUtils.h"
 
 class DestinationsReport: public Action {
 public:

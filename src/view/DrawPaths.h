@@ -6,6 +6,7 @@
 #define DA_PROJECT1_DRAWPATHS_H
 #include "iostream"
 #include "../model/Graph.h"
+#include "DrawUtils.h"
 
 
 
@@ -29,13 +30,7 @@ public:
      * @complexity O(1) being E the lines from the paths
      */
     void pageController(int maxFlow, int cost, vector<Path> path)const;
-    /**
-     * @brief checks an word for the number of special characters it has
-     * @param word word to be checked for special characters
-     * @return the number of special characters in the word
-     * @complexity O(c) being c the length of the word
-     */
-    int spacialChars(string word) const;
+
 };
 
 

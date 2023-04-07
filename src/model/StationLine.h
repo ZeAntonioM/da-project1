@@ -11,18 +11,23 @@
 
 #include "string"
 using namespace std;
-enum services {STANDARD,ALFA,NONE};
+enum services
+{
+    STANDARD,
+    ALFA,
+    NONE
+};
 class Line;
 #define INF std::numeric_limits<double>::max()
 
-class Station {
+class Station
+{
 public:
-
     Station(string name, string district, string municipality, string township, string station_line);
     Station(string name);
-    bool operator<(Station  Station) const; // // required by MutablePriorityQueue
+    bool operator<(Station Station) const; // // required by MutablePriorityQueue
 
-    //int getId() const;
+    // int getId() const;
     std::vector<Line *> getAdj() const;
     bool isVisited() const;
     bool isProcessing() const;
@@ -35,9 +40,9 @@ public:
     string getMunicipality() const;
     string getTownship() const;
     string getLine() const;
-    void print() const;
+    void print(int i) const;
 
-    //void setId(int info);
+    // void setId(int info);
     void setDisabled(bool _disabled);
     bool isDisabled() const;
     void setVisited(bool visited);
@@ -45,13 +50,14 @@ public:
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
     void setPath(Line *path);
-    Line* addLine(Station *dest, double w, services s);
+    void setStationLine(string _station_line);
+    Line* addLine(Station *dest, int w, services s);
     bool removeLine(string destName);
     void removeOutgoingLines();
-    int specialChars(string word) const;
-
+    void removeIncomingLines();
 
     friend class MutablePriorityQueue<Station>;
+
 protected:
     int id;
     string name;
@@ -60,46 +66,53 @@ protected:
     string township;
     string station_line;
     // identifier
-    std::vector<Line *> adj;  // outgoing Lines
+    std::vector<Line *> adj; // outgoing Lines
 
     // auxiliary fields
     bool disabled = false;
-    bool visited = false; // used by DFS, BFS, Prim ...
+    bool visited = false;    // used by DFS, BFS, Prim ...
     bool processing = false; // used by isDAG (in addition to the visited attribute)
-    unsigned int indegree; // used by topsort
+    unsigned int indegree;   // used by topsort
     double dist = 0;
     Line *path = nullptr;
 
     std::vector<Line *> incoming; // incoming Lines
 
-    int queueIndex = 0; 		// required by MutablePriorityQueue and UFDS
+    int queueIndex = 0; // required by MutablePriorityQueue and UFDS
 
     void deleteLine(Line *Line);
 };
 
-
-class Line {
+class Line
+{
 public:
-    Line(Station *orig, Station *dest, double w, services s);
+    Line(Station *orig, Station *dest, int w, services s);
     Station * getDest() const;
-    double getCapacity() const;
+    int getCapacity() const;
+
     bool isDisabled() const;
-    Station * getOrig() const;
+    Station *getOrig() const;
     Line *getReverse() const;
-    double getFlow() const;
+    int getFlow() const;
     bool getVisited() const;
-    services getService()const;
+    services getService() const;
     int getCost() const;
     bool isFull() const;
 
     void setDisabled(bool _disabled);
     void setReverse(Line *_reverse);
-    void setFlow(double _flow);
+    void setFlow(int _flow);
     void setVisited(bool _visited);
+    void setService(services _service);
+    void setCapacity(int _capacity);
+    int specialChars(string word) const;
+
+    void print(int i);
+
 
 private:
     services service;
-    Station * dest; // destination Station
+    Station *dest;   // destination Station
     double capacity; // Line capacity, can also be used for capacity
     // auxiliary fields
     bool disabled = false;
@@ -108,8 +121,6 @@ private:
     Line *reverse = nullptr;
     double flow; // for flow-related problems
     bool visited = false;
-
 };
-
 
 #endif /* DA_TP_CLASSES_Station_Line */

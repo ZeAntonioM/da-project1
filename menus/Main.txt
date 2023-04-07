@@ -1,5 +1,8 @@
 Network information
 Max Flows
 Disable/Enable Stations/Lines
+Edit Lines or Stations
+Create Lines or Stations
+Budget
 Reports
 Exit

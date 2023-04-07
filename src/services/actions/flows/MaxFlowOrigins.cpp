@@ -1,4 +1,5 @@
 #include "MaxFlowOrigins.h"
+#include "../../../view/DrawPaths.h"
 
 MaxFlowOrigins::MaxFlowOrigins(Graph &graph) : Action(graph) {}
 
@@ -12,11 +13,10 @@ void MaxFlowOrigins::execute()
     generateCombinations(input, current, 0, maxnumber,stationPair );
     string station_name1= stationPair.first->getName();
     string station_name2= stationPair.second->getName();
-    cout << "┌\033[0m─────────────────────────────────────────────────────────────────────────────────────────────────┐"
-         << endl;
-    cout << "│\033[40m                                Largest Max Flow Between all Origins                             \033[0m│" << endl;
-    cout << "│\033[40m─────────────────────────────────────────────────────────────────────────────────────────────────\033[0m│" << endl;
-    cout << "│\033[40m Source                               │ Destiny                             │ Max Flow  │ Cost   \033[0m│" << endl;
+
+    ::system("clear");
+    cout<<drawHeader(98,"Largest Max Flow Between all Origins");
+    cout << "│\033[40m Source                               │ Destiny                             │ Max Flow   │ Cost   \033[0m│" << endl;
     cout << "│\033[100m ";
     cout << station_name1;
     for (int i = 0; i < 37 - station_name1.length() + specialChars(station_name1); i++)
@@ -34,11 +34,8 @@ void MaxFlowOrigins::execute()
     cout << "│"<< maxnumber.second;
     for(int i=1; i< 9-to_string(maxnumber.second).length();i++)cout<<" ";
 
-    cout << "\033[0m│" << endl;
-    cout << "└\033[40m─────────────────────────────────────────────────────────────────────────────────────────────────\033[0m┘"
-         << endl;
-    cout << endl
-         << "\033[32mEnter anything to go back: ";
+    cout << " \033[0m│" << endl;
+    cout<<drawFooter(98);
     wait();
     return;
 
