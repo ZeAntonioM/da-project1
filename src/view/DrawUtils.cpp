@@ -8,7 +8,7 @@
 
 
 
-int specialChars_(string word)
+int specialChars(string word)
 {
     int count = 0;
     for (char c : word)
@@ -25,7 +25,7 @@ string drawHeader(int size, string title){
     for(int i=0; i<size;i++) display+="─";
     display+="\033[0m┐ \n";
     display+="│\033[40m";
-    int space=(size-title.length()+ specialChars_(title));
+    int space=(size-title.length()+ specialChars(title));
     if(space%2==0){
         for(int i=0; i<space/2;i++) display+=" ";
     } else{
@@ -52,7 +52,7 @@ string drawFields(vector<pair<string,int>> fields,int i){
     else display+="│\033[47m\033[30m ";
     for(auto field:fields){
         display+=field.first;
-        for(int i=0; i<field.second-field.first.length()+ specialChars_(field.first);i++) display+=" ";
+        for(int i=0; i<field.second-field.first.length()+ specialChars(field.first);i++) display+=" ";
         display+="│";
     }
     //display.pop_back();

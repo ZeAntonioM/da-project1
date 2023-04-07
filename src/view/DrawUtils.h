@@ -7,8 +7,13 @@
 #include "iostream"
 #include "string"
 using namespace std;
-
-int specialChars_(string word);
+/**
+     * @brief checks an word for the number of special characters it has
+     * @param word word to be checked for special characters
+     * @return the number of special characters in the word
+     * @complexity O(c) being c the length of the word
+     */
+int specialChars(string word);
 
 string drawHeader(int size, string title);
 

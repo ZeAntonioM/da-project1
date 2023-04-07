@@ -3,13 +3,7 @@
 //
 
 #include "DrawPaths.h"
-int DrawPaths::spacialChars(std::string word) const {
-    int count=0;
-    for( char c: word){
-        if( c<0 ) count++;
-    }
-    return count/2;
-}
+
 void DrawPaths::pageController(int maxFlow, int cost, vector<Path> path) const {
     int page=1;
     string input;
@@ -81,7 +75,7 @@ void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const {
                    page_height++;
                    string from_name=info->getOrig()->getName();
                    string to_name= info->getDest()->getName();
-                   int special_chars= spacialChars(from_name);
+                   int special_chars= specialChars(from_name);
 
                     if(page_height%2==0)display+="│\033[40m ";
                     else display+="│\033[100m ";
@@ -89,7 +83,7 @@ void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const {
                     for(int i=0; i<36-from_name.length()+special_chars;i++)display+=" ";
                     display+="│ ";
                     display+= to_name;
-                    special_chars= spacialChars(to_name);
+                    special_chars= specialChars(to_name);
                     for(int i=0; i<36-to_name.length()+special_chars;i++)display+=" ";
                     display+="│ ";
                     display+= to_string(flow);
