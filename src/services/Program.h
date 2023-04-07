@@ -16,7 +16,7 @@ class Program {
 
 private:
     vector<Menu> menus;
-    stack< enum menus> menuPage;
+    stack<enum menus> menuPage;
     Graph graph;
 
 
@@ -25,6 +25,7 @@ public:
      * @brief Constructor of the class Program
      */
     Program();
+
     /**
      * @brief Creates the menus of the program
      * complexity O(1)
@@ -34,10 +35,7 @@ public:
     /**
      * @brief Runs the program
     */
-    void  run();
-
-
-
+    void run();
 
 
 };

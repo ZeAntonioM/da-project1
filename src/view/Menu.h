@@ -16,15 +16,16 @@
 using namespace std;
 
 
-enum menus{MAIN_MENU, FLOW, NETWORK_INFORMATION, EDIT_MENU, CREATE_MENU, REPORTS, ENABLE, DISABLE, POP_MENU};
+
+enum menus{MAIN_MENU,NETWORK_INFORMATION, FLOW, EDIT_MENU, CREATE_MENU,BUDGET_MENU, REPORTS, ENABLE, DISABLE, POP_MENU};
 
 
-class Menu
-{
+
+class Menu {
 private:
 
     vector<string> buttons;
-    vector<Action*> actions;
+    vector<Action *> actions;
 
 public:
 
@@ -52,7 +53,7 @@ public:
     * @param menuItem
     * @complexity O(1)
     */
-    void addMenuItem(Action* menuItem);
+    void addMenuItem(Action *menuItem);
 
     /**
     * @brief will execute the action corresponding to the option chosen
@@ -79,6 +80,7 @@ public:
      * @complexity O(1)
      */
     bool getInput(int &option);
+
     ~Menu();
 };
 

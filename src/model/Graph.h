@@ -16,8 +16,8 @@ using namespace std;
 
 typedef vector<Line *> Connections;
 typedef pair<Connections, int> Path;
-class Graph
-{
+
+class Graph {
 public:
     ~Graph();
 
@@ -57,7 +57,7 @@ public:
      * @complexity O(1)
      */
 
-    bool addLine(Station *src, Station * dest, int w, services service);
+    bool addLine(Station *src, Station *dest, int w, services service);
 
     /**
      * @param src Station Source
@@ -76,7 +76,7 @@ public:
      * @return the set with all the stations
      * @complexity O(1)
      */
-    vector<Station *> getStationSet() const;
+    vector<Station *> getStationVector() const;
 
     /**
      * @brief calculates the max flow between two stations
@@ -155,53 +155,55 @@ public:
      */
     vector<Path> getPaths(string src, string dst);
 
+
     /**
      * @brief disables a line
      * @param line Line to be disabled
      */
-    void DisableLine(Line *line);
+    void disableLine(Line *line);
 
     /**
      * @brief enables a line
      * @param line Line to be enabled
      */
-    void EnableLine(Line *line);
+    void enableLine(Line *line);
 
     /**
      * @brief disables a station
      * @param station Station to be disabled
      */
-    void DisableStation(Station *station);
+    void disableStation(Station *station);
 
     /**
      * @brief enables a station
      * @param station Station to be enabled
      */
-    void EnableStation(Station *station);
+    void enableStation(Station *station);
+
 
     /**
      * @brief disables all the lines
      * @complexity O(E) being E the number of lines
      */
-    void DisableAllLines();
+    void disableAllLines();
 
     /**
      * @brief enables all the lines
      * @complexity O(E) being E the number of lines
      */
-    void EnableAllLines();
+    void enableAllLines();
 
     /**
      * @brief disables all the stations
      * @complexity O(V) being V the number of stations
      */
-    void DisableAllStations();
+    void disableAllStations();
 
     /**
      * @brief enables all the stations
      * @complexity O(V) being V the number of stations
      */
-    void EnableAllStations();
+    void enableAllStations();
 
     /**
      * @brief returns all the paths needed to achieve the maximum flow with minimum cost between two station
@@ -237,13 +239,25 @@ public:
      */
     Station getDistributor() const;
 
+
     /**
-     * @brief Removes the last station inserted in the StationSet
+    * @brief Removes the last station inserted in the StationSet
+    */
+    void removeLastStation();
+
+    int sCC();
+
+    /**
+     * @param string origin - origin station's name
+     * @param string destination - destination station's name
+     * @brief Finds the shortest Path between two stations.
      */
-    void RemoveLastStation();
+    int bfs(Station *station);
+
 
 protected:
-    vector<Station *> stationSet; // Station set
+    vector<Station *> stationVector;
+    // Station set
     vector<Line *> lineVector;
     vector<Station *> origins;
     Station distributor = Station("Distributor");
@@ -264,13 +278,6 @@ protected:
      */
     Path getPath(Station *origin, Station *dst);
 
-
-    /**
-     * @param string origin - origin station's name
-     * @param string destination - destination station's name
-     * @brief Finds the shortest Path between two stations.
-     */
-    void bfs(string origin, string destination);
 
     /**
      * @brief searches for a path of flow with the least stops between two station.

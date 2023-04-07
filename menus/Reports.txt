@@ -1,0 +1,7 @@
+General report
+Max Flow report
+All destinations report
+Strongly Connected Components report
+Reachable locations report
+Most affected districts
+Go back

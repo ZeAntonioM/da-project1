@@ -3,4 +3,5 @@ Max Flows
 Edit Lines or Stations
 Create Lines or Stations
 Budget
+Reports
 Exit
