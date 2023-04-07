@@ -11,11 +11,9 @@ MaxFlowReport::MaxFlowReport(Graph &graph): Action(graph) {}
 
 void MaxFlowReport::draw(string name_src,string name_dst, int before, int after) const{
     ::system("clear");
-    cout<<"┌\033[0m──────────────────────────────────────────────────────────────────────────────────────────────────────────────┐"<< endl;;
-    cout<<"│\033[40m                                               Max FLow Report                                                \033[0m│"<<endl;
-    cout<<"│\033[40m──────────────────────────────────────────────────────────────────────────────────────────────────────────────\033[0m│"<<endl;
+    cout<<drawHeader(109,"Max FLow Report");
     cout<<"│\033[40m Station A                            │ Station B                            │ Max Flow Before│ Max Flow After\033[0m│"<<endl;
-    cout<<"│\033[40m──────────────────────────────────────────────────────────────────────────────────────────────────────────────\033[0m│"<<endl;
+    cout<<drawLine(109);
     cout<<"│\033[40m "<<name_src;
     for(int i=0; i<37-name_src.length() + specialChars(name_src);i++ )cout<<" ";
     cout<< "│ "<<name_dst;
@@ -25,8 +23,7 @@ void MaxFlowReport::draw(string name_src,string name_dst, int before, int after)
     cout<<"│ "<<after;
     for(int i=0; i<14-to_string(after).length();i++) cout<<" ";
     cout<<"\033[0m│"<<endl;
-    cout << "└\033[40m──────────────────────────────────────────────────────────────────────────────────────────────────────────────\033[0m┘"
-         << endl;
+    cout<<drawFooter(109);
 
 }
 

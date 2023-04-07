@@ -17,11 +17,9 @@ DestinationsReport::DestinationsReport(Graph &graph): Action(graph) {}
 
 void DestinationsReport::draw(vector<pair<Station *, pair<int, int>>> results) const {
     ::system("clear");
-    cout<<"┌\033[0m───────────────────────────────────────────────────────────────────────┐"<< endl;;
-    cout<<"│\033[40m                     Top 10 Most affected station                      \033[0m│"<<endl;
-    cout<<"│\033[40m───────────────────────────────────────────────────────────────────────\033[0m│"<<endl;
+    cout<<drawHeader(71,"Top 10 Most affected station");
     cout<<"│\033[40m Station A                            │ Max Flow Before│ Max Flow After\033[0m│"<<endl;
-    cout<<"│\033[40m───────────────────────────────────────────────────────────────────────\033[0m│"<<endl;
+    cout<<drawLine (71);
     for(auto p: results){
        cout<< "│\033[40m ";
        string name= p.first->getName();
@@ -33,8 +31,7 @@ void DestinationsReport::draw(vector<pair<Station *, pair<int, int>>> results) c
         for(int i=0; i<14- to_string(p.second.second).length();i++) cout<<" ";
         cout<<"\033[0m│"<<endl;
     }
-    cout << "└\033[40m───────────────────────────────────────────────────────────────────────\033[0m┘"
-         << endl;
+    cout<<drawFooter(71);
 }
 void  DestinationsReport:: calculateAllMaxFlows(vector<pair<int , Station*>> *results) {
     for(auto station:graph->getStationSet()){

@@ -4,23 +4,23 @@
 
 #include "ComponentsReport.h"
 #include "../Disable.h"
+#include "../../../view/DrawUtils.h"
 
 ComponentsReport::ComponentsReport(Graph &graph): Action(graph) {}
 
-void ComponentsReport::draw(pair<int,int> sCCs)const{
+void ComponentsReport::draw(pair<int,int> sCCs)const {
     ::system("clear");
-    cout<<"┌\033[0m──────────────────────────────────────────┐"<< endl;;
-    cout<<"│\033[40m      Strongly Connected Components       \033[0m│"<<endl;
-    cout<<"│\033[40m──────────────────────────────────────────\033[0m│"<<endl;
-    cout<<"│\033[40m Before              │ After              \033[0m│"<<endl;
-    cout<<"│\033[40m──────────────────────────────────────────\033[0m│"<<endl;
-    cout<<"│\033[40m "<<sCCs.first;
-    for(int i=0; i<20- to_string(sCCs.first).length();i++) cout<<" ";
-    cout<<"│ "<<sCCs.second;
-    for(int i=0; i<20- to_string(sCCs.first).length();i++) cout<<" ";
-    cout<<"\033[0m│"<<endl;
-    cout<<"└\033[40m──────────────────────────────────────────\033[0m┘"<<endl;
-
+    cout << drawHeader(40, "Strongly Connected Components");
+    vector<pair<string, int>> fields;
+    fields.push_back(make_pair("Before", 19));
+    fields.push_back(make_pair("After", 19));
+    cout << drawFields(fields, 0);
+    fields.clear();
+    cout<<drawLine(40);
+    fields.push_back(make_pair(to_string(sCCs.first), 19));
+    fields.push_back(make_pair(to_string(sCCs.second), 19));
+    cout << drawFields(fields, 0);
+    cout << drawFooter(40);
 
 }
 

@@ -84,17 +84,6 @@ void Program::createMenus() {
     networkInformation.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(networkInformation);
 
-    Menu report =Menu("../menus/Reports.txt");
-    report.addMenuItem(new MaxFlowReport(graph));
-    report.addMenuItem(new DestinationsReport(graph));
-    report.addMenuItem(new ComponentsReport(graph));
-    report.addMenuItem(new ReachableReport(graph));
-    report.addMenuItem(new ChangeMenu(menuPage,graph,POP_MENU));
-
-
-    menus.push_back(report);
-
-
 
     Menu mainEdit = Menu("../menus/Edit.txt");
     mainEdit.addMenuItem( new EditStationsLine(graph));
@@ -109,10 +98,20 @@ void Program::createMenus() {
     createMenu.addMenuItem( new ChangeMenu (menuPage,graph,POP_MENU));
     menus.push_back(createMenu);
 
-    Menu reports = Menu("../menus/Budget.txt");
-    reports.addMenuItem(new MaxFlowDistricts(graph));
-    reports.addMenuItem(new MaxFlowMunicipalities(graph));
-    reports.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
-    menus.push_back(reports);
+    Menu budget = Menu("../menus/Budget.txt");
+    budget.addMenuItem(new MaxFlowDistricts(graph));
+    budget.addMenuItem(new MaxFlowMunicipalities(graph));
+    budget.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
+    menus.push_back(budget);
+
+    Menu report =Menu("../menus/Reports.txt");
+    report.addMenuItem(new MaxFlowReport(graph));
+    report.addMenuItem(new DestinationsReport(graph));
+    report.addMenuItem(new ComponentsReport(graph));
+    report.addMenuItem(new ReachableReport(graph));
+    report.addMenuItem(new ChangeMenu(menuPage,graph,POP_MENU));
+
+
+    menus.push_back(report);
 
 }

@@ -5,14 +5,33 @@
 #include "ReachableReport.h"
 #include "../../Reports.h"
 #include "../Disable.h"
+#include "../../../view/DrawUtils.h"
 
 ReachableReport::ReachableReport(Graph &graph): Action(graph) {}
 
 void ReachableReport:: draw(vector<pair<Station*, pair<int,int>>> stations){
-    ::system("clear");
-    for(auto station:stations  ){
-        cout<< station.first->getName()<<"->"<<station.second.first<<"-"<<station.second.second<<endl;
+    vector<pair<string,int>> field;
+    field.push_back(make_pair("Station",37));
+    field.push_back(make_pair("Before",8));
+    field.push_back(make_pair("After",8));
+
+
+    system("clear");
+    cout<<drawHeader(56,"Reachable stations Report");
+    cout<<drawFields(field,0);
+    cout<<drawLine(56);
+    field.clear();
+    int color=0;
+    for(auto station:stations){
+        field.push_back(make_pair(station.first->getName(),37));
+        field.push_back(make_pair(to_string(station.second.first),8));
+        field.push_back(make_pair(to_string(station.second.second),8));
+        cout<<drawFields(field,color);
+        color++;
+        field.clear();
     }
+    cout<<drawFooter(56);
+
 
 }
 vector<pair<Station*, pair<int,int>>> ReachableReport:: doReport(Stations stationsToDisable,Lines linesToDisable){
