@@ -29,7 +29,7 @@ void SearchStation::execute()
      }
      else
      {
-          cout << "\033[31mStation not found!" << s;
+          cout << "\033[31mStation not found!";
      }
 
      cout << endl

@@ -223,24 +223,38 @@ CMakeFiles/da-project1.dir/src/services/actions/MaxFlow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/MaxFlow.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/MaxFlow.cpp -o CMakeFiles/da-project1.dir/src/services/actions/MaxFlow.cpp.s
 
-CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o: CMakeFiles/da-project1.dir/flags.make
-CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp
-CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o -MF CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o.d -o CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp
+CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o: CMakeFiles/da-project1.dir/flags.make
+CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowStations.cpp
+CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowStations.cpp
 
-CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp > CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.i
+CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowStations.cpp > CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.i
 
-CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp -o CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.s
+CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowStations.cpp -o CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.s
+
+CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o: CMakeFiles/da-project1.dir/flags.make
+CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchStation.cpp
+CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchStation.cpp
+
+CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchStation.cpp > CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.i
+
+CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchStation.cpp -o CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.s
 
 CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o: CMakeFiles/da-project1.dir/flags.make
 CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/CheapestMaxFlow.cpp
 CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/CheapestMaxFlow.cpp
 
 CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.i: cmake_force
@@ -251,10 +265,52 @@ CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/CheapestMaxFlow.cpp -o CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.s
 
+CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o: CMakeFiles/da-project1.dir/flags.make
+CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp
+CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o -MF CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o.d -o CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp
+
+CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp > CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.i
+
+CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp -o CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.s
+
+CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o: CMakeFiles/da-project1.dir/flags.make
+CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/DestinationMaxFlow.cpp
+CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/DestinationMaxFlow.cpp
+
+CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/DestinationMaxFlow.cpp > CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.i
+
+CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/DestinationMaxFlow.cpp -o CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.s
+
+CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o: CMakeFiles/da-project1.dir/flags.make
+CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/Disable.cpp
+CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/Disable.cpp
+
+CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/Disable.cpp > CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.i
+
+CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/Disable.cpp -o CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.s
+
 CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o: CMakeFiles/da-project1.dir/flags.make
 CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/MaxFlowOrigins.cpp
 CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/MaxFlowOrigins.cpp
 
 CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.i: cmake_force
@@ -264,6 +320,34 @@ CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.i: cmake_forc
 CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/MaxFlowOrigins.cpp -o CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.s
+
+CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o: CMakeFiles/da-project1.dir/flags.make
+CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowLines.cpp
+CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowLines.cpp
+
+CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowLines.cpp > CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.i
+
+CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowLines.cpp -o CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.s
+
+CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o: CMakeFiles/da-project1.dir/flags.make
+CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o: /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchLine.cpp
+CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o: CMakeFiles/da-project1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o -MF CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o.d -o CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchLine.cpp
+
+CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchLine.cpp > CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.i
+
+CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchLine.cpp -o CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.s
 
 # Object files for target da-project1
 da__project1_OBJECTS = \
@@ -278,9 +362,15 @@ da__project1_OBJECTS = \
 "CMakeFiles/da-project1.dir/src/services/actions/ChangeMenu.cpp.o" \
 "CMakeFiles/da-project1.dir/tests/GraphTests.cpp.o" \
 "CMakeFiles/da-project1.dir/src/services/actions/MaxFlow.cpp.o" \
-"CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o" \
+"CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o" \
+"CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o" \
 "CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o" \
-"CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o"
+"CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o" \
+"CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o" \
+"CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o" \
+"CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o" \
+"CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o" \
+"CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o"
 
 # External object files for target da-project1
 da__project1_EXTERNAL_OBJECTS =
@@ -296,12 +386,18 @@ da-project1: CMakeFiles/da-project1.dir/src/services/actions/Action.cpp.o
 da-project1: CMakeFiles/da-project1.dir/src/services/actions/ChangeMenu.cpp.o
 da-project1: CMakeFiles/da-project1.dir/tests/GraphTests.cpp.o
 da-project1: CMakeFiles/da-project1.dir/src/services/actions/MaxFlow.cpp.o
-da-project1: CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o
+da-project1: CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o
+da-project1: CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o
 da-project1: CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.o
+da-project1: CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o
+da-project1: CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o
+da-project1: CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o
 da-project1: CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o
+da-project1: CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o
+da-project1: CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o
 da-project1: CMakeFiles/da-project1.dir/build.make
 da-project1: CMakeFiles/da-project1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable da-project1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable da-project1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/da-project1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

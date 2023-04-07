@@ -67,9 +67,15 @@
 },
 {
   "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp",
-  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp",
-  "output": "CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o"
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowStations.cpp",
+  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowStations.cpp",
+  "output": "CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o"
+},
+{
+  "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchStation.cpp",
+  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchStation.cpp",
+  "output": "CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o"
 },
 {
   "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
@@ -79,8 +85,38 @@
 },
 {
   "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp",
+  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/view/DrawPaths.cpp",
+  "output": "CMakeFiles/da-project1.dir/src/view/DrawPaths.cpp.o"
+},
+{
+  "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/DestinationMaxFlow.cpp",
+  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/DestinationMaxFlow.cpp",
+  "output": "CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o"
+},
+{
+  "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/Disable.cpp",
+  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/Disable.cpp",
+  "output": "CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o"
+},
+{
+  "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
   "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/MaxFlowOrigins.cpp",
   "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/MaxFlowOrigins.cpp",
   "output": "CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.o"
+},
+{
+  "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowLines.cpp",
+  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/ShowLines.cpp",
+  "output": "CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o"
+},
+{
+  "directory": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o -c /home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchLine.cpp",
+  "file": "/home/diogosilva/Documents/2nd2nd/DA/da-project1/src/services/actions/SearchLine.cpp",
+  "output": "CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o"
 }
 ]

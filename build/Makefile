@@ -345,6 +345,54 @@ src/services/actions/CheapestMaxFlow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/CheapestMaxFlow.cpp.s
 .PHONY : src/services/actions/CheapestMaxFlow.cpp.s
 
+src/services/actions/DestinationMaxFlow.o: src/services/actions/DestinationMaxFlow.cpp.o
+.PHONY : src/services/actions/DestinationMaxFlow.o
+
+# target to build an object file
+src/services/actions/DestinationMaxFlow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.o
+.PHONY : src/services/actions/DestinationMaxFlow.cpp.o
+
+src/services/actions/DestinationMaxFlow.i: src/services/actions/DestinationMaxFlow.cpp.i
+.PHONY : src/services/actions/DestinationMaxFlow.i
+
+# target to preprocess a source file
+src/services/actions/DestinationMaxFlow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.i
+.PHONY : src/services/actions/DestinationMaxFlow.cpp.i
+
+src/services/actions/DestinationMaxFlow.s: src/services/actions/DestinationMaxFlow.cpp.s
+.PHONY : src/services/actions/DestinationMaxFlow.s
+
+# target to generate assembly for a file
+src/services/actions/DestinationMaxFlow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/DestinationMaxFlow.cpp.s
+.PHONY : src/services/actions/DestinationMaxFlow.cpp.s
+
+src/services/actions/Disable.o: src/services/actions/Disable.cpp.o
+.PHONY : src/services/actions/Disable.o
+
+# target to build an object file
+src/services/actions/Disable.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.o
+.PHONY : src/services/actions/Disable.cpp.o
+
+src/services/actions/Disable.i: src/services/actions/Disable.cpp.i
+.PHONY : src/services/actions/Disable.i
+
+# target to preprocess a source file
+src/services/actions/Disable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.i
+.PHONY : src/services/actions/Disable.cpp.i
+
+src/services/actions/Disable.s: src/services/actions/Disable.cpp.s
+.PHONY : src/services/actions/Disable.s
+
+# target to generate assembly for a file
+src/services/actions/Disable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/Disable.cpp.s
+.PHONY : src/services/actions/Disable.cpp.s
+
 src/services/actions/MaxFlow.o: src/services/actions/MaxFlow.cpp.o
 .PHONY : src/services/actions/MaxFlow.o
 
@@ -392,6 +440,102 @@ src/services/actions/MaxFlowOrigins.s: src/services/actions/MaxFlowOrigins.cpp.s
 src/services/actions/MaxFlowOrigins.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/MaxFlowOrigins.cpp.s
 .PHONY : src/services/actions/MaxFlowOrigins.cpp.s
+
+src/services/actions/SearchLine.o: src/services/actions/SearchLine.cpp.o
+.PHONY : src/services/actions/SearchLine.o
+
+# target to build an object file
+src/services/actions/SearchLine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.o
+.PHONY : src/services/actions/SearchLine.cpp.o
+
+src/services/actions/SearchLine.i: src/services/actions/SearchLine.cpp.i
+.PHONY : src/services/actions/SearchLine.i
+
+# target to preprocess a source file
+src/services/actions/SearchLine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.i
+.PHONY : src/services/actions/SearchLine.cpp.i
+
+src/services/actions/SearchLine.s: src/services/actions/SearchLine.cpp.s
+.PHONY : src/services/actions/SearchLine.s
+
+# target to generate assembly for a file
+src/services/actions/SearchLine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/SearchLine.cpp.s
+.PHONY : src/services/actions/SearchLine.cpp.s
+
+src/services/actions/SearchStation.o: src/services/actions/SearchStation.cpp.o
+.PHONY : src/services/actions/SearchStation.o
+
+# target to build an object file
+src/services/actions/SearchStation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.o
+.PHONY : src/services/actions/SearchStation.cpp.o
+
+src/services/actions/SearchStation.i: src/services/actions/SearchStation.cpp.i
+.PHONY : src/services/actions/SearchStation.i
+
+# target to preprocess a source file
+src/services/actions/SearchStation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.i
+.PHONY : src/services/actions/SearchStation.cpp.i
+
+src/services/actions/SearchStation.s: src/services/actions/SearchStation.cpp.s
+.PHONY : src/services/actions/SearchStation.s
+
+# target to generate assembly for a file
+src/services/actions/SearchStation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/SearchStation.cpp.s
+.PHONY : src/services/actions/SearchStation.cpp.s
+
+src/services/actions/ShowLines.o: src/services/actions/ShowLines.cpp.o
+.PHONY : src/services/actions/ShowLines.o
+
+# target to build an object file
+src/services/actions/ShowLines.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.o
+.PHONY : src/services/actions/ShowLines.cpp.o
+
+src/services/actions/ShowLines.i: src/services/actions/ShowLines.cpp.i
+.PHONY : src/services/actions/ShowLines.i
+
+# target to preprocess a source file
+src/services/actions/ShowLines.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.i
+.PHONY : src/services/actions/ShowLines.cpp.i
+
+src/services/actions/ShowLines.s: src/services/actions/ShowLines.cpp.s
+.PHONY : src/services/actions/ShowLines.s
+
+# target to generate assembly for a file
+src/services/actions/ShowLines.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/ShowLines.cpp.s
+.PHONY : src/services/actions/ShowLines.cpp.s
+
+src/services/actions/ShowStations.o: src/services/actions/ShowStations.cpp.o
+.PHONY : src/services/actions/ShowStations.o
+
+# target to build an object file
+src/services/actions/ShowStations.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.o
+.PHONY : src/services/actions/ShowStations.cpp.o
+
+src/services/actions/ShowStations.i: src/services/actions/ShowStations.cpp.i
+.PHONY : src/services/actions/ShowStations.i
+
+# target to preprocess a source file
+src/services/actions/ShowStations.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.i
+.PHONY : src/services/actions/ShowStations.cpp.i
+
+src/services/actions/ShowStations.s: src/services/actions/ShowStations.cpp.s
+.PHONY : src/services/actions/ShowStations.s
+
+# target to generate assembly for a file
+src/services/actions/ShowStations.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/da-project1.dir/build.make CMakeFiles/da-project1.dir/src/services/actions/ShowStations.cpp.s
+.PHONY : src/services/actions/ShowStations.cpp.s
 
 src/view/DrawPaths.o: src/view/DrawPaths.cpp.o
 .PHONY : src/view/DrawPaths.o
@@ -501,12 +645,30 @@ help:
 	@echo "... src/services/actions/CheapestMaxFlow.o"
 	@echo "... src/services/actions/CheapestMaxFlow.i"
 	@echo "... src/services/actions/CheapestMaxFlow.s"
+	@echo "... src/services/actions/DestinationMaxFlow.o"
+	@echo "... src/services/actions/DestinationMaxFlow.i"
+	@echo "... src/services/actions/DestinationMaxFlow.s"
+	@echo "... src/services/actions/Disable.o"
+	@echo "... src/services/actions/Disable.i"
+	@echo "... src/services/actions/Disable.s"
 	@echo "... src/services/actions/MaxFlow.o"
 	@echo "... src/services/actions/MaxFlow.i"
 	@echo "... src/services/actions/MaxFlow.s"
 	@echo "... src/services/actions/MaxFlowOrigins.o"
 	@echo "... src/services/actions/MaxFlowOrigins.i"
 	@echo "... src/services/actions/MaxFlowOrigins.s"
+	@echo "... src/services/actions/SearchLine.o"
+	@echo "... src/services/actions/SearchLine.i"
+	@echo "... src/services/actions/SearchLine.s"
+	@echo "... src/services/actions/SearchStation.o"
+	@echo "... src/services/actions/SearchStation.i"
+	@echo "... src/services/actions/SearchStation.s"
+	@echo "... src/services/actions/ShowLines.o"
+	@echo "... src/services/actions/ShowLines.i"
+	@echo "... src/services/actions/ShowLines.s"
+	@echo "... src/services/actions/ShowStations.o"
+	@echo "... src/services/actions/ShowStations.i"
+	@echo "... src/services/actions/ShowStations.s"
 	@echo "... src/view/DrawPaths.o"
 	@echo "... src/view/DrawPaths.i"
 	@echo "... src/view/DrawPaths.s"
