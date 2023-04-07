@@ -21,7 +21,7 @@ void SearchLine::execute()
          cout<<"\033[0m";
           cout<<drawHeader(99,"Line");
           cout << "│\033[40m Station 1                            │ Station 2                           │ Capacity  │ Service  \033[0m│" << endl;
-
+            cout<<drawLine(99);
           line->print(0);
           cout<<drawFooter(99);
 

@@ -16,9 +16,10 @@ void SearchStation::execute()
          ::system("clear");
           cout<<"\033[0m";
           cout<<drawHeader(112,"Station");
-          cout<<drawLine(112);
+
           vector<pair<string,int>> fields;
           cout << "│\033[40m Name                                 │ Municipality               │ District        │ Line                     \033[0m│" << endl;
+         cout<<drawLine(112);
           station->print(0);
           cout<<drawFooter(112);
 
