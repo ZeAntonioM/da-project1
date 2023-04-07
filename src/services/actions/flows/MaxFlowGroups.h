@@ -5,8 +5,8 @@
 #ifndef DA_PROJECT1_MAXFLOWGROUPS_H
 #define DA_PROJECT1_MAXFLOWGROUPS_H
 
-#include "Action.h"
-#include "../../view/DrawUtils.h"
+#include "../Action.h"
+#include "../../../view/DrawUtils.h"
 
 class MaxFlowDistricts : public Action{
 public:

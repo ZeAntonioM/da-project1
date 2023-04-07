@@ -4,7 +4,7 @@
 
 #include "ReachableReport.h"
 #include "../../Reports.h"
-#include "../Disable.h"
+#include "../edit/Disable.h"
 #include "../../../view/DrawUtils.h"
 
 ReachableReport::ReachableReport(Graph &graph): Action(graph) {}

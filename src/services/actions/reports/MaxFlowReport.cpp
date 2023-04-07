@@ -3,7 +3,7 @@
 //
 
 #include "MaxFlowReport.h"
-#include "../Disable.h"
+#include "../edit/Disable.h"
 #include "../../Reports.h"
 #include "../../../view/DrawUtils.h"
 

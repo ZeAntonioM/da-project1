@@ -3,7 +3,7 @@
 //
 
 #include "ComponentsReport.h"
-#include "../Disable.h"
+#include "../edit/Disable.h"
 #include "../../../view/DrawUtils.h"
 
 ComponentsReport::ComponentsReport(Graph &graph): Action(graph) {}

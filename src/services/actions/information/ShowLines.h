@@ -5,7 +5,7 @@
 #ifndef SHOWLINES_H
 #define SHOWLINES_H
 
-#include "Action.h"
+#include "../Action.h"
 #include "math.h"
 
 class ShowLines : public Action

@@ -5,7 +5,7 @@
 #ifndef DA_PROJECT1_DISABLE_H
 #define DA_PROJECT1_DISABLE_H
 
-#include "Action.h"
+#include "../Action.h"
 
 class DisableLine : public Action{
 

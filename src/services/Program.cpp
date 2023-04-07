@@ -5,7 +5,7 @@
 #include "Program.h"
 #include "actions/flows/MaxFlow.h"
 #include "actions/flows/CheapestMaxFlow.h"
-#include "actions/Disable.h"
+#include "actions/edit/Disable.h"
 #include "actions/flows/DestinationMaxFlow.h"
 #include "actions/information/ShowStations.h"
 #include "actions/information/SearchStation.h"
@@ -14,11 +14,12 @@
 #include "actions/reports/DestinationsReport.h"
 #include "actions/reports/ComponentsReport.h"
 #include "actions/reports/ReachableReport.h"
-#include "actions/Edit.h"
-#include "actions/Create.h"
-#include "actions/ShowLines.h"
-#include "actions/SearchLine.h"
-#include "actions/MaxFlowGroups.h"
+#include "actions/edit/Edit.h"
+#include "actions/edit/Create.h"
+#include "actions/information/ShowLines.h"
+#include "actions/information/SearchLine.h"
+#include "actions/flows/MaxFlowGroups.h"
+#include "actions/reports/DistrictsReport.h"
 
 
 Program::Program(){
@@ -109,6 +110,7 @@ void Program::createMenus() {
     report.addMenuItem(new DestinationsReport(graph));
     report.addMenuItem(new ComponentsReport(graph));
     report.addMenuItem(new ReachableReport(graph));
+    report.addMenuItem(new DistrictsReport(graph));
     report.addMenuItem(new ChangeMenu(menuPage,graph,POP_MENU));
 
 

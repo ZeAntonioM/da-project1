@@ -1,5 +1,5 @@
 #include "SearchLine.h"
-#include "../../view/DrawUtils.h"
+#include "../../../view/DrawUtils.h"
 
 SearchLine::SearchLine(Graph &graph) : Action(graph){};
 

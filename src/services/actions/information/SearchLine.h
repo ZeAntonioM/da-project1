@@ -1,7 +1,7 @@
 #ifndef SEARCHLINE_H
 #define SEARCHLINE_H
 
-#include "Action.h"
+#include "../Action.h"
 
 
 class SearchLine : public Action
