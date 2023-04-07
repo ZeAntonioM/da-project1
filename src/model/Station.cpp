@@ -1,4 +1,5 @@
 #include "StationLine.h"
+#include "../view/DrawUtils.h"
 
 Station::Station(string n, string d, string m, string t, string s) : name(n), district(d), municipality(m), township(t), station_line(s){};
 
@@ -182,38 +183,17 @@ bool Station::isDisabled() const {
     return this->disabled;
 }
 
-int Station::specialChars(string word) const
-{
-    int count = 0;
-    for (char c : word)
-    {
-        if (c < 0)
-            count++;
-    }
-    return count / 2;
-}
 
-void Station::print() const
+
+void Station::print(int i) const
 {
-    cout  <<this->name;
-    for (int i = 0; i < 37 - this->name.length() + specialChars(this->name); i++)
-    {
-        cout << ' ';
-    };
-    cout <<"│"<< this->municipality;
-    for (int i = 0; i < 28 - this->municipality.length() + specialChars(this->municipality); i++)
-    {
-        cout << ' ';
-    };
-    cout <<"│"<< this->district;
-    for (int i = 0; i < 17 - this->district.length() + specialChars(this->district); i++)
-    {
-        cout << ' ';
-    };
-    cout <<"│"<< this->station_line;
-    for (int i = 0; i < 26 - this->station_line.length() + specialChars(this->station_line); i++)
-    {
-        cout << ' ';
-    };
+
+    vector<pair<string,int>> station;
+    station.push_back(make_pair(name,37));
+    station.push_back(make_pair(municipality,28));
+    station.push_back(make_pair(district,17));
+    station.push_back(make_pair(station_line,26));
+    cout<<drawFields(station,i);
+
 
 }

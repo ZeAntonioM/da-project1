@@ -1,4 +1,5 @@
 #include "StationLine.h"
+#include "../view/DrawUtils.h"
 
 Line::Line(Station *orig, Station *dest, double w, services s) : orig(orig), dest(dest), capacity(w), service(s) {}
 
@@ -56,31 +57,11 @@ void Line::setVisited(bool _visited)
 {
     this->visited = _visited;
 }
-int Line::specialChars(string word) const
-{
-    int count = 0;
-    for (char c : word)
-    {
-        if (c < 0)
-            count++;
-    }
-    return count / 2;
-}
 
-void Line::print()
+
+void Line::print(int i)
 {
-    cout << orig->getName();
-    for (int i = 0; i < 37 - orig->getName().length() + specialChars(orig->getName()); i++)
-    {
-        cout << ' ';
-    };
-    cout << dest->getName();
-    for (int i = 0; i < 37 - dest->getName().length() + specialChars(dest->getName()); i++)
-    {
-        cout << ' ';
-    };
-    cout << capacity;
-    cout << "          ";
+
     string sv;
     switch (service)
     {
@@ -94,11 +75,13 @@ void Line::print()
         sv = "None";
         break;
     }
-    cout << sv;
-    for (int i = 0; i < 10 - sv.length() + specialChars(sv); i++)
-    {
-        cout << ' ';
-    };
+
+    vector<pair<string,int>> line;
+    line.push_back(make_pair(orig->getName(),37));
+    line.push_back(make_pair(dest->getName(),37));
+    line.push_back(make_pair(to_string((int)capacity),11));
+    line.push_back(make_pair(sv,10));
+    cout<<drawFields(line,i);
 }
 
 services Line::getService() const

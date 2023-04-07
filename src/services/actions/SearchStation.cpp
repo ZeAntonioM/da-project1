@@ -10,29 +10,23 @@ void SearchStation::execute()
      cin.ignore(numeric_limits<streamsize>::max(), '\n');
      getline(cin, s);
      auto station = graph->findStation(s);
+     //string d="                                                     Station                                                    ";
      if (station != nullptr)
      {
-          cout << "\033[0m┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐"
-               << endl;
-          cout << "│\033[40m                                                     Station                                                    \033[0m│" << endl;
-          cout << "│\033[40m────────────────────────────────────────────────────────────────────────────────────────────────────────────────\033[0m│" << endl;
+         ::system("clear");
+          cout<<"\033[0m";
+          cout<<drawHeader(112,"Station");
+          cout<<drawLine(112);
+          vector<pair<string,int>> fields;
           cout << "│\033[40m Name                                 │ Municipality               │ District        │ Line                     \033[0m│" << endl;
-          cout << "│\033[100m ";
-          station->print();
-          cout << "\033[0m│" << endl;
-          cout << "└\033[40m────────────────────────────────────────────────────────────────────────────────────────────────────────────────\033[0m┘"
-               << endl;
-          cout << endl
-               << "\033[32mEnter anything to go back: ";
-          cin >> s;
-          return;
+          station->print(0);
+          cout<<drawFooter(112);
+
      }
      else
      {
           cout << "\033[31mStation not found!";
      }
 
-     cout << endl
-          << "\033[32mEnter anything to go back: ";
-     cin >> s;
+     wait();
 }

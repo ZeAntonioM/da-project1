@@ -40,7 +40,7 @@ public:
     string getMunicipality() const;
     string getTownship() const;
     string getLine() const;
-    void print() const;
+    void print(int i) const;
 
     // void setId(int info);
     void setDisabled(bool _disabled);
@@ -54,7 +54,6 @@ public:
     bool removeLine(string destName);
     void removeOutgoingLines();
     void removeIncomingLines();
-    int specialChars(string word) const;
 
     friend class MutablePriorityQueue<Station>;
 
@@ -102,8 +101,7 @@ public:
     void setReverse(Line *_reverse);
     void setFlow(double _flow);
     void setVisited(bool _visited);
-    int specialChars(string word) const;
-    void print();
+    void print(int i);
 
 private:
     services service;
