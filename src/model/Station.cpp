@@ -169,7 +169,7 @@ string Station::getTownship() const
     return this->township;
 }
 void Station::removeIncomingLines(){
-    for(auto line:incoming){
+    for(auto line:this->incoming){
         line->getOrig()->removeLine(line->getDest()->getName());
     }
 }

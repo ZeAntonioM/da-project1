@@ -6,11 +6,12 @@
 #define DA_PROJECT1_MAXFLOWGROUPS_H
 
 #include "Action.h"
+#include "../../view/DrawUtils.h"
 
 class MaxFlowDistricts : public Action{
 public:
     MaxFlowDistricts(Graph &graph);
-
+    void draw(priority_queue<pair<pair<int,int>,string>> data);
     void execute() override;
 
 };
@@ -18,6 +19,7 @@ public:
 
 class MaxFlowMunicipalities : public Action{
 public:
+    void draw(priority_queue<pair<pair<int,int>,string>> data);
     MaxFlowMunicipalities(Graph &graph);
 
     void execute() override;
