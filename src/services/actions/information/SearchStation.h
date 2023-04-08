@@ -1,12 +1,11 @@
 #ifndef SEARCHSTATION_H
 #define SEARCHSTATION .H
 
-
 #include "../Action.h"
 #include "../../../view/DrawUtils.h"
 
-
-class SearchStation : public Action {
+class SearchStation : public Action
+{
 public:
     /**
      * @brief Constructor of the SearchStation, a class that extends Action

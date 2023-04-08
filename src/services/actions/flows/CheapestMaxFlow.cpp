@@ -7,8 +7,8 @@
 
 CheapestMaxFlow::CheapestMaxFlow(Graph &graph) : Action(graph) {}
 
-
-void CheapestMaxFlow::execute() {
+void CheapestMaxFlow::execute()
+{
     string src;
     string dst;
     pair<int, int> flowCost;
@@ -17,20 +17,24 @@ void CheapestMaxFlow::execute() {
     getline(cin, src);
     cout << "\nInsert the station name from where the trains will arrive: ";
     getline(cin, dst);
-    try {
+    try
+    {
         flowCost = graph->cheapestMaxFlow(src, dst);
         vector<Path> paths = graph->getCheapestPaths(src, dst);
-        if (flowCost.first == 0) {
+        if (flowCost.first == 0)
+        {
             cout << "No path was found\n";
             wait();
-        } else {
+        }
+        else
+        {
             DrawPaths drawPaths = DrawPaths();
             drawPaths.pageController(flowCost.first, flowCost.second, paths);
         }
     }
-    catch (string err) {
+    catch (string err)
+    {
         cout << "An error has occur!" << err << endl;
         wait();
     }
-
 }

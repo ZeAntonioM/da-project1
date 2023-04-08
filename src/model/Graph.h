@@ -17,7 +17,8 @@ using namespace std;
 typedef vector<Line *> Connections;
 typedef pair<Connections, int> Path;
 
-class Graph {
+class Graph
+{
 public:
     ~Graph();
 
@@ -156,7 +157,6 @@ public:
      */
     vector<Path> getPaths(string src, string dst);
 
-
     /**
      * @brief disables a line
      * @param line Line to be disabled
@@ -184,7 +184,6 @@ public:
      * @complexity O(1)
      */
     void enableStation(Station *station);
-
 
     /**
      * @brief disables all the lines
@@ -245,15 +244,14 @@ public:
      */
     Station getDistributor() const;
 
-
     /**
-    * @brief Removes the last station inserted in the StationSet
-    */
+     * @brief Removes the last station inserted in the StationSet
+     */
     void removeLastStation();
 
     /**
      * @brief calculates the number of Strongly Connected Components
-     * 
+     *
      * @return int the number of Strongly Connected Components in the graph
      * @complexity O(V+E) being V the number of stations  and E the number of lines
      */
@@ -267,7 +265,6 @@ public:
      */
     int bfs(Station *station);
 
-
 protected:
     vector<Station *> stationVector;
     // Station set
@@ -275,7 +272,7 @@ protected:
     vector<Station *> origins;
     Station distributor = Station("Distributor");
     double **distMatrix = nullptr; // dist matrix for Floyd-Warshall
-    int **pathMatrix = nullptr; // path matrix for Floyd-Warshall
+    int **pathMatrix = nullptr;    // path matrix for Floyd-Warshall
 
     /**
      * @brief Returns the current path of flow from one station to another and relaxes the lines of the path
@@ -285,7 +282,6 @@ protected:
      * @complexity O(E) being E the number of lines in the Path
      */
     Path getPath(Station *origin, Station *dst);
-
 
     /**
      * @brief searches for a path of flow with the least stops between two station.

@@ -5,10 +5,10 @@
 #ifndef DA_PROJECT1_CHEAPESTMAXFLOW_H
 #define DA_PROJECT1_CHEAPESTMAXFLOW_H
 
-
 #include "../Action.h"
 
-class CheapestMaxFlow : public Action {
+class CheapestMaxFlow : public Action
+{
 
 public:
     /**
@@ -23,9 +23,6 @@ public:
      * @complexity O( |E| * log|V| ) being V the number of Stations and E the number of Lines
      */
     void execute() override;
-
-
 };
 
-
-#endif //DA_PROJECT1_CHEAPESTMAXFLOW_H
+#endif // DA_PROJECT1_CHEAPESTMAXFLOW_H

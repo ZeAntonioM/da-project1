@@ -16,8 +16,8 @@
 
 using namespace std;
 
-
-class Scrapper {
+class Scrapper
+{
 public:
     /**
      * @brief Scrapes the information from the stations and the stations and the lines and stores it in the graph
@@ -51,8 +51,6 @@ public:
      * @complexity O(1)
      */
     void getValue(string &value, istringstream &data);
-
 };
 
-
-#endif //DA_PROJECT1_SCRAPPER_H
+#endif // DA_PROJECT1_SCRAPPER_H

@@ -9,8 +9,8 @@
 #include "../model/Graph.h"
 #include "DrawUtils.h"
 
-
-class DrawPaths {
+class DrawPaths
+{
 public:
     /**
      * @brief displays a table with a path from one stations to another, the max flow and its cost
@@ -31,8 +31,6 @@ public:
      * @complexity O(P) being P the lines from the paths
      */
     void pageController(int maxFlow, int cost, vector<Path> path) const;
-
 };
 
-
-#endif //DA_PROJECT1_DRAWPATHS_H
+#endif // DA_PROJECT1_DRAWPATHS_H

@@ -5,7 +5,6 @@
 #ifndef DA_PROJECT1_REPORTS_H
 #define DA_PROJECT1_REPORTS_H
 
-
 #include "../model/Graph.h"
 
 typedef vector<Station *> Stations;
@@ -13,7 +12,8 @@ typedef vector<Line *> Lines;
 typedef pair<string, string> stringPair;
 typedef pair<int, int> beforeAfter;
 
-class Reports {
+class Reports
+{
 
 public:
     Reports(Graph &graph);
@@ -22,8 +22,6 @@ public:
 
 private:
     Graph *graph;
-
 };
 
-
-#endif //DA_PROJECT1_REPORTS_H
+#endif // DA_PROJECT1_REPORTS_H

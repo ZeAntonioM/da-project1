@@ -8,7 +8,8 @@
 #include "../Action.h"
 #include "math.h"
 
-class ShowLines : public Action {
+class ShowLines : public Action
+{
 public:
     /**
      * @brief Constructor of the ShowLines, a class that extends Action

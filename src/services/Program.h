@@ -12,7 +12,8 @@
 #include "actions/Action.h"
 #include "Scrapper.h"
 
-class Program {
+class Program
+{
 
 private:
     vector<Menu> menus;
@@ -21,24 +22,27 @@ private:
 
 public:
     /**
-    * @brief Constructor of the class Program
-    * @complexity O(V) being V the number of stations in the Graph
-    */
+     * @brief Constructor of the class Program
+     * @complexity O(V) being V the number of stations in the Graph
+     */
     Program();
 
     /**
-    * @brief Creates the menus of the program
-    * complexity O(1)
-    */
+     * @brief Creates the menus of the program
+     * complexity O(1)
+     */
     void createMenus();
 
     /**
-    * @brief Runs the program
-    * @complexity O(1)
-    */
+     * @brief Runs the program
+     * @complexity O(1)
+     */
     void run();
-
+    /**
+     * @brief Destructor of program
+     * @complexity O(|A|) being A the actions;
+     */
+    ~Program();
 };
 
-
-#endif //DA_PROJECT1_PROGRAM_H
+#endif // DA_PROJECT1_PROGRAM_H

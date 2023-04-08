@@ -4,8 +4,10 @@
 #include <future>
 #include <ctime>
 
-bool count_a_lot(bool *await) {
-    for (int i = 0; i < INT32_MAX; i++) {
+bool count_a_lot(bool *await)
+{
+    for (int i = 0; i < INT32_MAX; i++)
+    {
         // for(int j=0; j<INT16_MAX;j++);
     }
     *await = true;
@@ -14,7 +16,8 @@ bool count_a_lot(bool *await) {
 
 using namespace std;
 
-int main() {
+int main()
+{
 
     system("clear");
     Program program;
@@ -22,5 +25,3 @@ int main() {
     system("clear");
     return 0;
 }
-
-

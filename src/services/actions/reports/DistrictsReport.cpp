@@ -9,7 +9,8 @@
 
 DistrictsReport::DistrictsReport(Graph &graph) : Action(graph) {}
 
-void DistrictsReport::draw(vector<pair<std::string, pair<int, int>>> data) const {
+void DistrictsReport::draw(DistResults data) const
+{
     system("clear");
     cout << drawHeader(54, "Most affected districts");
     vector<pair<string, int>> field;
@@ -20,7 +21,8 @@ void DistrictsReport::draw(vector<pair<std::string, pair<int, int>>> data) const
     cout << drawLine(54);
     field.clear();
 
-    for (int i = 0; i < data.size(); i++) {
+    for (int i = 0; i < data.size(); i++)
+    {
 
         field.push_back(make_pair(data[i].first, 27));
         field.push_back(make_pair(to_string(data[i].second.first), 12));
@@ -31,17 +33,21 @@ void DistrictsReport::draw(vector<pair<std::string, pair<int, int>>> data) const
     cout << drawFooter(54);
 }
 
-vector<pair<pair<int, int>, string>> DistrictsReport::calculateMaxFlow() {
+vector<pair<pair<int, int>, string>> DistrictsReport::calculateMaxFlow()
+{
     map<string, vector<Station *>> districts;
 
+    for (auto &station : graph->getStationVector())
+    {
 
-    for (auto &station : graph->getStationVector()) {
-
-        if (districts.find(station->getDistrict()) == districts.end()) {
+        if (districts.find(station->getDistrict()) == districts.end())
+        {
             vector<Station *> stations;
             stations.push_back(station);
             districts[station->getDistrict()] = stations;
-        } else {
+        }
+        else
+        {
             districts[station->getDistrict()].push_back(station);
         }
     }
@@ -52,14 +58,17 @@ vector<pair<pair<int, int>, string>> DistrictsReport::calculateMaxFlow() {
     Station superSink("SINK");
     graph->addStation(&superSink);
 
-    for (auto &district: districts) {
+    for (auto &district : districts)
+    {
 
-
-        for (auto &station: district.second) {
+        for (auto &station : district.second)
+        {
             graph->addLine(station, &superSink, INT16_MAX, services::NONE);
 
-            for (auto incoming: station->getIncoming()) {
-                if (incoming->getOrig()->getName() == graph->getDistributor().getName()) {
+            for (auto incoming : station->getIncoming())
+            {
+                if (incoming->getOrig()->getName() == graph->getDistributor().getName())
+                {
                     incoming->setDisabled(true);
                     DisabledLines.insert(incoming);
                 }
@@ -70,24 +79,24 @@ vector<pair<pair<int, int>, string>> DistrictsReport::calculateMaxFlow() {
 
         maxFlow.push_back({flowCost, district.first});
 
-        for (auto line: DisabledLines) {
+        for (auto line : DisabledLines)
+        {
             line->setDisabled(false);
         }
         DisabledLines.clear();
 
-        for (auto line: superSink.getIncoming()) {
+        for (auto line : superSink.getIncoming())
+        {
             line->getOrig()->removeLine(line->getDest()->getName());
         }
-
     }
 
     graph->removeLastStation();
     return maxFlow;
 }
 
-
-vector<pair<string, pair<int, int>>>
-DistrictsReport::doReport(Stations stationsToDisable, Lines linesToDisable, int &percentage) {
+DistrictsReport::DistResults DistrictsReport::doReport(Stations stationsToDisable, Lines linesToDisable, int &percentage)
+{
     vector<pair<pair<int, int>, string>> before = calculateMaxFlow();
     percentage = 25;
     DisableLine disableLine(*graph);
@@ -101,10 +110,13 @@ DistrictsReport::doReport(Stations stationsToDisable, Lines linesToDisable, int 
     enableLine.enableLines(linesToDisable);
     percentage = 50;
     priority_queue<pair<int, int>> pq;
-    for (int i = 0; i < before.size(); i++) {
+    for (int i = 0; i < before.size(); i++)
+    {
 
-        for (auto dis2: after) {
-            if (before[i].second == dis2.second) {
+        for (auto dis2 : after)
+        {
+            if (before[i].second == dis2.second)
+            {
                 before[i].first.second = dis2.first.first;
                 pq.push(make_pair(before[i].first.first - before[i].first.second, i));
                 break;
@@ -114,8 +126,10 @@ DistrictsReport::doReport(Stations stationsToDisable, Lines linesToDisable, int 
     percentage = 75;
     vector<pair<string, pair<int, int>>> results;
     int size = 5;
-    if (pq.size() < size) size = pq.size();
-    for (int i = 0; i < size; i++) {
+    if (pq.size() < size)
+        size = pq.size();
+    for (int i = 0; i < size; i++)
+    {
         string dis = before[pq.top().second].second;
         pair<int, int> beforeAfter = before[pq.top().second].first;
         results.push_back(make_pair(dis, beforeAfter));
@@ -125,7 +139,8 @@ DistrictsReport::doReport(Stations stationsToDisable, Lines linesToDisable, int 
     return results;
 }
 
-void DistrictsReport::execute() {
+void DistrictsReport::execute()
+{
     auto toDisable = Reports(*graph).getToDisable();
     int percentage = 0;
     draw(doReport(toDisable.first, toDisable.second, percentage));

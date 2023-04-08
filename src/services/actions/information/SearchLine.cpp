@@ -1,9 +1,10 @@
 #include "SearchLine.h"
 #include "../../../view/DrawUtils.h"
 
-SearchLine::SearchLine(Graph &graph) : Action(graph) {};
+SearchLine::SearchLine(Graph &graph) : Action(graph){};
 
-void SearchLine::execute() {
+void SearchLine::execute()
+{
     system("clear");
     cout << "\033[32m Enter the name of the first Station: ";
     string src;
@@ -14,18 +15,20 @@ void SearchLine::execute() {
     getline(cin, dst);
     auto line = graph->findLine(src, dst);
 
-    if (line != nullptr) {
+    if (line != nullptr)
+    {
         ::system("clear");
         cout << "\033[0m";
         cout << drawHeader(99, "Line");
         cout
-                << "│\033[40m Station 1                            │ Station 2                           │ Capacity  │ Service  \033[0m│"
-                << endl;
+            << "│\033[40m Station 1                            │ Station 2                           │ Capacity  │ Service  \033[0m│"
+            << endl;
         cout << drawLine(99);
         line->print(0);
         cout << drawFooter(99);
-
-    } else {
+    }
+    else
+    {
         cout << "\033[31m Line not found!";
     }
 

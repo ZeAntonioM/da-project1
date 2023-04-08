@@ -7,7 +7,8 @@
 
 MaxFlowDistricts::MaxFlowDistricts(Graph &graph) : Action(graph) {}
 
-void MaxFlowDistricts::draw(priority_queue<pair<pair<int, int>, string>> data) {
+void MaxFlowDistricts::draw(priority_queue<pair<pair<int, int>, string>> data)
+{
     system("clear");
     cout << drawHeader(50, "Districts with higher max flow");
     vector<pair<string, int>> field;
@@ -18,8 +19,10 @@ void MaxFlowDistricts::draw(priority_queue<pair<pair<int, int>, string>> data) {
     cout << drawLine(50);
     field.clear();
     int size = 10;
-    if (data.size() < size) size = data.size();
-    for (int i = 0; i < size; i++) {
+    if (data.size() < size)
+        size = data.size();
+    for (int i = 0; i < size; i++)
+    {
 
         field.push_back(make_pair(data.top().second, 27));
         field.push_back(make_pair(to_string(data.top().first.first), 10));
@@ -29,21 +32,24 @@ void MaxFlowDistricts::draw(priority_queue<pair<pair<int, int>, string>> data) {
         field.clear();
     }
     cout << drawFooter(50);
-
 }
 
-void MaxFlowDistricts::execute() {
+void MaxFlowDistricts::execute()
+{
 
     map<string, vector<Station *>> districts;
 
+    for (auto &station : graph->getStationVector())
+    {
 
-    for (auto &station: graph->getStationVector()) {
-
-        if (districts.find(station->getDistrict()) == districts.end()) {
+        if (districts.find(station->getDistrict()) == districts.end())
+        {
             vector<Station *> stations;
             stations.push_back(station);
             districts[station->getDistrict()] = stations;
-        } else {
+        }
+        else
+        {
             districts[station->getDistrict()].push_back(station);
         }
     }
@@ -54,14 +60,17 @@ void MaxFlowDistricts::execute() {
     Station superSink("SINK");
     graph->addStation(&superSink);
 
-    for (auto &district: districts) {
+    for (auto &district : districts)
+    {
 
-
-        for (auto &station: district.second) {
+        for (auto &station : district.second)
+        {
             graph->addLine(station, &superSink, INT16_MAX, services::NONE);
 
-            for (auto incoming: station->getIncoming()) {
-                if (incoming->getOrig()->getName() == graph->getDistributor().getName()) {
+            for (auto incoming : station->getIncoming())
+            {
+                if (incoming->getOrig()->getName() == graph->getDistributor().getName())
+                {
                     incoming->setDisabled(true);
                     DisabledLines.insert(incoming);
                 }
@@ -72,29 +81,28 @@ void MaxFlowDistricts::execute() {
 
         MaxFlow.push({flowCost, district.first});
 
-        for (auto line: DisabledLines) {
+        for (auto line : DisabledLines)
+        {
             line->setDisabled(false);
         }
         DisabledLines.clear();
 
-        for (auto line: superSink.getIncoming()) {
+        for (auto line : superSink.getIncoming())
+        {
             line->getOrig()->removeLine(line->getDest()->getName());
         }
-
     }
     draw(MaxFlow);
 
     graph->removeLastStation();
 
     wait();
-
-
 }
-
 
 MaxFlowMunicipalities::MaxFlowMunicipalities(Graph &graph) : Action(graph) {}
 
-void MaxFlowMunicipalities::draw(priority_queue<pair<pair<int, int>, std::string>> data) {
+void MaxFlowMunicipalities::draw(priority_queue<pair<pair<int, int>, std::string>> data)
+{
     system("clear");
     cout << drawHeader(50, "Municipalities with higher max flow");
     vector<pair<string, int>> field;
@@ -105,8 +113,10 @@ void MaxFlowMunicipalities::draw(priority_queue<pair<pair<int, int>, std::string
     cout << drawLine(50);
     field.clear();
     int size = 10;
-    if (data.size() < size) size = data.size();
-    for (int i = 0; i < size; i++) {
+    if (data.size() < size)
+        size = data.size();
+    for (int i = 0; i < size; i++)
+    {
 
         field.push_back(make_pair(data.top().second, 27));
         field.push_back(make_pair(to_string(data.top().first.first), 10));
@@ -116,21 +126,24 @@ void MaxFlowMunicipalities::draw(priority_queue<pair<pair<int, int>, std::string
         field.clear();
     }
     cout << drawFooter(50);
-
 }
 
-void MaxFlowMunicipalities::execute() {
+void MaxFlowMunicipalities::execute()
+{
 
     map<string, vector<Station *>> municipalities;
 
+    for (auto &station : graph->getStationVector())
+    {
 
-    for (auto &station: graph->getStationVector()) {
-
-        if (municipalities.find(station->getMunicipality()) == municipalities.end()) {
+        if (municipalities.find(station->getMunicipality()) == municipalities.end())
+        {
             vector<Station *> stations;
             stations.push_back(station);
             municipalities[station->getMunicipality()] = stations;
-        } else {
+        }
+        else
+        {
             municipalities[station->getMunicipality()].push_back(station);
         }
     }
@@ -141,14 +154,17 @@ void MaxFlowMunicipalities::execute() {
     Station superSink("SINK");
     graph->addStation(&superSink);
 
-    for (auto &municipality: municipalities) {
+    for (auto &municipality : municipalities)
+    {
 
-
-        for (auto &station: municipality.second) {
+        for (auto &station : municipality.second)
+        {
             graph->addLine(station, &superSink, INT16_MAX, services::NONE);
 
-            for (auto incoming: station->getIncoming()) {
-                if (incoming->getOrig()->getName() == graph->getDistributor().getName()) {
+            for (auto incoming : station->getIncoming())
+            {
+                if (incoming->getOrig()->getName() == graph->getDistributor().getName())
+                {
                     incoming->setDisabled(true);
                     DisabledLines.insert(incoming);
                 }
@@ -159,21 +175,19 @@ void MaxFlowMunicipalities::execute() {
 
         MaxFlow.push({flowCost, municipality.first});
 
-
-        for (auto line: DisabledLines) {
+        for (auto line : DisabledLines)
+        {
             line->setDisabled(false);
         }
         DisabledLines.clear();
 
-        for (auto line: superSink.getIncoming()) {
+        for (auto line : superSink.getIncoming())
+        {
             line->getOrig()->removeLine(line->getDest()->getName());
         }
-
     }
 
     draw(MaxFlow);
     graph->removeLastStation();
     wait();
-
 }
-

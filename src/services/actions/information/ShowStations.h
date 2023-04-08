@@ -9,7 +9,8 @@
 #include "math.h"
 #include "../../../view/DrawUtils.h"
 
-class ShowStations : public Action {
+class ShowStations : public Action
+{
 public:
     /**
      * @brief Constructor of the ShowStations, a class that extends Action

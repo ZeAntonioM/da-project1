@@ -7,8 +7,8 @@
 
 MaxFlow::MaxFlow(Graph &graph) : Action(graph) {}
 
-
-void MaxFlow::execute() {
+void MaxFlow::execute()
+{
     string src;
     string dst;
     pair<int, int> flowCost;
@@ -17,20 +17,24 @@ void MaxFlow::execute() {
     getline(cin, src);
     cout << "\nInsert the station name from where the trains will arrive: ";
     getline(cin, dst);
-    try {
+    try
+    {
         flowCost = graph->maxFlow(src, dst);
         vector<Path> paths = graph->getPaths(src, dst);
-        if (flowCost.first == 0) {
+        if (flowCost.first == 0)
+        {
             cout << "No path was found\n";
             wait();
-        } else {
+        }
+        else
+        {
             DrawPaths drawPaths = DrawPaths();
             drawPaths.pageController(flowCost.first, flowCost.second, paths);
         }
     }
-    catch (string err) {
+    catch (string err)
+    {
         cout << "An error has occur!" << err << endl;
         wait();
     }
-
 }

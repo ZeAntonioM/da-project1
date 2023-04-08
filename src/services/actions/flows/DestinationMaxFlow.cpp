@@ -5,29 +5,36 @@
 #include "DestinationMaxFlow.h"
 #include "../../../view/DrawPaths.h"
 
-DestinationMaxFlow::DestinationMaxFlow(Graph &graph) : Action(graph) {
+DestinationMaxFlow::DestinationMaxFlow(Graph &graph) : Action(graph)
+{
 }
 
-void DestinationMaxFlow::execute() {
+void DestinationMaxFlow::execute()
+{
     cout << "Insert Destination :";
     string dst;
     pair<int, int> flowCost;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, dst);
-    try {
+    try
+    {
         string distributor = graph->getDistributor().getName();
         flowCost = graph->maxFlow(distributor, dst);
 
         vector<Path> paths = graph->getPaths(distributor, dst);
-        if (flowCost.first == 0) {
+        if (flowCost.first == 0)
+        {
             cout << "No path was found\n";
             wait();
-        } else {
+        }
+        else
+        {
             DrawPaths drawPaths;
             drawPaths.pageController(flowCost.first, flowCost.second, paths);
         }
-
-    } catch (string err) {
+    }
+    catch (string err)
+    {
         cout << "An error has occur ! " << err;
         wait();
     }

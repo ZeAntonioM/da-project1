@@ -5,7 +5,6 @@
 #ifndef DA_PROJECT1_MENU_H
 #define DA_PROJECT1_MENU_H
 
-
 #include <vector>
 #include <string>
 #include <fstream>
@@ -15,57 +14,64 @@
 
 using namespace std;
 
+enum menus
+{
+    MAIN_MENU,
+    NETWORK_INFORMATION,
+    FLOW,
+    EDIT_MENU,
+    CREATE_MENU,
+    BUDGET_MENU,
+    REPORTS,
+    ENABLE,
+    DISABLE,
+    POP_MENU
+};
 
-
-enum menus{MAIN_MENU,NETWORK_INFORMATION, FLOW, EDIT_MENU, CREATE_MENU,BUDGET_MENU, REPORTS, ENABLE, DISABLE, POP_MENU};
-
-
-
-class Menu {
+class Menu
+{
 private:
-
     vector<string> buttons;
     vector<Action *> actions;
 
 public:
-
     /**Constructor of the Menu, reads a file with buttons and adds them to a vector of strings
      * @brief Constructor of the Menu
      * @param path the path to the file containing the buttons of the menus
-     * @complexity O(B) being B the number of buttons for the Menu 
+     * @complexity O(B) being B the number of buttons for the Menu
      */
     Menu(string path);
 
     /**
-    * @return Menu buttons
-    * @complexity O(1)
-    */
+     * @return Menu buttons
+     * @complexity O(1)
+     */
     vector<string> getButtons();
 
     /**
-    * @brief draws the menus
-    * @complexity O(B) being B the number of buttons
-    */
+     * @brief draws the menus
+     * @complexity O(B) being B the number of buttons
+     */
     void draw() const;
 
     /**
-    * @brief adds a Action to the menus services
-    * @param menuItem
-    * @complexity O(1)
-    */
+     * @brief adds a Action to the menus services
+     * @param menuItem
+     * @complexity O(1)
+     */
     void addMenuItem(Action *menuItem);
 
     /**
-    * @brief will execute the action corresponding to the option chosen
-    * @param option option chosen
-    * @complexity O(T) being the complexity of the action that will execute
-    */
+     * @brief will execute the action corresponding to the option chosen
+     * @param option option chosen
+     * @complexity O(T) being the complexity of the action that will execute
+     */
     void doAction(int option);
 
     /**
-    * @return the services of the menus
-    * @complexity O(1)
-    */
+     * @return the services of the menus
+     * @complexity O(1)
+     */
     vector<Action *> getActions();
 
     /**
@@ -81,8 +87,6 @@ public:
      * @complexity O(1)
      */
     bool getInput(int &option);
-
 };
 
-
-#endif //DA_PROJECT1_MENU_H
+#endif // DA_PROJECT1_MENU_H

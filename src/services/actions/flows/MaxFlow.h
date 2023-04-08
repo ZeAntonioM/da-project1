@@ -5,10 +5,10 @@
 #ifndef DA_PROJECT1_MAXFLOW_H
 #define DA_PROJECT1_MAXFLOW_H
 
-
 #include "../Action.h"
 
-class MaxFlow : public Action {
+class MaxFlow : public Action
+{
 
 public:
     /**
@@ -23,8 +23,6 @@ public:
      * @complexity O(V+E) being V the number of stations and E the number of lines in the graph
      */
     void execute() override;
-
 };
 
-
-#endif //DA_PROJECT1_MAXFLOW_H
+#endif // DA_PROJECT1_MAXFLOW_H

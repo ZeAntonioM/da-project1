@@ -8,7 +8,8 @@
 
 ComponentsReport::ComponentsReport(Graph &graph) : Action(graph) {}
 
-void ComponentsReport::draw(pair<int, int> sCCs) const {
+void ComponentsReport::draw(pair<int, int> sCCs) const
+{
     ::system("clear");
     cout << drawHeader(40, "Strongly Connected Components");
     vector<pair<string, int>> fields;
@@ -21,10 +22,10 @@ void ComponentsReport::draw(pair<int, int> sCCs) const {
     fields.push_back(make_pair(to_string(sCCs.second), 19));
     cout << drawFields(fields, 0);
     cout << drawFooter(40);
-
 }
 
-pair<int, int> ComponentsReport::doReport(Stations stations, Lines lines, int &percentage) {
+ComponentsReport::CompResults ComponentsReport::doReport(Stations stations, Lines lines, int &percentage)
+{
 
     int before = graph->sCC();
     DisableLine disableLines = DisableLine(*graph);
@@ -39,11 +40,10 @@ pair<int, int> ComponentsReport::doReport(Stations stations, Lines lines, int &p
     enableLine.enableLines(lines);
     percentage = 100;
     return make_pair(before, after);
-
-
 }
 
-void ComponentsReport::execute() {
+void ComponentsReport::execute()
+{
     pair<Stations, Lines> data = Reports(*graph).getToDisable();
     int percentage = 0;
     draw(doReport(data.first, data.second, percentage));

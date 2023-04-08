@@ -9,7 +9,8 @@ using namespace std;
 
 #include "../Action.h"
 
-class DestinationMaxFlow : public Action {
+class DestinationMaxFlow : public Action
+{
 public:
     /**
      * @brief Constructor of DestinationMaxFlow
@@ -22,8 +23,6 @@ public:
      * @complexity O(V+E) being V the number of stations and E the number of lines
      */
     void execute() override;
-
 };
 
-
-#endif //DA_PROJECT1_DESTINATIONMAXFLOW_H
+#endif // DA_PROJECT1_DESTINATIONMAXFLOW_H

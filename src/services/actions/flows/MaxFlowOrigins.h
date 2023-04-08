@@ -3,13 +3,15 @@
 
 #include "../Action.h"
 
-class MaxFlowOrigins : public Action {
+class MaxFlowOrigins : public Action
+{
     typedef pair<Station *, Station *> StationPair;
     typedef pair<int, int> FlowCost;
+
 public:
     /**
      * @brief Construct a new Max Flow Origins Action
-     * 
+     *
      * @param graph The graph in wich it will apply the Action
      */
     MaxFlowOrigins(Graph &graph);
@@ -22,7 +24,7 @@ public:
 
     /**
      * @brief Generates non repeting combination of all stations and applies the MaxFlow Algorithm
-     * 
+     *
      * @param input vector of stations to process
      * @param current vector with two current stations being processed
      * @param start where to start on vector
@@ -31,7 +33,6 @@ public:
      * @complexity  O(n^2 * (V+E))
      */
     void generateCombinations(const vector<Station *> &input, vector<Station *> &current, int start, FlowCost &maxNumber, StationPair &stationPair);
-
 };
 
 #endif

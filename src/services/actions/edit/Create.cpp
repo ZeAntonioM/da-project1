@@ -6,7 +6,8 @@
 
 CreateStation::CreateStation(Graph &graph) : Action(graph) {}
 
-void CreateStation::execute() {
+void CreateStation::execute()
+{
 
     string name, district, municipality, township, station_line;
 
@@ -26,22 +27,25 @@ void CreateStation::execute() {
     cout << "Insert the line of the station: ";
     getline(cin, station_line);
 
-    try {
+    try
+    {
         Station *station = new Station(name, district, municipality, township, station_line);
         graph->addStation(station);
         cout << "Station added!" << endl;
         wait();
     }
-    catch (string err) {
-        cout << "An error has occur! \n" << err << endl;
+    catch (string err)
+    {
+        cout << "An error has occur! \n"
+             << err << endl;
         wait();
     }
-
 }
 
 CreateLine::CreateLine(Graph &graph) : Action(graph) {}
 
-void CreateLine::execute() {
+void CreateLine::execute()
+{
 
     string station1, station2, service, c;
     services _service;
@@ -53,38 +57,48 @@ void CreateLine::execute() {
     cout << "Insert the second station name: ";
     getline(cin, station2);
 
-    try {
+    try
+    {
         Station *_station1 = graph->findStation(station1);
 
-        if (_station1 == nullptr) throw string("Station 1 not found!\n");
+        if (_station1 == nullptr)
+            throw string("Station 1 not found!\n");
 
         Station *_station2 = graph->findStation(station2);
 
-        if (_station2 == nullptr) throw string("Station 2 not found!\n");
+        if (_station2 == nullptr)
+            throw string("Station 2 not found!\n");
 
         cout << "Insert the new line's service (STANDARD - 0, ALFA PENDULAR - 1, NONE - 2): ";
         getline(cin, service);
 
-        if (service == "0") {
+        if (service == "0")
+        {
             _service = STANDARD;
-        } else if (service == "1") {
+        }
+        else if (service == "1")
+        {
             _service = ALFA;
-
-        } else if (service == "2") {
+        }
+        else if (service == "2")
+        {
             _service = NONE;
-        } else {
+        }
+        else
+        {
             throw string("Invalid service! \n");
         }
-
 
         cout << "Insert the new capacity of the line: ";
         getline(cin, c);
 
         int capacity;
-        try {
+        try
+        {
             capacity = stoi(c);
         }
-        catch (std::invalid_argument) {
+        catch (std::invalid_argument)
+        {
             cout << "invalid argument";
         }
 
@@ -93,9 +107,10 @@ void CreateLine::execute() {
         cout << "Line added!" << endl;
         wait();
     }
-    catch (string err) {
-        cout << "An error has occur! \n" << err << endl;
+    catch (string err)
+    {
+        cout << "An error has occur! \n"
+             << err << endl;
         wait();
     }
-
 }
