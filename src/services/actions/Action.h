@@ -27,6 +27,7 @@ public:
     * a function execute that will do a different task
     * @brief Constructor of the Action
     * @param graph graph with all the information of the stations and lines
+    * @complexity O(1)
     */
     Action(Graph &graph);
 

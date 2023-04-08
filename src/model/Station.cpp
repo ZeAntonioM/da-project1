@@ -70,9 +70,6 @@ bool Station::isProcessing() const {
     return this->processing;
 }
 
-unsigned int Station::getIndegree() const {
-    return this->indegree;
-}
 
 double Station::getDist() const {
     return this->dist;
@@ -94,9 +91,7 @@ void Station::setProcessing(bool processing) {
     this->processing = processing;
 }
 
-void Station::setIndegree(unsigned int indegree) {
-    this->indegree = indegree;
-}
+
 
 void Station::setDist(double dist) {
     this->dist = dist;
@@ -128,9 +123,7 @@ string Station::getName() const {
     return this->name;
 }
 
-string Station::getLine() const {
-    return this->station_line;
-}
+
 
 string Station::getMunicipality() const {
     return this->municipality;
@@ -140,15 +133,7 @@ string Station::getDistrict() const {
     return this->district;
 }
 
-string Station::getTownship() const {
-    return this->township;
-}
 
-void Station::removeIncomingLines() {
-    for (auto line: this->incoming) {
-        line->getOrig()->removeLine(line->getDest()->getName());
-    }
-}
 
 void Station::setDisabled(bool _disabled) {
     this->disabled = _disabled;

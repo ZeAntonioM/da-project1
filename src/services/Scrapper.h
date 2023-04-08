@@ -24,7 +24,7 @@ public:
      * @param graph graph were all the information is going to be store
      * @param station_file the file containing the stations
      * @param line_file the file containing the lines
-     * @complexity O(N) being N the number of stations and lines that exits
+     * @complexity O(V+E) being V the number of stations and E the number of lines that exists
      */
     void scrape(Graph &graph, string station_file, string line_file);
 
@@ -32,7 +32,7 @@ public:
      * @brief Scrapes the information from the stations and stores it in the graph
      * @param graph graph were all the information is going to be store
      * @param station_file the file containing the stations
-     * @complexity O(N) being N the number of stations that exits
+     * @complexity O(V) being V the number of stations that exists
      */
     void scrapeStations(Graph &graph, string station_file);
 
@@ -40,7 +40,7 @@ public:
      * @brief Scrapes the information from the lines and stores it in the graph
      * @param graph graph were all the information is going to be store
      * @param line_file the file containing the lines
-     * @complexity O(N) being N the number of lines that exits
+     * @complexity O(E) being E the number of lines that exists
      */
     void scrapeLines(Graph &graph, string line_file);
 

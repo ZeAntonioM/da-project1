@@ -23,6 +23,7 @@ public:
     * @param currMenusPage stack with the current pages of the menu
     * @param graph graph with all the information of the stations ans the line
     * @param nextMenu the page we want to go next
+    * @complexity O(1)
     */
     ChangeMenu(stack<menus> &currMenusPage, Graph &graph, menus nextMenu);
 

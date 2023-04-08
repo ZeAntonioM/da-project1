@@ -10,8 +10,17 @@
 class CreateStation : public Action {
 
 public:
+    /**
+     * @brief Create a Station object
+     * 
+     * @param graph the graph containing all the network information
+     */
     CreateStation(Graph &graph);
 
+    /**
+     * @brief create a station with the information given by the user and stores it
+     * @complexity O(1)
+     */
     void execute() override;
 
 };
@@ -19,8 +28,17 @@ public:
 class CreateLine : public Action {
 
 public:
+    /**
+     * @brief Create a Line object
+     * 
+     * @param graph the graph containing all the network informtion
+     */
     CreateLine(Graph &graph);
 
+    /**
+     * @brief create a line with the information given by the user and stores it
+     * @complexity O(V) being V the number of stations
+     */
     void execute() override;
 
 };

@@ -22,6 +22,12 @@ public:
      * @complexity O(|V|) being V the number of stations
      */
     void execute()override;
+    /**
+     * @brief disables all the lines in the vector given
+     * 
+     * @param lines lines to be disable
+     * @complexity O(|E|) being E the lines to disable
+     */
     void disableLines(vector<Line *> lines);
 
 };
@@ -41,6 +47,13 @@ public:
      * @complexity O(|V|) being V the number of stations
      */
     void execute()override;
+    
+    /**
+     * @brief enable all lines in the vector
+     * 
+     * @param lines lines to be enable
+     * @complexity O(|E|) being E the lines to  enable
+     */
     void enableLines(vector<Line *> lines);
 
 };
@@ -60,6 +73,12 @@ public:
      * @complexity O(|V|) being V the number of stations
      */
     void execute()override;
+    /**
+     * @brief Disables all Station in the vector
+     * 
+     * @param stations station to be disable
+     * @complexity O(|V|) being V the number of station to be disable
+     */
     void disableStations(vector<Station *> stations);
 
 };
@@ -79,6 +98,12 @@ public:
      * @complexity O(|V|) being V the number of stations
      */
     void execute()override;
+    /**
+     * @brief Enables all Station in the vector
+     * 
+     * @param stations station to be enable
+     * @complexity O(|V|) being V the number of station to be enable
+     */
     void enableStations(vector<Station *> stations);
 
 };

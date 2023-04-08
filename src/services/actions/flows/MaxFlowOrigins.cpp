@@ -59,11 +59,3 @@ void MaxFlowOrigins::generateCombinations(const vector<Station *> &input, vector
     }
 }
 
-int MaxFlowOrigins::specialChars(string word) const {
-    int count = 0;
-    for (char c: word) {
-        if (c < 0)
-            count++;
-    }
-    return count / 2;
-}

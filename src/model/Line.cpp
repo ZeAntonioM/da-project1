@@ -27,35 +27,6 @@ int Line::getFlow() const {
     return flow;
 }
 
-bool Line::getVisited() const {
-    return visited;
-}
-
-void Line::setDisabled(bool _disabled) {
-    this->disabled = _disabled;
-}
-
-void Line::setReverse(Line *_reverse) {
-    this->reverse = _reverse;
-}
-
-void Line::setFlow(int _flow) {
-    this->flow = _flow;
-}
-
-void Line::setVisited(bool _visited) {
-    this->visited = _visited;
-}
-
-
-void Line::setService(services _service) {
-    this->service = _service;
-}
-
-void Line::setCapacity(int _capacity) {
-    this->capacity = _capacity;
-}
-
 services Line::getService() const {
     return this->service;
 }
@@ -72,6 +43,26 @@ bool Line::isFull() const {
     return (this->flow + this->reverse->flow >= this->capacity);
 }
 
+void Line::setDisabled(bool _disabled) {
+    this->disabled = _disabled;
+}
+
+void Line::setReverse(Line *_reverse) {
+    this->reverse = _reverse;
+}
+
+void Line::setFlow(int _flow) {
+    this->flow = _flow;
+}
+
+
+void Line::setService(services _service) {
+    this->service = _service;
+}
+
+void Line::setCapacity(int _capacity) {
+    this->capacity = _capacity;
+}
 
 void Line::print(int i) {
 

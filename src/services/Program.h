@@ -19,24 +19,24 @@ private:
     stack<enum menus> menuPage;
     Graph graph;
 
-
 public:
     /**
-     * @brief Constructor of the class Program
-     */
+    * @brief Constructor of the class Program
+    * @complexity O(V) being V the number of stations in the Graph
+    */
     Program();
 
     /**
-     * @brief Creates the menus of the program
-     * complexity O(1)
-     */
+    * @brief Creates the menus of the program
+    * complexity O(1)
+    */
     void createMenus();
 
     /**
-     * @brief Runs the program
+    * @brief Runs the program
+    * @complexity O(1)
     */
     void run();
-
 
 };
 

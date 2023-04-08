@@ -7,7 +7,7 @@
 #include <limits>
 #include <algorithm>
 #include <set>
-#include "MutablePriorityQueue.h"
+
 #include <set>
 
 #include "StationLine.h"
@@ -25,7 +25,7 @@ public:
      * @brief Auxiliary function to find a Station with a given Name.
      * @param name the name of the station we want to find
      * @return if the station is found returns a pointer to the station otherwise returns nullptr
-     * @complexity O(N) being N the number of stations
+     * @complexity O(V) being V the number of stations
      */
     Station *findStation(const string &name) const;
 
@@ -34,7 +34,7 @@ public:
      * @param src the source of the line we want to find
      * @param dst the destiny of the line we want to find
      * @return if the line is found returns a pointer to the Line otherwise returns nullptr
-     * @complexity O(N^2) being N the number of stations
+     * @complexity O(V^2) being V the number of stations
      */
 
     Line *findLine(const string &src, const string &dst) const;
@@ -92,6 +92,7 @@ public:
      *@param src station where the trains leave
      *@param dst destination station where trains arrive
      *@return a pair of ints being the first element the max flow and the second the cost * @complexity O(| E | log | V |) being V the number of stations and E the number of lines
+     * @complexity O(|E| + log|V|) being V the number of stations and E the number of lines
      */
     pair<int, int> cheapestMaxFlow(string src, string dst);
 
@@ -159,24 +160,28 @@ public:
     /**
      * @brief disables a line
      * @param line Line to be disabled
+     * @complexity O(1)
      */
     void disableLine(Line *line);
 
     /**
      * @brief enables a line
      * @param line Line to be enabled
+     * @complexity O(1)
      */
     void enableLine(Line *line);
 
     /**
      * @brief disables a station
      * @param station Station to be disabled
+     * @complexity O(1)
      */
     void disableStation(Station *station);
 
     /**
      * @brief enables a station
      * @param station Station to be enabled
+     * @complexity O(1)
      */
     void enableStation(Station *station);
 
@@ -222,6 +227,7 @@ public:
 
     /**
      * @return Vector with all the lines
+     * @complexity O(1)
      */
     vector<Line *> getLineVector() const;
 
@@ -245,12 +251,19 @@ public:
     */
     void removeLastStation();
 
+    /**
+     * @brief calculates the number of Strongly Connected Components
+     * 
+     * @return int the number of Strongly Connected Components in the graph
+     * @complexity O(V+E) being V the number of stations  and E the number of lines
+     */
     int sCC();
 
     /**
      * @param string origin - origin station's name
      * @param string destination - destination station's name
      * @brief Finds the shortest Path between two stations.
+     * @complexity O(V+E) being V the number of stations and E the number of lines
      */
     int bfs(Station *station);
 
@@ -263,11 +276,6 @@ protected:
     Station distributor = Station("Distributor");
     double **distMatrix = nullptr; // dist matrix for Floyd-Warshall
     int **pathMatrix = nullptr; // path matrix for Floyd-Warshall
-
-    /**
-     * @brief Finds the index of the Station with a given content.
-     */
-    int findStationIdx(const int &id) const;
 
     /**
      * @brief Returns the current path of flow from one station to another and relaxes the lines of the path

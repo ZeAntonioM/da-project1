@@ -14,6 +14,7 @@ public:
     /**
      * @brief Constructor of the ShowStations, a class that extends Action
      * @param graph graph that stores all info
+     * @complexity O(P) being P the number of pages
      */
     void draw(vector<Station> data, int page, int npages);
 
