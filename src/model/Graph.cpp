@@ -209,47 +209,41 @@ bool Graph::findCheapestPath(Station *src, Station *dst) {
     int price = 0;
     for (Station *Station : stationVector)
     {
-        Station->setVisited(false);
-        Station->setDist(INF);
+
+        Station->setDist(INT16_MAX);
     }
-    priority_queue<pair<int, Station *>, vector<pair<int, Station *>>, greater<pair<int, Station *>>> pq;
     src->setDist(0);
-    pq.push(make_pair(0, src));
-    while (!pq.empty()) {
-        auto station = pq.top().second;
-        pq.pop();
-        if (station->getName() == dst->getName()) {
-            return true;
-        }
-        for (auto line: station->getAdj()) {
-
-            price = station->getDist() + line->getCost();
-            if (!line->isFull() and line->getDest()->getDist() > price and !line->isDisabled() and
-                !line->getDest()->isDisabled()) {
-                // line->getDest()->setVisited(true);
-                line->getDest()->setPath(line);
-                line->getDest()->setDist(price);
-                pq.push(make_pair(price, line->getDest()));
+    for(int i=0; i< stationVector.size()-1;i++){
+        bool change=false;
+        for(auto station: stationVector){
+            for(auto line: station->getAdj()){
+                price=line->getOrig()->getDist()+line->getCost();
+                if(line->getDest()->getDist()>price and !line->isFull()){
+                    change=true;
+                    line->getDest()->setDist(price);
+                    line->getDest()->setPath(line);
+                }
             }
-        }
-        for (Line *line: station->getIncoming()) {
 
-            price = station->getDist() + line->getCost();
-            if (line->getFlow() > 0 and line->getOrig()->getDist() > price and !line->isDisabled() and
-                !line->getOrig()->isDisabled()) {
-                // line->getOrig()->setVisited(true);
-                line->getOrig()->setPath(line);
-                line->getOrig()->setDist(price);
-                pq.push(make_pair(price, line->getOrig()));
+            for(auto line : station->getIncoming()){
+                price = station->getDist() - line->getCost();
+                if(line->getOrig()->getDist()>price and line->getFlow()>0){
+                    change= true;
+                    line->getOrig()->setDist(price);
+                    line->getOrig()->setPath(line);
+                }
             }
+
         }
+        if(!change) break;
+
     }
-    return false;
+    return dst->getDist()<INT16_MAX;
 }
 
 int Graph::bottleNeck(Station *src, Station *dst) {
     auto v1 = dst;
-    int min = INF;
+    int min = INT16_MAX;
     while (v1->getName() != src->getName()) {
         int aux;
         if (v1->getPath()->getDest()->getName() == v1->getName())

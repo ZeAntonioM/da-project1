@@ -17,8 +17,7 @@ enum services
     NONE
 };
 
-class Line;
-#define INF std::numeric_limits<int>::max()
+
 
 class Line;
 
@@ -216,8 +215,7 @@ protected:
     bool disabled = false;
     bool visited = false;    // used by DFS, BFS, Prim ...
     bool processing = false; // used by isDAG (in addition to the visited attribute)
-    unsigned int indegree;   // used by topsort
-    double dist = 0;
+    int dist = 0;
     Line *path = nullptr;
 
     std::vector<Line *> incoming; // incoming Lines
