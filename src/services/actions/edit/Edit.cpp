@@ -81,6 +81,9 @@ void EditLinesService::execute()
             }
         }
 
+        if (line1 == nullptr || line2 == nullptr)
+            throw string("Line does not exist\n");
+
         cout << "Insert the new service of the line (STANDARD - 0, ALFA PENDULAR - 1, NONE - 2): ";
         getline(cin, service);
 
@@ -121,7 +124,7 @@ void EditLinesCapacity::execute()
 {
 
     string station1, station2;
-    Line *line1, *line2;
+    Line *line1 = nullptr, *line2 = nullptr;
     string capacity;
 
     cout << "Insert the first station name: ";
@@ -158,6 +161,8 @@ void EditLinesCapacity::execute()
                 line2 = line;
             }
         }
+        if (line1 == nullptr || line2 == nullptr)
+            throw string("Line does not exist\n");
 
         cout << "Insert the new capacity of the line: ";
         getline(cin, capacity);

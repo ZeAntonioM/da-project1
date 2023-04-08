@@ -30,8 +30,17 @@ void DisableLine::execute()
         if (_station2 == nullptr)
             throw string("Station 2 not found!\n");
 
+        for (auto line : _station1->getAdj())
+        {
+            if (line->getDest() == _station2)
+            {
+                line1 = line;
+            }
+        }
+        if (line1 == nullptr || line2 == nullptr)
+            throw string("Line does not exist\n");
         graph->disableLine(line1);
-        graph->disableLine(line2);
+        graph->disableLine(line1->getReverse());
         cout << "Line disabled!" << endl;
         wait();
     }
@@ -88,7 +97,8 @@ void EnableLine::execute()
                 line2 = line;
             }
         }
-
+        if (line1 == nullptr || line2 == nullptr)
+            throw string("Line does not exist\n");
         graph->enableLine(line1);
         graph->enableLine(line2);
         cout << "Line enabled successfully\n";

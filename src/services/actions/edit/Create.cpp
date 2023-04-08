@@ -40,6 +40,7 @@ void CreateStation::execute()
              << err << endl;
         wait();
     }
+    graph->calculateOrigins();
 }
 
 CreateLine::CreateLine(Graph &graph) : Action(graph) {}
@@ -113,4 +114,5 @@ void CreateLine::execute()
              << err << endl;
         wait();
     }
+    graph->calculateOrigins();
 }

@@ -251,7 +251,7 @@ bool Graph::findCheapestPath(Station *src, Station *dst)
             for (auto line : station->getAdj())
             {
                 price = line->getOrig()->getDist() + line->getCost();
-                if (line->getDest()->getDist() > price and !line->isFull())
+                if (line->getDest()->getDist() > price and !line->isFull() and !line->isDisabled() and !line->getDest()->isDisabled())
                 {
                     change = true;
                     line->getDest()->setDist(price);
@@ -262,7 +262,7 @@ bool Graph::findCheapestPath(Station *src, Station *dst)
             for (auto line : station->getIncoming())
             {
                 price = station->getDist() - line->getCost();
-                if (line->getOrig()->getDist() > price and line->getFlow() > 0)
+                if (line->getOrig()->getDist() > price and line->getFlow() > 0 and !line->isDisabled() and !line->getOrig()->isDisabled())
                 {
                     change = true;
                     line->getOrig()->setDist(price);
@@ -329,9 +329,9 @@ pair<int, int> Graph::maxFlow(string src, string dst)
     if (v2 == nullptr)
         throw dst + " Not Found!";
     if (v2->isDisabled())
-        throw v2->getName() + "is disabled!";
+        throw v2->getName() + " is disabled!";
     if (v1->isDisabled())
-        throw v1->getName() + "is disabled!";
+        throw v1->getName() + " is disabled!";
 
     reset();
     while (findPath(v1, v2))
@@ -360,9 +360,9 @@ pair<int, int> Graph::cheapestMaxFlow(string src, string dst)
     if (v2 == nullptr)
         throw dst + " Not Found!";
     if (v2->isDisabled())
-        throw v2->getName() + "is disabled!";
+        throw v2->getName() + " is disabled!";
     if (v1->isDisabled())
-        throw v1->getName() + "is disabled!";
+        throw v1->getName() + " is disabled!";
     reset();
     while (findCheapestPath(v1, v2))
     {

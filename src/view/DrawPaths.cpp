@@ -119,8 +119,10 @@ void DrawPaths::draw(int maxFlow, int cost, vector<Path> path, int page) const
         string service;
         if (info->getService() == STANDARD)
             service = "Standard";
-        else
+        else if (info->getService() == ALFA)
             service = "Alpha";
+        else
+            service = "None";
         display += service;
         for (int i = 0; i < 9 - (service).length(); i++)
             display += " ";
