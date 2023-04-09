@@ -39,6 +39,7 @@ public:
      * @param lines vector of lines to be disable
      * @param percentage percentage of completion
      * @return the most affected stations
+     * @brief Complexity O( |V|*( |V|+|E| ) ) being V the stations and E the lines in the graph
      */
     ReachResults doReport(Stations stations, Lines lines, int &percentage);
     /**

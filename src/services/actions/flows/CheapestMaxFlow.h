@@ -20,7 +20,7 @@ public:
     /**
      * @brief Asks the user for two stations and displays the maximum flow from the two stations,
      * its cost and the paths needed to achieve the max flow.
-     * @brief Complexity O( |E| * log|V| ) being V the number of Stations and E the number of Lines
+     * @brief Complexity O( |E| * |V| ) being V the number of Stations and E the number of Lines
      */
     void execute() override;
 };

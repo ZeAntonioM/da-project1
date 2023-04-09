@@ -211,7 +211,7 @@ public:
     void removeOutgoingLines();
 
 protected:
-    int id;
+
     string name;
     string district;
     string municipality;

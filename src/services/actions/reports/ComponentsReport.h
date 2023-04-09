@@ -29,7 +29,8 @@ public:
      * @param lines lines to be disabled
      * @param percentage percentage of completion
      * @return CompResults  a pair of int being the first value the number of sCC before the stations
-     *  and the lines being disabled and the second the value after
+     * and the lines being disabled and the second the value after
+     * @brief Complexity O( |V| + |E| ) being V the Stations and E the lines in the graph
      */
     CompResults doReport(Stations stations, Lines lines, int &percentage);
 

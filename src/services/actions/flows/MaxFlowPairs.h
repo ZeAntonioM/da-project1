@@ -20,7 +20,7 @@ public:
      * @param percentage percentage of completion
      * @return priority queue of pairs composed by an int and a pair of stations being the int the
      * max flow of the pair of stations
-     * @brief Complexity O(|V|! * ( |V| + |E| ) being V the stations and E the lines in the network
+     * @brief Complexity O(|V|² * ( |V| + |E| ) being V the stations and E the lines in the network
      */
     priority_queue<pair<int,pair<Station*,Station*>>> calculateMaxFlow(int &percentage);
     /**

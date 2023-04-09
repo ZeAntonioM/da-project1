@@ -20,7 +20,7 @@ class Reports
 
 public:
     /**
-     * constructor of the object Report
+     * @brief constructor of the object Report
      * @param graph graph containing all the network information
      */
     Reports(Graph &graph);

@@ -271,7 +271,7 @@ protected:
     // Station set
     vector<Line *> lineVector;
     vector<Station *> origins;
-    Station distributor = Station("Distributor");
+    Station distributor = Station("Distributor"); // Super Source
     double **distMatrix = nullptr; // dist matrix for Floyd-Warshall
     int **pathMatrix = nullptr;    // path matrix for Floyd-Warshall
 
