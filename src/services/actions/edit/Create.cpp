@@ -15,6 +15,12 @@ void CreateStation::execute()
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, name);
 
+    if(graph->findStation(name)!= nullptr) {
+        cout<<"Station already exists\n";
+        wait();
+        return;
+    }
+
     cout << "Insert the district of the station: ";
     getline(cin, district);
 
@@ -69,6 +75,14 @@ void CreateLine::execute()
 
         if (_station2 == nullptr)
             throw string("Station 2 not found!\n");
+
+        for(auto line : _station1->getAdj()){
+            if(line->getDest()->getName()==station2) {
+                cout <<"Line already exists!\n";
+                wait();
+                return;
+            }
+        }
 
         cout << "Insert the new line's service (STANDARD - 0, ALFA PENDULAR - 1, NONE - 2): ";
         getline(cin, service);

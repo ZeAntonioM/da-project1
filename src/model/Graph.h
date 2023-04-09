@@ -35,7 +35,7 @@ public:
      * @param src the source of the line we want to find
      * @param dst the destiny of the line we want to find
      * @return if the line is found returns a pointer to the Line otherwise returns nullptr
-     * @complexity O(V^2) being V the number of stations
+     * @complexity O(E) being E the number of lines
      */
 
     Line *findLine(const string &src, const string &dst) const;
@@ -92,8 +92,8 @@ public:
      *@brief calculates the max flow between two stations and the minimum cost possible with that flow
      *@param src station where the trains leave
      *@param dst destination station where trains arrive
-     *@return a pair of ints being the first element the max flow and the second the cost * @complexity O(| E | log | V |) being V the number of stations and E the number of lines
-     * @complexity O(|E| + log|V|) being V the number of stations and E the number of lines
+     *@return a pair of ints being the first element the max flow and the second the cost
+     *@complexity O( |E| * |V| ) being V the number of stations and E the number of lines
      */
     pair<int, int> cheapestMaxFlow(string src, string dst);
 
@@ -117,7 +117,7 @@ public:
      * @param src station where the trains leave
      * @param dst destination station where the trains arrive
      * @return true if a path exits, false otherwise
-     * @complexity O(|E|+ log |V| ) being V the number of stations and E the number of lines
+     * @complexity O(|E|*|V| ) being V the number of stations and E the number of lines
      */
     bool findCheapestPath(Station *src, Station *dst);
 
@@ -246,13 +246,14 @@ public:
 
     /**
      * @brief Removes the last station inserted in the StationSet
+     * @complexity O(1)
      */
     void removeLastStation();
 
     /**
      * @brief calculates the number of Strongly Connected Components
      *
-     * @return int the number of Strongly Connected Components in the graph
+     * @return the number of Strongly Connected Components in the graph
      * @complexity O(V+E) being V the number of stations  and E the number of lines
      */
     int sCC();

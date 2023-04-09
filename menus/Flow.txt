@@ -2,4 +2,5 @@ Max Flow with minimum stops
 Max Flow with minimum cost
 Max Flow of a destination
 Max Flow between all origins
+Max Flow between all Pairs
 Go back

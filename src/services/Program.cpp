@@ -21,6 +21,7 @@
 #include "actions/flows/MaxFlowGroups.h"
 #include "actions/reports/DistrictsReport.h"
 #include "actions/reports/GeneralReport.h"
+#include "actions/flows/MaxFlowPairs.h"
 
 Program::Program()
 {
@@ -73,6 +74,7 @@ void Program::createMenus()
     flow.addMenuItem(new CheapestMaxFlow(graph));
     flow.addMenuItem(new DestinationMaxFlow(graph));
     flow.addMenuItem(new MaxFlowOrigins(graph));
+    flow.addMenuItem(new MaxFlowPairs(graph));
     flow.addMenuItem(new ChangeMenu(menuPage, graph, POP_MENU));
     menus.push_back(flow);
 
