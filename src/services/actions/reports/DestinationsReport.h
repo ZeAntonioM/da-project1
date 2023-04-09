@@ -34,14 +34,14 @@ public:
      * @param percentage the current percentage of completion
      * @return vector<pair<Station *, pair<int, int>>> a vector with the most affected stations and the max flow after and
      * before and after the stations/lines being disabled
-     * @complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges
+     * @brief Complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges
      */
     DestResults doReport(vector<Station *> stations, vector<Line *> lines, int &percentage);
     /**
      * @brief Asks the user for stations and lines and displays the stations that would be most affected in
      * regard of max flow if those Stations/Lines where to be disabled
      *
-     * @complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges
+     * @brief Complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges
      */
     void execute() override;
 
@@ -50,7 +50,7 @@ public:
      *
      * @param results the most affected stations and the value of max flow before and after the Stations/Lines
      * being disabled
-     * @complexity O(|V|) being V the most affected stations
+     * @brief Complexity O(|V|) being V the most affected stations
      */
     void draw(DestResults results) const;
 
@@ -59,7 +59,7 @@ protected:
      * @brief calculated the max Flow in all the stations having in consideration the whole network
      *
      * @param results vector where the information of station and its max flow will be store
-     * @complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges
+     * @brief Complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges
      */
     void calculateAllMaxFlows(vector<pair<int, Station *>> *results);
 };

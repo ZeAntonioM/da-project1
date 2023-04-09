@@ -29,7 +29,7 @@ public:
      * @param distResults most affected districts in regard of max flow considering the whole network
      * @param compResults Components Strongly Connected before and after the lines/stations where disabled
      * @param reachResults most affected stations in regard of reachability and considering the whole network
-     * @complexity O(|A|+|B|+|C|) being A the elements in destReportResults B the elements in distResults and C the
+     * @brief Complexity O(|A|+|B|+|C|) being A the elements in destReportResults B the elements in distResults and C the
      * elements in reachResults
      */
     void draw(DestinationsReport::DestResults destReportResults, DistrictsReport::DistResults distResults, ComponentsReport::CompResults compResults,
@@ -45,7 +45,7 @@ public:
      * @param stationsToDisable vector with the stations to disable
      * @param linesToDisable vector with the lines to disable
      * @param percentage percentage of completion
-     * @complexity O( |V|*(|V|+|E|) ) being V the number of stations and E the number of lines
+     * @brief Complexity O( |V|*(|V|+|E|) ) being V the number of stations and E the number of lines
      */
     void doReport(Stations stationsToDisable, Lines linesToDisable, int &percentage);
     /**Asks the user for stations and lines and calculates the max flow having in consideration all the graph in all the stations then disables the stations/lines and
@@ -58,7 +58,7 @@ public:
      * strongly connected components if those stations/lines where to be disable
      *
      * @see GeneralReport::doReport()
-     * @complexity O( |V|*(|V|+|E|) ) being V the number of stations and E the number of lines
+     * @brief Complexity O( |V|*(|V|+|E|) ) being V the number of stations and E the number of lines
      */
     void execute() override;
 };

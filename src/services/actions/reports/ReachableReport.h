@@ -26,7 +26,7 @@ public:
      * @brief Asks the user for stations and lines and calculates and displays the Stations that would be most affected
      * in regard of stations reachable from them if those stations/lines where to be disabled
      *
-     * @complexity O( |V|*( |V|+|E| ) ) being V the stations and E the lines in the graph
+     * @brief Complexity O( |V|*( |V|+|E| ) ) being V the stations and E the lines in the graph
      */
     void execute() override;
     /**For each stations calculates the amount of stations that the station can reach, then disables the lines/stations
@@ -46,7 +46,7 @@ public:
      * stations/lines where disabled
      * @param data vector containing the most affected stations and the amount of reachable stations before and after the
      * stations/lines where disabled
-     * @complexity O(N) being N the number of elements in the vector
+     * @brief Complexity O(N) being N the number of elements in the vector
      */
     void draw(ReachResults data);
 };

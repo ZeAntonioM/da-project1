@@ -14,7 +14,7 @@ using namespace std;
  * @brief checks an word for the number of special characters it has
  * @param word word to be checked for special characters
  * @return the number of special characters in the word
- * @complexity O(c) being c the length of the word
+ * @brief Complexity O(c) being c the length of the word
  */
 int specialChars(string word);
 
@@ -24,7 +24,7 @@ int specialChars(string word);
  * @param size title for header
  * @param title size of the header
  * @return string String to be 1printed
- * @complexity O(1)
+ * @brief Complexity O(1)
  */
 string drawHeader(int size, string title);
 
@@ -33,7 +33,7 @@ string drawHeader(int size, string title);
  *
  * @param size
  * @return string String to be printed
- * @complexity O(1)
+ * @brief Complexity O(1)
  */
 string drawFooter(int size);
 
@@ -43,7 +43,7 @@ string drawFooter(int size);
  * @param fields Title and space for field
  * @param i number of fields
  * @return string String to be printed
- * @complexity O(n)
+ * @brief Complexity O(n)
  */
 string drawFields(vector<pair<string, int>> fields, int i);
 
@@ -52,6 +52,7 @@ string drawFields(vector<pair<string, int>> fields, int i);
  *
  * @param size Size of the line
  * @return string String to be printed
+ * @brief Complexity O(s) being s the size of the line
  */
 string drawLine(int size);
 
@@ -61,6 +62,7 @@ string drawLine(int size);
  * @param size Size of Subheader
  * @param title Title of SubHeader
  * @return string String to be printed
+ * @brief Complexity O(|S| + |L|) being S the size of the line and L the size of the title
  */
 string drawSubHeader(int size, string title);
 

@@ -16,7 +16,7 @@ public:
     /**
      * @brief Displays the info of a Station
      * @see Show::paginationController(vector<Station> data)
-     * Complexity: O(n)
+     * @brief Complexity: O(n)
      */
     void execute() override;
 };

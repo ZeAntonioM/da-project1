@@ -36,7 +36,7 @@ public:
     /**
      * @brief asks the user for station and lines and displays the current sCCs
      * and the sCCs there would be if those lines/station where to be disabled
-     * @complexity O(V+E) being V the number of stations and E the number of lines
+     * @brief Complexity O(V+E) being V the number of stations and E the number of lines
      */
     void execute() override;
 
@@ -45,7 +45,7 @@ public:
      *
      * @param sCCs an pair with the first element being the sCCs before the Stations/lines being disable
      * and the second one being the sCCs after
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void draw(CompResults sCCs) const;
 };

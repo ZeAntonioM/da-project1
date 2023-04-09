@@ -17,16 +17,16 @@ protected:
 
     /**
      * @brief waits until the user insert anything
-     * complexity O(1)
+     * @brief Complexity O(1)
      */
     void wait() const;
 
 public:
-    /**Constructor of the Action an abstract class that can be extended with the purpose of being an action, that way each class that extends Action will have
-     * a function execute that will do a different task
+    /** Constructor of the Action, an abstract class that can be extended with the purpose of being an action, that way, each class that extends Action will have
+     * a function execute() that will do a different task
      * @brief Constructor of the Action
      * @param graph graph with all the information of the stations and lines
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     Action(Graph &graph);
 

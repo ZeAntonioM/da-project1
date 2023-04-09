@@ -15,7 +15,7 @@ public:
     /**
      * @brief Constructor of the ShowStations, a class that extends Action
      * @param graph graph that stores all info
-     * @complexity O(P) being P the number of pages
+     * @brief Complexity O(1)
      */
     void draw(vector<Station> data, int page, int npages);
 
@@ -25,14 +25,14 @@ public:
      * @param data the values to display
      * @param page current page
      * @param nPages number of pages that exist
-     * complexity O(1)
+     * @brief Complexity O(1)
      */
     ShowStations(Graph &graph);
 
     /**
      * @brief Displays all the Stations
      * @see Show::paginationController(vector<Station> data)
-     * Complexity: O(N log(N)) being N the number of stations
+     * @brief Complexity: O(N log(N)) being N the number of stations
      */
     void execute() override;
 
@@ -41,7 +41,7 @@ public:
      * @see show::draw(vector<Name> data, int page, int nPages)
      * @tparam Station type of the values we want to display
      * @param data the values we want to display
-     * complexity O(1)
+     * @brief Complexity O(1)
      */
     void paginationController(vector<Station> data);
 };

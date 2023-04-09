@@ -33,7 +33,7 @@ public:
      * and after the Stations/Lines where disabled
      *
      *
-     * @complexity O(N) being N the number of elements in the vector
+     * @brief Complexity O(N) being N the number of elements in the vector
      */
     void draw(DistResults data) const;
     /**
@@ -46,21 +46,21 @@ public:
      * @param linesToDisable vector of the lines to be disabled
      * @param percentage the current percentage of completion
      * @return DistResults vector containing the most affected stations
-     * @complexity O( |N|*( ||V|+|E| ) ) being N the district V the stations and E the lines in the graph
+     * @brief Complexity O( |N|*( ||V|+|E| ) ) being N the district V the stations and E the lines in the graph
      */
     DistResults doReport(Stations stationsToDisable, Lines linesToDisable, int &percentage);
     /**
      * @brief calculates the max flow for all the districts considering the whole network
      * @return a pair with the first element being a pair with the max flow and the cost and the second element the name
      * of the district
-     * @complexity O( |N|*( ||V|+|E| ) ) being N the district V the stations and E the lines in the graph
+     * @brief Complexity O( |N|*( ||V|+|E| ) ) being N the district V the stations and E the lines in the graph
      */
     vector<pair<pair<int, int>, string>> calculateMaxFlow();
     /**
      * @brief asks the user for stations and lines and calculates and displays the districts that would be most affected
      * in regard of max flow if those stations/lines where to be disabled
      *
-     * @complexity O( |N|*( ||V|+|E| ) ) being N the district V the stations and E the lines in the graph
+     * @brief Complexity O( |N|*( ||V|+|E| ) ) being N the district V the stations and E the lines in the graph
      */
     void execute() override;
 };

@@ -38,45 +38,45 @@ public:
     /**Constructor of the Menu, reads a file with buttons and adds them to a vector of strings
      * @brief Constructor of the Menu
      * @param path the path to the file containing the buttons of the menus
-     * @complexity O(B) being B the number of buttons for the Menu
+     * @brief Complexity O(B) being B the number of buttons for the Menu
      */
     Menu(string path);
 
     /**
      * @return Menu buttons
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     vector<string> getButtons();
 
     /**
      * @brief draws the menus
-     * @complexity O(B) being B the number of buttons
+     * @brief Complexity O(B) being B the number of buttons
      */
     void draw() const;
 
     /**
      * @brief adds a Action to the menus services
      * @param menuItem
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void addMenuItem(Action *menuItem);
 
     /**
      * @brief will execute the action corresponding to the option chosen
      * @param option option chosen
-     * @complexity O(T) being the complexity of the action that will execute
+     * @brief Complexity O(T) being the complexity of the action that will execute
      */
     void doAction(int option);
 
     /**
      * @return the services of the menus
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     vector<Action *> getActions();
 
     /**
      * @brief executes the menus, asking for input and executing the corresponding action
-     * @complexity O(B) being B the number of buttons
+     * @brief Complexity O(B) being B the number of buttons
      */
     void execute();
 
@@ -84,7 +84,7 @@ public:
      * @brief gets the input from the user
      * @param option
      * @return true if the input is valid, false otherwise
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     bool getInput(int &option);
 };

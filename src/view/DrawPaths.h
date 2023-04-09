@@ -18,7 +18,7 @@ public:
      * @param cost the cost of the max flow
      * @param path vector with all paths
      * @param page the current path to display
-     * @complexity O(P) being P the lines from the path
+     * @brief Complexity O(P) being P the lines from the path
      */
     void draw(int maxFlow, int cost, vector<Path> path, int page) const;
 
@@ -28,7 +28,7 @@ public:
      * @param maxFlow the max flow from the two stations
      * @param cost the cost of the max flow
      * @param path vector with all paths
-     * @complexity O(P) being P the lines from the paths
+     * @brief Complexity O(P) being P the lines from the paths
      */
     void pageController(int maxFlow, int cost, vector<Path> path) const;
 };

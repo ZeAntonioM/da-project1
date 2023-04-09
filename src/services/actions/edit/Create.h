@@ -20,7 +20,7 @@ public:
 
     /**
      * @brief create a station with the information given by the user and stores it
-     * @complexity O(|V| ) being V the stations  in the graph
+     * @brief Complexity O(|V| ) being V the stations  in the graph
      */
     void execute() override;
 };
@@ -38,7 +38,7 @@ public:
 
     /**
      * @brief create a line with the information given by the user and stores it
-     * @complexity O(|V|) being V the stations in the graph
+     * @brief Complexity O(|V|) being V the stations in the graph
      */
     void execute() override;
 };

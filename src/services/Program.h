@@ -23,24 +23,24 @@ private:
 public:
     /**
      * @brief Constructor of the class Program
-     * @complexity O(V) being V the number of stations in the Graph
+     * @brief Complexity O(V) being V the number of stations in the Graph
      */
     Program();
 
     /**
      * @brief Creates the menus of the program
-     * complexity O(1)
+     * @brief Complexity O(1)
      */
     void createMenus();
 
     /**
      * @brief Runs the program
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void run();
     /**
      * @brief Destructor of program
-     * @complexity O(|A|) being A the actions;
+     * @brief Complexity O(|A|) being A the actions;
      */
     ~Program();
 };

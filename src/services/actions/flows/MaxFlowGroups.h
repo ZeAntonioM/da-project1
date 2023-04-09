@@ -20,7 +20,7 @@ public:
   /**
    * @brief Draws a table with the first 10 elements in data.
    * @param data - Priority queue with the districts and their max flow and cost
-   * @complexity O(1)
+   * @brief Complexity O(1)
    */
   void draw(priority_queue<pair<pair<int, int>, string>> data);
 
@@ -29,7 +29,7 @@ public:
     stations of the district with a line with capacity INT16_MAX.
     Then it calculates the max flow and cost of the district and calls
     the draw() function so that the user can see the results.
-  * @complexity O(|V|+|D|*(|V|+|E|)) being v the number of Stations, E the number of Lines and D the number of Districts
+  * @brief Complexity O(|V|+|D|*(|V|+|E|)) being v the number of Stations, E the number of Lines and D the number of Districts
   */
   void execute() override;
 };
@@ -40,7 +40,7 @@ public:
   /**
    * @brief Draws a table with the first 10 elements in data.
    * @param data - Priority queue with the municipalities and their max flow and cost
-   * @complexity O(1)
+   * @brief Complexity O(1)
    */
   void draw(priority_queue<pair<pair<int, int>, string>> data);
 
@@ -55,7 +55,7 @@ public:
     stations of the municipality with a line with capacity INT16_MAX.
     Then it calculates the max flow and cost of the municipality and calls
     the draw() function so that the user can see the results.
-  * @complexity O(|V|+|M|*(|V|+|E|)) being v the number of Stations, E the number of Lines and M the number of Municipalities
+  * @brief Complexity O(|V|+|M|*(|V|+|E|)) being v the number of Stations, E the number of Lines and M the number of Municipalities
   */
   void execute() override;
 };

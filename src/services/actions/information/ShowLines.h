@@ -14,6 +14,7 @@ public:
     /**
      * @brief Constructor of the ShowLines, a class that extends Action
      * @param graph graph that stores all info
+     * @brief Complexity O(1)
      */
     void draw(vector<Line> data, int page, int npages);
 
@@ -23,20 +24,20 @@ public:
      * @param data the values to display
      * @param page current page
      * @param nPages number of pages that exist
-     * complexity O(1)
+     * @brief Complexity O(1)
      */
     ShowLines(Graph &graph);
 
     /**
      * @brief Displays all the Lines
      * @see Show::paginationController(vector<Station> data)
-     * Complexity: O(N log(N)) being N the number of lines
+     * @brief Complexity: O(N log(N)) being N the number of lines
      */
     void execute() override;
 
     /** Controls the pagination of the drawn table. It allows the user to quit the menu, or jump to the next, previous or any other page directly.
-     * @brief Controlsstationse values we want to display
-     * complexity O(1)
+     * @brief Controls stations values we want to display
+     * @brief Complexity O(1)
      */
     void paginationController(vector<Line> data);
 };

@@ -46,10 +46,10 @@ public:
     /**
      * @brief Less then operator
      *
-     * @param Station the station wich is being compared to the current object.
+     * @param Station the station which is being compared to the current object.
      * @return true if name is alphabetically lesser then the object being compared .
      * @return false if name is alphabetically bigger then the object being compared .
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     bool operator<(Station Station) const; // // required by MutablePriorityQueue
 
@@ -60,7 +60,7 @@ public:
      *
      * @return true if the station has been visited
      * @return false if the station has been visited
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     bool isVisited() const;
 
@@ -69,7 +69,7 @@ public:
      *
      * @return true if the station is being processed
      * @return false if it is not being processed
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     bool isProcessing() const;
 
@@ -77,7 +77,7 @@ public:
      * @brief Get the current distance from a source
      *
      * @return double distance
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     double getDist() const;
 
@@ -85,7 +85,7 @@ public:
      * @brief Get the last connected Path to this Station
      *
      * @return Line* pointer to line that forms the path
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     Line *getPath() const;
 
@@ -93,7 +93,7 @@ public:
      * @brief Get the vector of incoming Lines
      *
      * @return std::vector<Line *> vector of pointers to station's incoming lines
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     std::vector<Line *> getIncoming() const;
 
@@ -101,7 +101,7 @@ public:
      * @brief Get the Name of the Station
      *
      * @return string station's name
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     string getName() const;
 
@@ -109,14 +109,14 @@ public:
      * @brief Get the District of the Station
      *
      * @return string station's district
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     string getDistrict() const;
     /**
      * @brief Get the Municipality of the Station
      *
      * @return string station's municipality
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     string getMunicipality() const;
 
@@ -124,7 +124,7 @@ public:
      * @brief Prints the information of station
      *
      * @param i is the number of the color in which we want to print
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void print(int i) const;
 
@@ -132,7 +132,7 @@ public:
      * @brief Disable or enable Station
      *
      * @param _disabled the state to be set
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setDisabled(bool _disabled);
 
@@ -140,7 +140,7 @@ public:
      * @brief Check if the Station is Disabled
      *
      * @return true if is disabled, false otherwise
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     bool isDisabled() const;
 
@@ -148,7 +148,7 @@ public:
      * @brief Set the Visited object true or false
      *
      * @param visited state to be set
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setVisited(bool visited);
 
@@ -156,7 +156,7 @@ public:
      * @brief Set the Processing object true or false
      *
      * @param processing state to be set
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setProcessing(bool processing);
 
@@ -164,7 +164,7 @@ public:
      * @brief Set the current distance
      *
      * @param dist  distance to be set
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setDist(double dist);
 
@@ -172,7 +172,7 @@ public:
      * @brief Set the last connected Path
      *
      * @param path last connected path
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setPath(Line *path);
 
@@ -180,7 +180,7 @@ public:
      * @brief change the value of the station's line
      *
      * @param _station_line new value of the station's line
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setStationLine(string _station_line);
 
@@ -191,7 +191,7 @@ public:
      * @param w  Line capacity
      * @param s  Service
      * @return Line*
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     Line *addLine(Station *dest, int w, services s);
 
@@ -200,13 +200,13 @@ public:
      *
      * @param destName Station name
      * @return true if successful, and false if such Line does not exist.
-     * @complexity O(n)
+     * @brief Complexity O(n)
      */
     bool removeLine(string destName);
 
     /**
      * @brief Removes all outgoing lines of Station
-     * @complexity O(n)
+     * @brief Complexity O(n)
      */
     void removeOutgoingLines();
 
@@ -240,106 +240,106 @@ public:
 
     /**
      * @return pointer to Destination's station
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     Station *getDest() const;
 
     /**
      * @return Line Capacity
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     int getCapacity() const;
 
     /**
      * @return pointer to Origin's Station
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     Station *getOrig() const;
 
     /**
      * @return Pointer to Reverse Line from Destination to Origin
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     Line *getReverse() const;
 
     /**
      * @return True if Line is Disabled, false otherwise
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     bool isDisabled() const;
 
     /**
      * @return Current Flow passing in the Line
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     int getFlow() const;
 
     /**
      * @return Service of the Line (STANDARD, ALPHA OR NONE)
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     services getService() const;
 
     /**
      * @return Cost of the current line
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     int getCost() const;
 
     /**
      * @return true if the current Capacity of the current line is bigger or equal to the sum of the current line plus the reverse line flows, false otherwise
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     bool isFull() const;
 
     /**
-     * @brief Changes disabled paramenter to true or false depending on the value passed by _disabled
-     * @param _disabled disired value for disabled
-     * @complexity O(1)
+     * @brief Changes disabled parameter to true or false depending on the value passed by _disabled
+     * @param _disabled desired value for disabled
+     * @brief Complexity O(1)
      */
     void setDisabled(bool _disabled);
 
     /**
      * @brief Changes Line's reverse line to the line passed into _reverse
      * @param _reverse Reverse Line to be attributed
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setReverse(Line *_reverse);
 
     /**
      * @brief Sets current line's flow to _flow
      * @param _flow desired flow to be attributed
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setFlow(int _flow);
 
     /**
      * @brief Sets current line's service to _service
      * @param _service disered service to be attributed
-     * @complexity O(1)
+     * @brief Complexity O(1)
      */
     void setService(services _service);
 
     /**
      * @brief Sets current line's capacity to _capacity
      * @param _capacity desired capacity to be attributed
-     * complexity O(1)
+     * @brief Complexity O(1)
      */
     void setCapacity(int _capacity);
 
     /**
      * @brief Prints the information of the Line
-     * Complexity O(1)
+     * @brief Complexity O(1)
      */
     void print(int i);
 
 private:
-    services service;        // serice of the line
+    services service;        // service of the line
     Station *dest;           // destination Station
     double capacity;         // Line capacity, can also be used for capacity
     bool disabled = false;   // is the line disabled?
     Station *orig;           // Origin station
-    Line *reverse = nullptr; // Oposite Line
+    Line *reverse = nullptr; // Opposite Line
     double flow;             // for flow-related problems
 };
 

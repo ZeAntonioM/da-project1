@@ -20,7 +20,7 @@ public:
 
     /**
      * @brief Calculates the maximum flow in a destination considering all the origins in the graph
-     * @complexity O(V+E) being V the number of stations and E the number of lines
+     * @brief Complexity O(V+E) being V the number of stations and E the number of lines
      */
     void execute() override;
 };

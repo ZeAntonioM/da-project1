@@ -20,18 +20,18 @@ public:
      * @param percentage percentage of completion
      * @return priority queue of pairs composed by an int and a pair of stations being the int the
      * max flow of the pair of stations
-     * @complexity O(|V|! * ( |V| + |E| ) being V the stations and E the lines in the network
+     * @brief Complexity O(|V|! * ( |V| + |E| ) being V the stations and E the lines in the network
      */
     priority_queue<pair<int,pair<Station*,Station*>>> calculateMaxFlow(int &percentage);
     /**
      * @brief calculates and displays the pairs of stations with the most max flow between them
-     * @complexity O(|V|² * ( |V| + |E| ) being V the stations and E the lines in the network
+     * @brief Complexity O(|V|² * ( |V| + |E| ) being V the stations and E the lines in the network
      */
     void execute()override;
     /**
      * @brief Displays pairs of stations and the max flow between them
      * @param data vector with pairs of stations and their max flow
-     * @complexity O( |N| ) being N the elements in the vector
+     * @brief Complexity O( |N| ) being N the elements in the vector
      */
     void draw(vector<pair<int, pair<Station*,Station*>>> data)const;
 
