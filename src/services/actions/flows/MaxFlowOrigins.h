@@ -17,22 +17,16 @@ public:
     MaxFlowOrigins(Graph &graph);
 
     /**
-     * @brief The body of the Action calling generateCombinations
-     *@complexity O(n^2 * (V+E))
+     *@brief Calculates and displays the pairs of origins with the highest max flow
+     *@Complexity O(N^2 * (V+E)) being N the number of origins V the number of stations and E the number of lines in the graph
      */
     void execute() override;
-
     /**
-     * @brief Generates non repeting combination of all stations and applies the MaxFlow Algorithm
-     *
-     * @param input vector of stations to process
-     * @param current vector with two current stations being processed
-     * @param start where to start on vector
-     * @param maxNumber linked to variable where the maxflow and cost will be returned
-     * @param stationPair linked to variable where the pair of stations with most capacity will be returned
-     * @complexity  O(n^2 * (V+E))
-     */
-    void generateCombinations(const vector<Station *> &input, vector<Station *> &current, int start, FlowCost &maxNumber, StationPair &stationPair);
+    * @brief Displays pairs of stations and the max flow between them
+    * @param data vector with pairs of stations and their max flow
+    * @Complexity O( |N| ) being N the elements in the vector
+    */
+    void draw(vector<pair<int,pair<Station*,Station*>>> data)const;
 };
 
 #endif

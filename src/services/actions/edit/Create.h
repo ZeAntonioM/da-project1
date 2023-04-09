@@ -20,7 +20,7 @@ public:
 
     /**
      * @brief create a station with the information given by the user and stores it
-     * @complexity O(1)
+     * @complexity O(|V| ) being V the stations  in the graph
      */
     void execute() override;
 };
@@ -32,13 +32,13 @@ public:
     /**
      * @brief Create a Line object
      *
-     * @param graph the graph containing all the network informtion
+     * @param graph the graph containing all the network information
      */
     CreateLine(Graph &graph);
 
     /**
      * @brief create a line with the information given by the user and stores it
-     * @complexity O(V) being V the number of stations
+     * @complexity O(|V|) being V the stations in the graph
      */
     void execute() override;
 };

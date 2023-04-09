@@ -25,8 +25,8 @@ public:
     /**
      * @brief Calculates the difference of the  sCC before and after the lines and stations being disabled
      *
-     * @param stations stations to be diabled
-     * @param lines lines to be diabled
+     * @param stations stations to be disabled
+     * @param lines lines to be disabled
      * @param percentage percentage of completion
      * @return CompResults  a pair of int being the first value the number of sCC before the stations
      *  and the lines being disabled and the second the value after

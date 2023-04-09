@@ -3,65 +3,49 @@
 
 MaxFlowOrigins::MaxFlowOrigins(Graph &graph) : Action(graph) {}
 
+void MaxFlowOrigins::draw(vector<pair<int,pair<Station*,Station*>>> data)const{
+    ::system("clear");
+    cout<<drawHeader(90,"Stations pairs with highest max flow ");
+    vector<pair<string,int>> field;
+    field.push_back(make_pair("First Station",39));
+    field.push_back(make_pair("Second Station",39));
+    field.push_back(make_pair("Max flow",9));
+    cout<< drawFields(field,0);
+    cout<< drawLine(90);
+    int color=0;
+    for(auto element : data){
+        color++;
+        field.clear();
+        field.push_back(make_pair(element.second.first->getName(),39));
+        field.push_back(make_pair(element.second.second->getName(),39));
+        field.push_back(make_pair(to_string(element.first),9));
+        cout<<drawFields(field,color);
+    }
+    cout<<drawFooter(90);
+}
+
 void MaxFlowOrigins::execute()
 {
-    vector<Station *> input = graph->getOrigins();
-    vector<Station *> current;
-    pair<int, int> maxnumber = make_pair(0, 0);
-    StationPair stationPair;
-    generateCombinations(input, current, 0, maxnumber, stationPair);
-    string station_name1 = stationPair.first->getName();
-    string station_name2 = stationPair.second->getName();
-
-    ::system("clear");
-    cout << drawHeader(98, "Largest Max Flow Between all Origins");
-    cout
-        << "│\033[40m Source                               │ Destiny                             │ Max Flow  │ Cost    \033[0m│"
-        << endl;
-    cout << "│\033[100m ";
-    cout << station_name1;
-    for (int i = 0; i < 37 - station_name1.length() + specialChars(station_name1); i++)
-    {
-        cout << ' ';
-    };
-    cout << "│" << station_name2;
-    for (int i = 0; i < 37 - station_name2.length() + specialChars(station_name2); i++)
-    {
-        cout << ' ';
-    };
-    cout << "│" << maxnumber.first;
-    for (int i = 1; i < 12 - to_string(maxnumber.first).length(); i++)
-        cout << " ";
-
-    cout << "│" << maxnumber.second;
-    for (int i = 1; i < 9 - to_string(maxnumber.second).length(); i++)
-        cout << " ";
-
-    cout << " \033[0m│" << endl;
-    cout << drawFooter(98);
-    wait();
-    return;
-}
-
-void MaxFlowOrigins::generateCombinations(const vector<Station *> &input, vector<Station *> &current, int start,
-                                          FlowCost &maxNumber, StationPair &stationPair)
-{
-    if (current.size() == 2)
-    {
-        // get the number from the function and update maxNumber if it's higher
-        FlowCost result = graph->maxFlow(current[0]->getName(), current[1]->getName());
-        if (result.first > maxNumber.first)
-        {
-            stationPair.first = current[0];
-            stationPair.second = current[1];
-            maxNumber = result;
+    priority_queue<pair<int,pair<Station*,Station*>>> pq;
+    for(int i=0; i< graph->getOrigins().size();i++){
+        for(int j=i+1; j<graph->getOrigins().size();j++){
+            pair<Station*,Station*> stationPair=make_pair(graph->getOrigins()[i],graph->getOrigins()[j]);
+            int maxFlow= graph->maxFlow(graph->getOrigins()[i]->getName(),graph->getOrigins()[j]->getName()).first;
+            pq.push(make_pair(maxFlow,stationPair));
         }
-        return;
     }
-    for (int i = start; i < input.size(); i++)
-    {
-        current.push_back(input[i]);
-        generateCombinations(input, current, i + 1, maxNumber, stationPair);
-        current.pop_back();
+    vector<pair<int,pair<Station*,Station*>>> results;
+    results.push_back(pq.top());
+    pq.pop();
+    while (!pq.empty()){
+        if(results[0].first==pq.top().first){
+            results.push_back(pq.top());
+            pq.pop();
+        }
+        else break;
     }
+    draw(results);
+    wait();
+
 }
+

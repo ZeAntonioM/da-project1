@@ -43,7 +43,7 @@ EditLinesService::EditLinesService(Graph &graph) : Action(graph) {}
 void EditLinesService::execute()
 {
     string station1, station2;
-    Line *line1, *line2;
+    Line *line1= nullptr, *line2= nullptr;
     string service;
 
     cout << "Insert the first station name: ";

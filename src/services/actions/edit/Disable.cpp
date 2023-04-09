@@ -9,7 +9,7 @@ DisableLine::DisableLine(Graph &graph) : Action(graph) {}
 void DisableLine::execute()
 {
     string station1, station2;
-    Line *line1, *line2;
+    Line *line1= nullptr, *line2= nullptr;
 
     cout << "Insert the first station name: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -37,7 +37,7 @@ void DisableLine::execute()
                 line1 = line;
             }
         }
-        if (line1 == nullptr || line2 == nullptr)
+        if (line1 == nullptr )
             throw string("Line does not exist\n");
         graph->disableLine(line1);
         graph->disableLine(line1->getReverse());
@@ -65,7 +65,7 @@ EnableLine::EnableLine(Graph &graph) : Action(graph) {}
 void EnableLine::execute()
 {
     string station1, station2;
-    Line *line1, *line2;
+    Line *line1= nullptr, *line2= nullptr;
 
     cout << "Insert the first station name: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');

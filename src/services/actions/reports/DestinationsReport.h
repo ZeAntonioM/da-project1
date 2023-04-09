@@ -29,16 +29,16 @@ public:
      * @brief calculates the station with highest difference in flow considering the whole network before and after the
      * Station/Lines being disabled
      *
-     * @param stations the sations to be disabled
+     * @param stations the stations to be disabled
      * @param lines  the lines to be disabled
-     * @param percentage the current percentage of completition
+     * @param percentage the current percentage of completion
      * @return vector<pair<Station *, pair<int, int>>> a vector with the most affected stations and the max flow after and
-     * before and after the stations/lines being diabled
+     * before and after the stations/lines being disabled
      * @complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges
      */
     DestResults doReport(vector<Station *> stations, vector<Line *> lines, int &percentage);
     /**
-     * @brief Asks the user for stations and lines and displays the stations that would be most afected in
+     * @brief Asks the user for stations and lines and displays the stations that would be most affected in
      * regard of max flow if those Stations/Lines where to be disabled
      *
      * @complexity O( |V| (|V|+|E|) ) being V the number of station and E the number of Edges

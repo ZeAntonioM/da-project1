@@ -25,7 +25,7 @@ public:
     priority_queue<pair<int,pair<Station*,Station*>>> calculateMaxFlow(int &percentage);
     /**
      * @brief calculates and displays the pairs of stations with the most max flow between them
-     * @complexity O(|V|! * ( |V| + |E| ) being V the stations and E the lines in the network
+     * @complexity O(|V|² * ( |V| + |E| ) being V the stations and E the lines in the network
      */
     void execute()override;
     /**
