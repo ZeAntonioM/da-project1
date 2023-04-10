@@ -12,13 +12,6 @@ class ShowLines : public Action
 {
 public:
     /**
-     * @brief Constructor of the ShowLines, a class that extends Action
-     * @param graph graph that stores all info
-     * @brief Complexity O(1)
-     */
-    void draw(vector<Line> data, int page, int npages);
-
-    /**
      * @brief Draws a table to display values, uses a system of pagination that displays 10 values per page
      * @tparam Station type of the value we want to display
      * @param data the values to display
@@ -26,12 +19,20 @@ public:
      * @param nPages number of pages that exist
      * @brief Complexity O(1)
      */
+    void draw(vector<Line> data, int page, int npages);
+
+
+    /**
+    * @brief Constructor of the ShowLines, a class that extends Action
+    * @param graph graph that stores all info
+    * @brief Complexity O(1)
+    */
     ShowLines(Graph &graph);
 
     /**
      * @brief Displays all the Lines
      * @see Show::paginationController(vector<Station> data)
-     * @brief Complexity: O(N log(N)) being N the number of lines
+     * @brief Complexity: O(1)
      */
     void execute() override;
 

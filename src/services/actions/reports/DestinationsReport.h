@@ -25,8 +25,10 @@ public:
      * @param graph graph containing all the network information
      */
     DestinationsReport(Graph &graph);
-    /**
-     * @brief calculates the station with highest difference in flow considering the whole network before and after the
+
+    /** Calculate the max flow in all the stations, then disables the lines/stations and calculates it  again, after that
+     * enables the stations/lines and calculates which stations had the biggest difference in max flow
+     * @brief Calculates the station with highest difference in flow considering the whole network before and after the
      * Station/Lines being disabled
      *
      * @param stations the stations to be disabled

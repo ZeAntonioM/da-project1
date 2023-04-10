@@ -1,7 +1,3 @@
-//
-// Created by franciscocardoso on 06-04-2023.
-//
-
 #ifndef DA_PROJECT1_MAXFLOWREPORT_H
 #define DA_PROJECT1_MAXFLOWREPORT_H
 
@@ -25,7 +21,7 @@ public:
      */
     MaxFlowReport(Graph &graph);
     /**
-     * @brief asks the user for two stations to calculate the max flow, and then asks for stations and lines to disable and
+     * @brief Asks the user for two stations to calculate the max flow, and then asks for stations and lines to disable and
      * calculates the max flow between the 2 first stations before and after the stations/lines where disabled, all
      * stations/lines stay enable in the end
      * @brief Complexity O(|V|+|E|) being V the stations and E the lines in the network
