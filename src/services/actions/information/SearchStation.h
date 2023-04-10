@@ -1,5 +1,5 @@
 #ifndef SEARCHSTATION_H
-#define SEARCHSTATION .H
+#define SEARCHSTATION_H
 
 #include "../Action.h"
 #include "../../../view/DrawUtils.h"
@@ -14,8 +14,7 @@ public:
     SearchStation(Graph &graph);
 
     /**
-     * @brief Displays the info of a Station
-     * @see Show::paginationController(vector<Station> data)
+     * @brief Displays the information of a Station
      * @brief Complexity: O(n)
      */
     void execute() override;

@@ -14,8 +14,7 @@ public:
     SearchLine(Graph &graph);
 
     /**
-     * @brief Displays the info of a Line
-     * @see Show::paginationController(vector<Station> data)
+     * @brief Displays the information of a Line
      * @brief Complexity: O(n)
      */
     void execute() override;

@@ -1,7 +1,3 @@
-//
-// Created by ze on 18-03-2023.
-//
-
 #ifndef DA_PROJECT1_MENU_H
 #define DA_PROJECT1_MENU_H
 
@@ -49,42 +45,42 @@ public:
     vector<string> getButtons();
 
     /**
-     * @brief draws the menus
+     * @brief Draws the Menu
      * @brief Complexity O(B) being B the number of buttons
      */
     void draw() const;
 
     /**
-     * @brief adds a Action to the menus services
+     * @brief Adds a Action to the Menu's Actions
      * @param menuItem
      * @brief Complexity O(1)
      */
     void addMenuItem(Action *menuItem);
 
     /**
-     * @brief will execute the action corresponding to the option chosen
-     * @param option option chosen
-     * @brief Complexity O(T) being the complexity of the action that will execute
+     * @brief Will execute the Action corresponding to the Action chosen
+     * @param option menu option chosen
+     * @brief Complexity O(T) being the complexity of the Action that will execute
      */
     void doAction(int option);
 
     /**
-     * @return the services of the menus
+     * @return The Action of the Menu
      * @brief Complexity O(1)
      */
     vector<Action *> getActions();
 
     /**
-     * @brief executes the menus, asking for input and executing the corresponding action
+     * @brief Executes the Menu, asking for input and executing the corresponding Action
      * @brief Complexity O(B) being B the number of buttons
      */
     void execute();
 
     /**
-     * @brief gets the input from the user
+     * @brief Gets the input from the user
      * @param option
-     * @return true if the input is valid, false otherwise
-     * @brief Complexity O(1)
+     * @return True if the input is valid, False otherwise
+s    * @brief Complexity O(1)
      */
     bool getInput(int &option);
 };

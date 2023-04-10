@@ -1,7 +1,3 @@
-//
-// Created by ze on 05-04-2023.
-//
-
 #ifndef DA_PROJECT1_EDIT_H
 #define DA_PROJECT1_EDIT_H
 

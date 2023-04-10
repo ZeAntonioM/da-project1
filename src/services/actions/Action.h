@@ -1,7 +1,3 @@
-//
-// Created by ze on 18-03-2023.
-//
-
 #ifndef DA_PROJECT1_ACTION_H
 #define DA_PROJECT1_ACTION_H
 
@@ -16,13 +12,13 @@ protected:
     Graph *graph;
 
     /**
-     * @brief waits until the user insert anything
+     * @brief Waits until the user inserts anything
      * @brief Complexity O(1)
      */
     void wait() const;
 
 public:
-    /** Constructor of the Action, an abstract class that can be extended with the purpose of being an action, that way, each class that extends Action will have
+    /** Constructor of the Action, an abstract class that can be extended with the purpose of being an Action, that way, each class that extends Action will have
      * a function execute() that will do a different task
      * @brief Constructor of the Action
      * @param graph graph with all the information of the stations and lines

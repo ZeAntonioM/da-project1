@@ -1,7 +1,3 @@
-//
-// Created by ze on 03-04-2023.
-//
-
 #ifndef DA_PROJECT1_DISABLE_H
 #define DA_PROJECT1_DISABLE_H
 
@@ -18,13 +14,12 @@ public:
     DisableLine(Graph &graph);
 
     /**
-     * @brief Disables a line
+     * @brief Disables a Line
      * @brief Complexity O(|V|) being V the number of stations
      */
     void execute() override;
     /**
-     * @brief disables all the lines in the vector given
-     *
+     * @brief Disables all the lines in the vector given
      * @param lines lines to be disable
      * @brief Complexity O(|E|) being E the lines to disable
      */
@@ -48,10 +43,9 @@ public:
     void execute() override;
 
     /**
-     * @brief enable all lines in the vector
-     *
+     * @brief Enable all lines in the vector
      * @param lines lines to be enable
-     * @brief Complexity O(|E|) being E the lines to  enable
+     * @brief Complexity O(|E|) being E the number of lines to enable
      */
     void enableLines(vector<Line *> lines);
 };
@@ -73,9 +67,8 @@ public:
     void execute() override;
     /**
      * @brief Disables all Station in the vector
-     *
-     * @param stations station to be disable
-     * @brief Complexity O(|V|) being V the number of station to be disable
+     * @param stations stations to be disabled
+     * @brief Complexity O(|V|) being V the number of stations to be disabled
      */
     void disableStations(vector<Station *> stations);
 };
@@ -96,10 +89,9 @@ public:
      */
     void execute() override;
     /**
-     * @brief Enables all Station in the vector
-     *
-     * @param stations station to be enable
-     * @brief Complexity O(|V|) being V the number of station to be enable
+     * @brief Enables all Stations in the vector
+     * @param stations stations to be enabled
+     * @brief Complexity O(|V|) being V the number of stations to be enabled
      */
     void enableStations(vector<Station *> stations);
 };

@@ -1,7 +1,3 @@
-//
-// Created by ze on 06-04-2023.
-//
-
 #ifndef DA_PROJECT1_MAXFLOWGROUPS_H
 #define DA_PROJECT1_MAXFLOWGROUPS_H
 
@@ -29,7 +25,7 @@ public:
     stations of the district with a line with capacity INT16_MAX.
     Then it calculates the max flow and cost of the district and calls
     the draw() function so that the user can see the results.
-  * @brief Complexity O(|V|+|D|*(|V|+|E|)) being v the number of Stations, E the number of Lines and D the number of Districts
+  * @brief Complexity O(|D|*(|V|+|E|)) being v the number of Stations, E the number of Lines and D the number of Districts
   */
   void execute() override;
 };
@@ -55,7 +51,7 @@ public:
     stations of the municipality with a line with capacity INT16_MAX.
     Then it calculates the max flow and cost of the municipality and calls
     the draw() function so that the user can see the results.
-  * @brief Complexity O(|V|+|M|*(|V|+|E|)) being v the number of Stations, E the number of Lines and M the number of Municipalities
+  * @brief Complexity O(|M|*(|V|+|E|)) being v the number of Stations, E the number of Lines and M the number of Municipalities
   */
   void execute() override;
 };

@@ -1,7 +1,3 @@
-//
-// Created by franciscocardoso on 02-04-2023.
-//
-
 #ifndef DA_PROJECT1_DRAWPATHS_H
 #define DA_PROJECT1_DRAWPATHS_H
 
@@ -13,7 +9,7 @@ class DrawPaths
 {
 public:
     /**
-     * @brief displays a table with a path from one stations to another, the max flow and its cost
+     * @brief Displays a table with a path from one station to another, the max flow and it's cost
      * @param maxFlow the max flow from the two stations
      * @param cost the cost of the max flow
      * @param path vector with all paths
@@ -23,7 +19,7 @@ public:
     void draw(int maxFlow, int cost, vector<Path> path, int page) const;
 
     /**
-     * @brief displays all the paths from one station to another with pagination,
+     * @brief Displays all the paths from one station to another with pagination,
      * (one path per page) and lets you navigate between them
      * @param maxFlow the max flow from the two stations
      * @param cost the cost of the max flow

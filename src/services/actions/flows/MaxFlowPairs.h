@@ -1,10 +1,5 @@
-//
-// Created by franciscocardoso on 09-04-2023.
-//
-
 #ifndef DA_PROJECT1_MAXFLOWPAIRS_H
 #define DA_PROJECT1_MAXFLOWPAIRS_H
-
 
 #include "../Action.h"
 
@@ -15,19 +10,22 @@ public:
      * @param graph graph containing all the network information
      */
     MaxFlowPairs(Graph &graph);
+
     /**
-     * @brief calculates the max flow for all pairs of stations
+     * @brief Calculates the max flow for all pairs of stations
      * @param percentage percentage of completion
      * @return priority queue of pairs composed by an int and a pair of stations being the int the
      * max flow of the pair of stations
      * @brief Complexity O(|V|² * ( |V| + |E| ) being V the stations and E the lines in the network
      */
     priority_queue<pair<int,pair<Station*,Station*>>> calculateMaxFlow(int &percentage);
+
     /**
-     * @brief calculates and displays the pairs of stations with the most max flow between them
+     * @brief Calculates and displays the pairs of stations with the biggest max flow between them
      * @brief Complexity O(|V|² * ( |V| + |E| ) being V the stations and E the lines in the network
      */
-    void execute()override;
+    void execute() override;
+
     /**
      * @brief Displays pairs of stations and the max flow between them
      * @param data vector with pairs of stations and their max flow

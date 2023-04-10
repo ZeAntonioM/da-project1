@@ -1,7 +1,3 @@
-//
-// Created by franciscocardoso on 03-04-2023.
-//
-
 #ifndef DA_PROJECT1_CHEAPESTMAXFLOW_H
 #define DA_PROJECT1_CHEAPESTMAXFLOW_H
 

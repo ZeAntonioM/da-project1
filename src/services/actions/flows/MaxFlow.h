@@ -1,7 +1,3 @@
-//
-// Created by franciscocardoso on 23-03-2023.
-//
-
 #ifndef DA_PROJECT1_MAXFLOW_H
 #define DA_PROJECT1_MAXFLOW_H
 

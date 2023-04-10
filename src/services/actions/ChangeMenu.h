@@ -1,7 +1,3 @@
-//
-// Created by ze on 18-03-2023.
-//
-
 #ifndef DA_PROJECT1_CHANGEMENU_H
 #define DA_PROJECT1_CHANGEMENU_H
 
@@ -18,16 +14,16 @@ private:
 
 public:
     /**
-     * Constructor of ChangeMenu a class that extends Action
-     * @param currMenusPage stack with the current pages of the menu
-     * @param graph graph with all the information of the stations ans the line
+     * @brief Constructor of ChangeMenu, a class that extends Action
+     * @param currMenusPage stack with the current pages of the Menu
+     * @param graph graph with all the information of the stations and the lines
      * @param nextMenu the page we want to go next
      * @brief Complexity O(1)
      */
     ChangeMenu(stack<menus> &currMenusPage, Graph &graph, menus nextMenu);
 
     /**
-     * @brief changes the current menu page to another page
+     * @brief Changes the current Menu page to another page
      * @brief Complexity O(1)
      */
     void execute() override;

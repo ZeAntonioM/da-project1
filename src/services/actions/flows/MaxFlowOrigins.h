@@ -5,13 +5,10 @@
 
 class MaxFlowOrigins : public Action
 {
-    typedef pair<Station *, Station *> StationPair;
-    typedef pair<int, int> FlowCost;
 
 public:
     /**
-     * @brief Construct a new Max Flow Origins Action
-     *
+     * @brief Constructs a new Max Flow Origins Action
      * @param graph The graph in which it will apply the Action
      */
     MaxFlowOrigins(Graph &graph);
@@ -21,6 +18,7 @@ public:
      *@brief Complexity O(N^2 * (V+E)) being N the number of origins V the number of stations and E the number of lines in the graph
      */
     void execute() override;
+
     /**
     * @brief Displays pairs of stations and the max flow between them
     * @param data vector with pairs of stations and their max flow

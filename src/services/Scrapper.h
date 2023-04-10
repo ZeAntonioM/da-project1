@@ -1,7 +1,3 @@
-//
-// Created by franciscocardoso on 16-03-2023.
-//
-
 #ifndef DA_PROJECT1_SCRAPPER_H
 #define DA_PROJECT1_SCRAPPER_H
 
@@ -10,7 +6,6 @@
 #include "iostream"
 #include "string"
 #include "set"
-
 #include "../model/Graph.h"
 #include "../model/StationLine.h"
 
@@ -20,8 +15,8 @@ class Scrapper
 {
 public:
     /**
-     * @brief Scrapes the information from the stations and the stations and the lines and stores it in the graph
-     * @param graph graph were all the information is going to be store
+     * @brief Scrapes the information from the stations and the lines from the files and stores it in the graph
+     * @param graph graph were all the information is going to be stored
      * @param station_file the file containing the stations
      * @param line_file the file containing the lines
      * @brief Complexity O(V+E) being V the number of stations and E the number of lines that exists
@@ -30,7 +25,7 @@ public:
 
     /**
      * @brief Scrapes the information from the stations and stores it in the graph
-     * @param graph graph were all the information is going to be store
+     * @param graph graph were all the information is going to be stored
      * @param station_file the file containing the stations
      * @brief Complexity O(V) being V the number of stations that exists
      */
@@ -38,16 +33,16 @@ public:
 
     /**
      * @brief Scrapes the information from the lines and stores it in the graph
-     * @param graph graph were all the information is going to be store
+     * @param graph graph were all the information is going to be stored
      * @param line_file the file containing the lines
      * @brief Complexity O(E) being E the number of lines that exists
      */
     void scrapeLines(Graph &graph, string line_file);
 
     /**
-     * @brief gets the data from the files checking for error and especial cases
-     * @param value where the data is going to be store
-     * @param data the line of the file conating the information
+     * @brief Gets the data from the files checking for error and special cases
+     * @param value where the data is going to be stored
+     * @param data the line of the file containing the information
      * @brief Complexity O(1)
      */
     void getValue(string &value, istringstream &data);
