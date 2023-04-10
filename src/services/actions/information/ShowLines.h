@@ -19,7 +19,7 @@ public:
      * @param nPages number of pages that exist
      * complexity O(1)
      */
-    void draw(vector<Line> data, int page, int npages);
+    void draw(vector<Line*> data, int page, int npages);
 
 
     /**
@@ -39,7 +39,7 @@ public:
      * @brief Controls stations values we want to display
      * complexity O(1)
      */
-    void paginationController(vector<Line> data);
+    void paginationController(vector<Line*> data);
 };
 
 #endif

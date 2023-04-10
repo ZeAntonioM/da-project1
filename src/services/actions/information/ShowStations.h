@@ -43,7 +43,7 @@ public:
      * @param data the values we want to display
      * @brief Complexity O(1)
      */
-    void paginationController(vector<Station> data);
+    void paginationController(vector<Station *> data);
 };
 
 #endif

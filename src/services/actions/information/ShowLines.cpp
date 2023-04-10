@@ -36,7 +36,7 @@ void ShowLines::draw(vector<Line*> data, int page, int npages)
         << "│\033[40m             [n]Next                      [p]Previous                      [q]Go Back              \033[0m│"
         << endl;
     cout
-        << "|\033[40m───────────────────────────────────────────────────────────────────────────────────────────────────\033[0m|"
+        << "└\033[40m───────────────────────────────────────────────────────────────────────────────────────────────────\033[0m┘"
         << endl;
 };
 
@@ -46,7 +46,7 @@ void ShowLines::execute()
     paginationController(graph->getLineVector());
 }
 
-void ShowLines::paginationController(vector<Line> data)
+void ShowLines::paginationController(vector<Line*> data)
 {
     /* due to the template this functions had to be written here as if it was on the cpp it would not recognize the template*/
     int page = 0;

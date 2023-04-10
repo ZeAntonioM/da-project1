@@ -1,3 +1,0 @@
-/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles/da-project1.dir
-/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles/edit_cache.dir
-/home/diogosilva/Documents/2nd2nd/DA/da-project1/build/CMakeFiles/rebuild_cache.dir
