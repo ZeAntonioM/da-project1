@@ -22,8 +22,8 @@ public:
      */
     GeneralReport(Graph &graph);
     /**
-     * @brief displays a general report with the most affected stations and districts after the stations/lines
-     * where disabled
+     * @brief Displays a general report with the most affected stations in regard of max flow and reachability and districts
+     * in regard of max flow after the stations/lines where disabled
      *
      * @param destReportResults most affected stations in regard of max flow considering the whole network
      * @param distResults most affected districts in regard of max flow considering the whole network
@@ -34,10 +34,10 @@ public:
      */
     void draw(DestinationsReport::DestResults destReportResults, DistrictsReport::DistResults distResults, ComponentsReport::CompResults compResults,
               ReachableReport::ReachResults reachResults) const;
-    /**Calculates the max flow having in consideration all the graph in all the stations then disables the stations/lines and
+    /**Calculates the max flow having in consideration all the graph capacity in all the stations then disables the stations/lines and
      *then calculates it again, after that checks which ones where the most affected, does the same thing for the districts,
      * and the same thing for  all the stations but instead of calculating the max flow calculates the reachable stations, it
-     * also calculates the thr strongly connected components before and after, in the end all stations/lines are enable
+     * also calculates the strongly connected components before and after, in the end all stations/lines are enable
      *
      * @brief Calculates the most affected station in terms of max flow and reachability, the most affected districts and the
      * Strongly connected components in the network before and after the stations/lines where disabled, and displays the result

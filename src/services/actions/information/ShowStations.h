@@ -12,19 +12,19 @@
 class ShowStations : public Action
 {
 public:
+
+    /**
+    * @brief Draws a table to display values, uses a system of pagination that displays 10 values per page
+    * @tparam Station type of the value we want to display
+    * @param data the stations to display
+    * @param page current page
+    * @param nPages number of pages that exist
+    * @brief Complexity O(1)
+    */
+    void draw(vector<Station*> data, int page, int npages);
     /**
      * @brief Constructor of the ShowStations, a class that extends Action
      * @param graph graph that stores all info
-     * @brief Complexity O(1)
-     */
-    void draw(vector<Station> data, int page, int npages);
-
-    /**
-     * @brief Draws a table to display values, uses a system of pagination that displays 10 values per page
-     * @tparam Station type of the value we want to display
-     * @param data the values to display
-     * @param page current page
-     * @param nPages number of pages that exist
      * @brief Complexity O(1)
      */
     ShowStations(Graph &graph);
@@ -32,7 +32,7 @@ public:
     /**
      * @brief Displays all the Stations
      * @see Show::paginationController(vector<Station> data)
-     * @brief Complexity: O(N log(N)) being N the number of stations
+     * @brief Complexity: O(1)
      */
     void execute() override;
 

@@ -6,7 +6,7 @@
 
 ShowStations::ShowStations(Graph &graph) : Action(graph){};
 
-void ShowStations::draw(vector<Station> data, int page, int npages)
+void ShowStations::draw(vector<Station*> data, int page, int npages)
 {
     system("clear");
     cout << "\033[0m";
@@ -31,7 +31,7 @@ void ShowStations::draw(vector<Station> data, int page, int npages)
     {
         if (i == data.size())
             break;
-        data[i].print(i);
+        data[i]->print(i);
     }
 
     cout
@@ -47,14 +47,9 @@ void ShowStations::draw(vector<Station> data, int page, int npages)
 
 void ShowStations::execute()
 {
-    vector<Station> stations;
 
-    for (auto station : graph->getStationVector())
-    {
 
-        stations.push_back(*station);
-    }
-    paginationController(stations);
+    paginationController(graph->getStationVector());
 }
 
 void ShowStations::paginationController(vector<Station> data)

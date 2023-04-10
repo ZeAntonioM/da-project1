@@ -2,7 +2,7 @@
 
 ShowLines::ShowLines(Graph &graph) : Action(graph){};
 
-void ShowLines::draw(vector<Line> data, int page, int npages)
+void ShowLines::draw(vector<Line*> data, int page, int npages)
 {
     system("clear");
     cout << "\033[0m";
@@ -26,7 +26,7 @@ void ShowLines::draw(vector<Line> data, int page, int npages)
         if (i == data.size())
             break;
 
-        data[i].print(i);
+        data[i]->print(i);
     }
 
     cout
@@ -42,12 +42,8 @@ void ShowLines::draw(vector<Line> data, int page, int npages)
 
 void ShowLines::execute()
 {
-    vector<Line> lines;
-    for (auto line : graph->getLineVector())
-    {
-        lines.push_back(*line);
-    }
-    paginationController(lines);
+
+    paginationController(graph->getLineVector());
 }
 
 void ShowLines::paginationController(vector<Line> data)

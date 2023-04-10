@@ -1,7 +1,3 @@
-//
-// Created by franciscocardoso on 07-04-2023.
-//
-
 #ifndef DA_PROJECT1_REACHABLEREPORT_H
 #define DA_PROJECT1_REACHABLEREPORT_H
 
@@ -12,13 +8,13 @@ class ReachableReport : public Action
 {
 public:
     /**
-     * vector of pair each pair composed by an station and a pair of ints
+     * vector of pairs, each pair composed by an station and a pair of ints
      * the first value of the pair of ints is the number of reachable stations from the station
      * before the lines/stations where disabled and the second is the value after
      */
     typedef vector<pair<Station *, pair<int, int>>> ReachResults;
     /**
-     * @brief constructor of the object ReachableReport
+     * @brief Constructor of the object ReachableReport
      * @param graph graph containing all the network information
      */
     ReachableReport(Graph &graph);
@@ -29,11 +25,11 @@ public:
      * @brief Complexity O( |V|*( |V|+|E| ) ) being V the stations and E the lines in the graph
      */
     void execute() override;
-    /**For each stations calculates the amount of stations that the station can reach, then disables the lines/stations
+    /**For each stations calculates the amount of stations that the station can reach, then disables the lines/stations and
      * does the same thing and calculates which ones had the greater difference in result, enables all the stations/lines
      * in the end
      *
-     * @brief calculates the Stations that would be most affected in regard of stations reachable from them if those
+     * @brief Calculates the Stations that would be most affected in regard of stations reachable from them if those
      * stations/lines where to be disabled
      * @param stations vector of stations to be disable
      * @param lines vector of lines to be disable
